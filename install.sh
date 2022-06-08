@@ -2,7 +2,7 @@
 
 echo "Setting up Finder"
 # show hidden files
-defaults write com.apple.finder AppleShowAllFiles -bool true
+# defaults write com.apple.finder AppleShowAllFiles -bool true
 # show path bar
 defaults write com.apple.finder ShowPathbar -bool true
 # show Finder preview pane

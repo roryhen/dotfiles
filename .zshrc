@@ -79,6 +79,10 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git node nvm)
 
+NVM_HOMEBREW=$(brew --prefix nvm)
+NVM_LAZY=1
+NVM_LAZY_CMD="pnpm"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
