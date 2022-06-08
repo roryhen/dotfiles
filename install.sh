@@ -13,6 +13,8 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # auto-hide dock
 defaults write com.apple.dock autohide -bool true
+# set dock size
+defaults write com.apple.dock tilesize -int 50
 # restart finder
 killall Finder
 
