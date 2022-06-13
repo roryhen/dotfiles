@@ -80,8 +80,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git node nvm)
 
 NVM_HOMEBREW=$(brew --prefix nvm)
-NVM_LAZY=1
-NVM_LAZY_CMD="pnpm"
+NVM_AUTOLOAD=1
 
 source $ZSH/oh-my-zsh.sh
 
@@ -122,4 +121,3 @@ export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 # Aliases
 alias src="source ~/.zshrc"
 alias path="echo $PATH | tr ':' '\n'"
-alias picker="open /Applications/Color\ Picker.app"
