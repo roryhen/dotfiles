@@ -77,10 +77,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git node nvm)
-
-NVM_HOMEBREW=$(brew --prefix nvm)
-NVM_AUTOLOAD=1
+plugins=(git node)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -121,3 +118,6 @@ export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 # Aliases
 alias src="source ~/.zshrc"
 alias path="echo $PATH | tr ':' '\n'"
+
+# fnm
+eval "$(fnm env --use-on-cd)"
