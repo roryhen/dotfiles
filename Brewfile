@@ -8,6 +8,7 @@ tap "shopify/shopify"
 brew "commitizen"
 brew "deno"
 brew "fnm"
+brew "fzf"
 brew "gh"
 brew "git"
 brew "mas"
@@ -27,3 +28,9 @@ cask "microsoft-edge"
 cask "notion"
 cask "slack"
 cask "visual-studio-code"
+mas "ColorSlurp", id: 1287239339
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
