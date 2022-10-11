@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "Setting up Finder"
+echo "Setting up Finder..."
 # show hidden files
 # defaults write com.apple.finder AppleShowAllFiles -bool true
 # show path bar
@@ -18,24 +18,14 @@ defaults write com.apple.dock tilesize -int 50
 # restart finder
 killall Finder
 
-echo "Terminal Setup"
-TERM_NAME="~/OceanicMaterial.terminal"
-TERM_PROFILE="~/$TERM_NAME.terminal"
-
-if test -f "$TERM"; then
-    echo "Installing terminal profile..."
-    open $TERM_PROFILE
-    defaults write com.apple.terminal "Default Window Settings" -string $TERM_NAME
-    defaults write com.apple.Terminal "Startup Window Settings" -string $TERM_NAME
-else
-    echo "$TERM_PROFILE not found"
-fi
-
-### Homebrew ###
+echo "Looking for Homebrew..."
 if test ! $(which brew); then
   echo "Installing homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
+
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "/Users/$(whoami)/.zprofile"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew update
 
@@ -45,4 +35,17 @@ echo "Installing Oh My Zsh..."
 if test -f ~/Brewfile; then
     echo "Brewing apps..."
     brew bundle
+fi
+
+echo "Terminal Setup..."
+TERM_NAME="OceanicMaterial"
+TERM_PROFILE="~/$TERM_NAME.terminal"
+
+if test -f "$TERM"; then
+    echo "Installing terminal profile..."
+    open $TERM_PROFILE
+    defaults write com.apple.terminal "Default Window Settings" -string $TERM_NAME
+    defaults write com.apple.Terminal "Startup Window Settings" -string $TERM_NAME
+else
+    echo "$TERM_PROFILE not found"
 fi
