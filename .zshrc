@@ -119,6 +119,12 @@ export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 src() { source ~/.zshrc }
 path() { echo $PATH | tr ':' '\n' }
 gswb() { git switch "$(git branch --all | fzf | tr -d '[:space:]')" }
+ypx() { yarn dlx "$@" }
+yd() { 
+  PORT="${@}:-3000"
+  sleep 1 && open "http://localhost:${PORT}" & yarn dev -h $PORT
+}
 
 # fnm
 eval "$(fnm env --use-on-cd)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
