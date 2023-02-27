@@ -1,6 +1,6 @@
 *
 !.gitignore
 !.zshrc
-!OceanicMaterial.terminal
 !install.sh
 !Brewfile
+!.spaceshiprc.zsh

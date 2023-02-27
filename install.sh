@@ -15,6 +15,8 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.dock autohide -bool true
 # set dock size
 defaults write com.apple.dock tilesize -int 50
+# prevent .DS_Store creation
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 # restart finder
 killall Finder
 
@@ -37,15 +39,3 @@ if test -f ~/Brewfile; then
     brew bundle
 fi
 
-echo "Terminal Setup..."
-TERM_NAME="OceanicMaterial"
-TERM_PROFILE="~/$TERM_NAME.terminal"
-
-if test -f "$TERM"; then
-    echo "Installing terminal profile..."
-    open $TERM_PROFILE
-    defaults write com.apple.terminal "Default Window Settings" -string $TERM_NAME
-    defaults write com.apple.Terminal "Startup Window Settings" -string $TERM_NAME
-else
-    echo "$TERM_PROFILE not found"
-fi
