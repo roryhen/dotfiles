@@ -117,6 +117,12 @@ yd() {
   open "http://localhost:$PORT" && yarn dev -p $PORT
 }
 pn() { pnpm "$@" }
+ls-port() { lsof -iTCP -sTCP:LISTEN -n -P }
+kill-port() { 
+  PORT="$@"
+  PID=$(ls-port | grep -Eo "[0-9]+.*$PORT" | cut -d ' ' -f 1)
+  kill -9 "$PID" && echo "Process $PID running on port $PORT stopped" 
+}
 
 # fnm
 eval "$(fnm env --use-on-cd)"
