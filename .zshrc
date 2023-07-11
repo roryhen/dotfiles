@@ -110,13 +110,14 @@ export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 src() { omz reload }
 path() { echo $PATH | tr ':' '\n' }
 gswb() { git switch "$(git branch --all | fzf | tr -d '[:space:]')" }
-yd() {
+pd() {
   ARG="$@"
   PORT="${ARG:=3000}"
   # Puts long running task second
-  open "http://localhost:$PORT" && yarn dev -p $PORT
+  open "http://localhost:$PORT" && pnpm dev -p $PORT
 }
 pn() { pnpm "$@" }
+pdx() { pnpm dlx "$@" }
 ls-port() { lsof -iTCP -sTCP:LISTEN -n -P }
 kill-port() { 
   PORT="$@"
