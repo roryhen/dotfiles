@@ -118,6 +118,7 @@ pd() {
 }
 pn() { pnpm "$@" }
 pdx() { pnpm dlx "$@" }
+pex() { pnpm exec "$@" }
 ls-port() { lsof -iTCP -sTCP:LISTEN -n -P }
 kill-port() { 
   PORT="$@"
