@@ -34,6 +34,12 @@ brew update
 echo "Installing Oh My Zsh..."
 /bin/bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+echo "Looking for bun..."
+if test ! $(which bun); then
+  echo "Installing bun..."
+  /bin/bash -c "$(curl -fsSL https://bun.sh/install)"
+fi
+
 if test -f ~/Brewfile; then
     echo "Brewing apps..."
     brew bundle

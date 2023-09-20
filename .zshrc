@@ -109,14 +109,13 @@ export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 # Aliases/Functions
 src() { omz reload }
 path() { echo $PATH | tr ':' '\n' }
-gswb() { git switch "$(git branch --all | fzf | tr -d '[:space:]')" }
+gswb() { git switch "$(git for-each-ref --format='%(refname:short)' | fzf)" }
 pd() {
   ARG="$@"
   PORT="${ARG:=3000}"
   # Puts long running task second
   open "http://localhost:$PORT" && pnpm dev -p $PORT
 }
-pn() { pnpm "$@" }
 pdx() { pnpm dlx "$@" }
 pex() { pnpm exec "$@" }
 ls-port() { lsof -iTCP -sTCP:LISTEN -n -P }
@@ -132,3 +131,13 @@ eval "$(fnm env --use-on-cd)"
 
 # https://spaceship-prompt.sh
 source /opt/homebrew/opt/spaceship/spaceship.zsh
+
+# opam configuration
+[[ ! -r /Users/rory/.opam/opam-init/init.zsh ]] || source /Users/rory/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# bun completions
+[ -s "/Users/rory/.bun/_bun" ] && source "/Users/rory/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
