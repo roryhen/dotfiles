@@ -107,23 +107,27 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 
 # Aliases/Functions
-src() { omz reload }
+alias src="omz reload"
+alias pdx="pnpm dlx"
+alias pex="pnpm exec"
+alias lsport="lsof -iTCP -sTCP:LISTEN -n -P"
 path() { echo $PATH | tr ':' '\n' }
-gswb() { git switch "$(git for-each-ref --format='%(refname:short)' | fzf)" }
+gswb() { git switch "$(git for-each-ref --format='%(refname:lstrip=-1)' | fzf)" }
 pd() {
-  ARG="$@"
-  PORT="${ARG:=3000}"
-  # Puts long running task second
-  open "http://localhost:$PORT" && pnpm dev -p $PORT
+  PORT="${1:-3000}"
+  pnpm --color dev -p $PORT |
+    tee /dev/tty | {
+      grep -q "Ready in " && open "http://localhost:$PORT"
+      cat >/dev/null
+    }
 }
-pdx() { pnpm dlx "$@" }
-pex() { pnpm exec "$@" }
-ls-port() { lsof -iTCP -sTCP:LISTEN -n -P }
-kill-port() { 
-  PORT="$@"
-  PID=$(ls-port | grep -Eo "[0-9]+.*$PORT" | cut -d ' ' -f 1)
+killport() { 
+  PORT="$1"
+  PORTS="$(lsof -iTCP -sTCP:LISTEN -n -P)"
+  PID=$(echo "$PORTS" | grep -Eo "[0-9]+.*$PORT" | cut -d ' ' -f 1)
   kill -9 "$PID" && echo "Process $PID running on port $PORT stopped" 
 }
+tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
 
 # fnm
 eval "$(fnm env --use-on-cd)"
