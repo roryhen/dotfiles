@@ -112,7 +112,7 @@ alias pdx="pnpm dlx"
 alias pex="pnpm exec"
 alias lsport="lsof -iTCP -sTCP:LISTEN -n -P"
 path() { echo $PATH | tr ':' '\n' }
-gswb() { git switch "$(git for-each-ref --format='%(refname:lstrip=-1)' | fzf)" }
+gswb() { git switch "$(git for-each-ref --format='%(refname:strip=2)' | sed 's/^origin\///' | fzf)" }
 pd() {
   PORT="${1:-3000}"
   pnpm --color dev -p $PORT |
