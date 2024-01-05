@@ -17,31 +17,41 @@ defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock tilesize -int 50
 # prevent .DS_Store creation
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+# turn off accented characters on keypress and hold
+defaults write -g ApplePressAndHoldEnabled -bool false
 # restart finder
 killall Finder
 
 echo "Looking for Homebrew..."
-if test ! $(which brew); then
-  echo "Installing homebrew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if type brew &>/dev/null; then
+	echo "Homebrew is already installed"
+else
+	echo "Installing homebrew..."
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "/Users/$(whoami)/.zprofile"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>"/Users/$(whoami)/.zprofile"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew update
 
-echo "Installing Oh My Zsh..."
-/bin/bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+echo "Looking for Oh My Zsh..."
+if type omz &>/dev/null; then
+	echo "Oh My Zsh is already installed"
+else
+	echo "Installing Oh My Zsh..."
+	/bin/bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 echo "Looking for bun..."
-if test ! $(which bun); then
-  echo "Installing bun..."
-  /bin/bash -c "$(curl -fsSL https://bun.sh/install)"
+if type bun &>/dev/null; then
+	echo "bun is already installed"
+else
+	echo "Installing bun..."
+	/bin/bash -c "$(curl -fsSL https://bun.sh/install)"
 fi
 
 if test -f ~/Brewfile; then
-    echo "Brewing apps..."
-    brew bundle
+	echo "Brewing apps..."
+	brew bundle
 fi
-
