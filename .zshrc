@@ -8,6 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME=agnoster
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -24,7 +25,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -139,9 +140,3 @@ source /opt/homebrew/opt/spaceship/spaceship.zsh
 # opam configuration
 [[ ! -r /Users/rory/.opam/opam-init/init.zsh ]] || source /Users/rory/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
-# bun completions
-[ -s "/Users/rory/.bun/_bun" ] && source "/Users/rory/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"

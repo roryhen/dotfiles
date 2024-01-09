@@ -43,14 +43,6 @@ else
 	/bin/bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-echo "Looking for bun..."
-if type bun &>/dev/null; then
-	echo "bun is already installed"
-else
-	echo "Installing bun..."
-	/bin/bash -c "$(curl -fsSL https://bun.sh/install)"
-fi
-
 if test -f ~/Brewfile; then
 	echo "Brewing apps..."
 	brew bundle
