@@ -73,6 +73,9 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 plugins=(
   git
   node
+  colorize
+  colored-man-pages
+  safe-paste
 )
 
 source $ZSH/oh-my-zsh.sh
