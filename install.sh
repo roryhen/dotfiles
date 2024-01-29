@@ -19,6 +19,10 @@ defaults write com.apple.dock tilesize -int 50
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 # turn off accented characters on keypress and hold
 defaults write -g ApplePressAndHoldEnabled -bool false
+# time after holding down a key that it starts repeating
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+# speed of repeating keypresses on hold
+defaults write NSGlobalDomain KeyRepeat -int 2
 # restart finder
 killall Finder
 
