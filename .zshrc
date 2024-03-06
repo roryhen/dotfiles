@@ -112,6 +112,7 @@ export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 
 # Aliases/Functions
 alias src="omz reload"
+alias pn="pnpm"
 alias pdx="pnpm dlx"
 alias pex="pnpm exec"
 alias lsport="lsof -iTCP -sTCP:LISTEN -n -P"
