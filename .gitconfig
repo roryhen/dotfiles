@@ -1,0 +1,19 @@
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+[diff]
+	tool = nvimdiff
+[merge]
+	tool = nvimdiff
+[pull]
+	rebase = true
+[push]
+	followTags = true
+[mergetool]
+	prompt = false
+	keepBackup = false
+[difftool]
+	prompt = false
+[mergetool "nvimdiff"]
+  cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\" 
