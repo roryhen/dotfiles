@@ -120,9 +120,10 @@ alias pn="pnpm"
 alias pdx="pnpm dlx"
 alias pex="pnpm exec"
 alias lsport="lsof -iTCP -sTCP:LISTEN -n -P"
+alias githistory="git log --format=reference -p --follow --"
 path() { echo $PATH | tr ':' '\n' }
 gswb() { git switch "$(git for-each-ref --format='%(refname:strip=2)' | sed 's/^origin\///' | fzf)" }
-pd() {
+pdev() {
   PORT="${1:-3000}"
   pnpm --color dev -p $PORT |
     tee /dev/tty | {
