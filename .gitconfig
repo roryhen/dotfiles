@@ -1,11 +1,14 @@
 [init]
 	defaultBranch = main
+[user]
+	name = Rory Hendrickson
+	email = hendricksonrory@gmail.com
 [core]
 	editor = nvim
 [diff]
 	tool = nvimdiff
 [merge]
-	tool = nvimdiff
+	tool = nvim
 [pull]
 	rebase = true
 [push]
@@ -15,5 +18,5 @@
 	keepBackup = false
 [difftool]
 	prompt = false
-[mergetool "nvimdiff"]
-  cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\" 
+[mergetool "nvim"]
+	cmd = nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
