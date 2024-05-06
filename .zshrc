@@ -67,6 +67,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 
 # Plugin configuration
 ZSH_COLORIZE_STYLE=dracula
+# ZSH_TMUX_AUTOSTART=true
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -80,6 +81,7 @@ plugins=(
   git
   node
   safe-paste
+  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -114,16 +116,22 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 
-# Aliases/Functions
+# Aliases
 alias src="omz reload"
 alias pn="pnpm"
 alias pdx="pnpm dlx"
 alias pex="pnpm exec"
 alias lsport="lsof -iTCP -sTCP:LISTEN -n -P"
 alias githistory="git log --format=reference -p --follow --"
-path() { echo $PATH | tr ':' '\n' }
-gswb() { git switch "$(git for-each-ref --format='%(refname:strip=2)' | sed 's/^origin\///' | fzf)" }
-pdev() {
+
+# Functions
+function path() { echo $PATH | tr ':' '\n' }
+function gswb() { 
+  branches=$(git for-each-ref --format='%(refname:lstrip=1)' | sed -E 's/^remotes\/|heads\///')
+  branch=$(echo "$branches" | fzf)
+  git switch "$(echo "$branch" | sed -E 's/^origin\///')"
+}
+function pdev() {
   PORT="${1:-3000}"
   pnpm --color dev -p $PORT |
     tee /dev/tty | {
@@ -131,15 +139,16 @@ pdev() {
       cat >/dev/null
     }
 }
-killport() { 
+function killport() { 
   PORT="$1"
   PORTS="$(lsof -iTCP -sTCP:LISTEN -n -P)"
   PID=$(echo "$PORTS" | grep -Eo "[0-9]+.*$PORT" | cut -d ' ' -f 1)
   kill -9 "$PID" && echo "Process $PID running on port $PORT stopped" 
 }
-tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
+function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
 
 # fnm
+export FZF_DEFAULT_OPTS="--height 40% --margin 0%,25%,0%,2 --reverse --border"
 eval "$(fnm env --use-on-cd)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
