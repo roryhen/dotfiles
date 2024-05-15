@@ -147,6 +147,9 @@ function killport() {
 }
 function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
 
+# fzf
+ eval "$(fzf --zsh)"
+
 # fnm
 export FZF_DEFAULT_OPTS="--height 40% --margin 0%,25%,0%,2 --reverse --border"
 eval "$(fnm env --use-on-cd)"
