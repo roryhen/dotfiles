@@ -123,6 +123,7 @@ alias pdx="pnpm dlx"
 alias pex="pnpm exec"
 alias lsport="lsof -iTCP -sTCP:LISTEN -n -P"
 alias githistory="git log --format=reference -p --follow --"
+alias ncfg="nvim ~/.config/nvim"
 
 # Functions
 function path() { echo $PATH | tr ':' '\n' }

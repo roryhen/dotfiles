@@ -47,6 +47,7 @@ cask "google-drive"
 cask "maccy"
 cask "rectangle"
 cask "visual-studio-code"
+cask "wordpresscom-studio"
 mas "Color Picker", id: 1545870783
 mas "Numbers", id: 409203825
 vscode "astro-build.astro-vscode"
