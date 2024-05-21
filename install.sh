@@ -26,6 +26,9 @@ defaults write NSGlobalDomain KeyRepeat -int 2
 # restart finder
 killall Finder
 
+echo "Installing Xcode..."
+xcode-select --install
+
 echo "Looking for Homebrew..."
 if type brew &>/dev/null; then
 	echo "Homebrew is already installed"
@@ -42,6 +45,7 @@ brew update
 echo "Looking for Oh My Zsh..."
 if type omz &>/dev/null; then
 	echo "Oh My Zsh is already installed"
+	omz update
 else
 	echo "Installing Oh My Zsh..."
 	/bin/bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -51,3 +55,7 @@ if test -f ~/Brewfile; then
 	echo "Brewing apps..."
 	brew bundle
 fi
+
+echo "adding Alacritty themes..."
+mkdir -p ~/.config/alacritty/themes
+git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
