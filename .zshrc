@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -15,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME=agnoster
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -32,7 +25,7 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -72,12 +65,24 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Plugin configuration
+ZSH_COLORIZE_STYLE=dracula
+# ZSH_TMUX_AUTOSTART=true
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git node)
+plugins=(
+  colorize
+  colored-man-pages
+  git-auto-fetch
+  git
+  node
+  safe-paste
+  tmux
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,19 +111,56 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Path mods
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 
-# Aliases/Functions
-src() { source ~/.zshrc }
-path() { echo $PATH | tr ':' '\n' }
-gswb() { git switch "$(git branch --all | fzf | tr -d '[:space:]')" }
+# Aliases
+alias src="omz reload"
+alias pn="pnpm"
+alias pdx="pnpm dlx"
+alias pex="pnpm exec"
+alias lsport="lsof -iTCP -sTCP:LISTEN -n -P"
+alias githistory="git log --format=reference -p --follow --"
+alias ncfg="nvim ~/.config/nvim"
+alias joke='curl -s -H "Accept: application/json" https://v2.jokeapi.dev/joke/Programming\?blacklistFlags\=nsfw,religious,political,racist,sexist,explicit | jq ".joke, .setup, .delivery | select(.)"'
+alias dadjoke='echo -n "$(tput setaf 2)\""; curl -s -H "User-Agent: https://github.com/roryhen" -H "Accept: text/plain" https://icanhazdadjoke.com | cat; echo "\"$(tput sgr0)"'
+
+# Functions
+function path() { echo $PATH | tr ':' '\n' }
+function gswb() { 
+  branches=$(git for-each-ref --format='%(refname:lstrip=1)' | sed -E 's/^remotes\/|heads\///')
+  branch=$(echo "$branches" | fzf)
+  git switch "$(echo "$branch" | sed -E 's/^origin\///')"
+}
+function pdev() {
+  PORT="${1:-3000}"
+  pnpm --color dev -p $PORT |
+    tee /dev/tty | {
+      grep -q "Ready in " && open "http://localhost:$PORT"
+      cat >/dev/null
+    }
+}
+function killport() { 
+  PORT="$1"
+  PORTS="$(lsof -iTCP -sTCP:LISTEN -n -P)"
+  PID=$(echo "$PORTS" | grep -Eo "[0-9]+.*$PORT" | cut -d ' ' -f 1)
+  kill -9 "$PID" && echo "Process $PID running on port $PORT stopped" 
+}
+function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
+
+# fzf
+ eval "$(fzf --zsh)"
 
 # fnm
+export FZF_DEFAULT_OPTS="--height 40% --margin 0%,25%,0%,2 --reverse --border"
 eval "$(fnm env --use-on-cd)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# https://spaceship-prompt.sh
+source /opt/homebrew/opt/spaceship/spaceship.zsh
+
+# opam configuration
+[[ ! -r /Users/rory/.opam/opam-init/init.zsh ]] || source /Users/rory/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
