@@ -5,6 +5,8 @@ import = [
 [font]
 normal = { family = "CommitMono Nerd Font", style = "Regular" }
 size = 14
+offset = { y = 6 }
+glyph_offset = { y = 3 }
 
 [window]
 padding = { x = 10, y = 10 }
