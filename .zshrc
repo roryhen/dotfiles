@@ -154,7 +154,7 @@ function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
  eval "$(fzf --zsh)"
 
 # fnm
-export FZF_DEFAULT_OPTS="--height 40% --margin 0%,25%,0%,2 --reverse --border"
+export FZF_DEFAULT_OPTS="--height=40% --reverse"
 eval "$(fnm env --use-on-cd)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
