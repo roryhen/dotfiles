@@ -151,16 +151,12 @@ function killport() {
 function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
 
 # fzf
- eval "$(fzf --zsh)"
-
-# fnm
+eval "$(fzf --zsh)"
 export FZF_DEFAULT_OPTS="--height=40% --reverse"
-eval "$(fnm env --use-on-cd)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# mise
+eval "$(mise activate zsh)"
 
 # https://spaceship-prompt.sh
 source /opt/homebrew/opt/spaceship/spaceship.zsh
-
-# opam configuration
-[[ ! -r /Users/rory/.opam/opam-init/init.zsh ]] || source /Users/rory/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-
