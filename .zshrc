@@ -67,7 +67,6 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 
 # Plugin configuration
 ZSH_COLORIZE_STYLE=dracula
-# ZSH_TMUX_AUTOSTART=true
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -81,7 +80,6 @@ plugins=(
   git
   node
   safe-paste
-  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -117,6 +115,7 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 
 # Aliases
+alias cat="ccat"
 alias src="omz reload"
 alias pn="pnpm"
 alias pdx="pnpm dlx"
