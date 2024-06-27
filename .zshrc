@@ -148,6 +148,21 @@ function killport() {
   kill -9 "$PID" && echo "Process $PID running on port $PORT stopped" 
 }
 function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
+function crawlSitemap() {
+  # check if empty arg  
+  if [ -z "$1" ]; then 
+    echo "Please provide a url"
+    exit 1
+  fi
+  # fetch sitemap
+  curl "$1" | 
+    # extract url
+    sed -En 's/<loc>(.*)<\/loc>/\1/p' |
+    # pass back to curl to print status (-P to spawn multiple processes)
+    xargs -P 8 -I {} curl --silent --output /dev/null --write-out "%{http_code} %{url_effective}\n" {} |
+    # color line if 4xx or 5xx
+    grep --extended-regexp --color '^[45]\d\d.*|$'
+}
 
 # fzf
 eval "$(fzf --zsh)"
