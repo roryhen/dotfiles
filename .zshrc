@@ -129,12 +129,12 @@ alias dadjoke='echo -n "$(tput setaf 2)\""; curl -s -H "User-Agent: https://gith
 # Functions
 function path() { echo $PATH | tr ':' '\n' }
 function gswb() { 
-  branches=$(git for-each-ref --format='%(refname:lstrip=1)' | sed -E 's/^remotes\/|heads\///')
-  branch=$(echo "$branches" | fzf)
-  git switch "$(echo "$branch" | sed -E 's/^origin\///')"
+  local BRANCHES=$(git for-each-ref --format='%(refname:lstrip=1)' | sed -E 's/^remotes\/|heads\///')
+  local BRANCH=$(echo "$BRANCHES" | fzf)
+  git switch "$(echo "$BRANCH" | sed -E 's/^origin\///')"
 }
 function pdev() {
-  PORT="${1:-3000}"
+  local PORT="${1:-3000}"
   pnpm --color dev -p $PORT |
     tee /dev/tty | {
       grep -q "Ready in " && open "http://localhost:$PORT"
@@ -142,26 +142,26 @@ function pdev() {
     }
 }
 function killport() { 
-  PORT="$1"
-  PORTS="$(lsof -iTCP -sTCP:LISTEN -n -P)"
-  PID=$(echo "$PORTS" | grep -Eo "[0-9]+.*$PORT" | cut -d ' ' -f 1)
+  local PORT="$1"
+  local PORTS="$(lsof -iTCP -sTCP:LISTEN -n -P)"
+  local PID=$(echo "$PORTS" | grep -Eo "[0-9]+.*$PORT" | cut -d ' ' -f 1)
   kill -9 "$PID" && echo "Process $PID running on port $PORT stopped" 
 }
 function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
-function crawlSitemap() {
+function crawlsitemap() {
   # check if empty arg  
-  if [ -z "$1" ]; then 
+  if [[  -z "$1"  ]]; then 
     echo "Please provide a url"
-    exit 1
+    return
   fi
   # fetch sitemap
-  curl "$1" | 
+  curl -s "$1" | 
     # extract url
     sed -En 's/<loc>(.*)<\/loc>/\1/p' |
     # pass back to curl to print status (-P to spawn multiple processes)
-    xargs -P 8 -I {} curl --silent --output /dev/null --write-out "%{http_code} %{url_effective}\n" {} |
+    xargs -P8 -I {} curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" {} |
     # color line if 4xx or 5xx
-    grep --extended-regexp --color '^[45]\d\d.*|$'
+    grep -E --color '^[45]\d\d.*|$'
 }
 
 # fzf
