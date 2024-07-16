@@ -159,9 +159,10 @@ function crawlsitemap() {
     # extract url
     sed -En 's/<loc>(.*)<\/loc>/\1/p' |
     # pass back to curl to print status (-P to spawn multiple processes)
-    xargs -P8 -I {} curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" {} |
-    # color line if 4xx or 5xx
-    grep -E --color '^[45]\d\d.*|$'
+    xargs -P10 -I {} curl -s -o /dev/null -w "%{http_code} %{url_effective}\n" {} |
+    # color line if status other than 200
+    GREP_COLOR='01;31' grep -E --color '^[45]\d\d.*|$' | 
+    GREP_COLOR='01;32' grep -E --color '^3\d\d.*|$'
 }
 
 # fzf
