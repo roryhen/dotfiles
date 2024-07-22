@@ -8,6 +8,7 @@ glyph_offset = { y = 2 }
 
 [window]
 padding = { x = 10, y = 10 }
+option_as_alt = "Both"
 
 [keyboard]
 bindings = [
