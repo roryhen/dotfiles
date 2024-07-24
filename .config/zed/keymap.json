@@ -1,0 +1,56 @@
+[
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-k": "editor::MoveLineUp",
+      "alt-j": "editor::MoveLineDown",
+      "alt-shift-k": "editor::DuplicateLineUp",
+      "alt-shift-j": "editor::DuplicateLineDown",
+      "shift-h": "pane::ActivateNextItem",
+      "shift-l": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "context": "VimControl && !menu", // normal & visual mode
+    "bindings": {
+      "ctrl-d": ["editor::HalfPageDown"],
+      "ctrl-u": ["editor::HalfPageUp"],
+      "space f f": "editor::Format",
+      "space c a": "editor::ToggleCodeActions"
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {}
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "shift-s": [
+        "vim::PushOperator",
+        {
+          "AddSurrounds": {}
+        }
+      ]
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {}
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      "space f": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  }
+]

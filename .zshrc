@@ -166,7 +166,7 @@ function crawlsitemap() {
 }
 
 # fzf
-eval "$(fzf --zsh)"
+source <(fzf --zsh)
 export FZF_DEFAULT_OPTS="--height=40% --reverse"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
