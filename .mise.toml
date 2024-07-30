@@ -2,5 +2,5 @@
 node = "latest"
 deno = "latest"
 bun = "latest"
-pnpm = "8.7.5"
+pnpm = "latest"
 python = "3.11"
