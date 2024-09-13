@@ -1,17 +1,25 @@
 import = ["~/.config/alacritty/themes/themes/tokyo-night.toml"]
 
+[cursor]
+style = { shape = "Beam" }
+vi_mode_style = { shape = "Block" }
+
 [font]
-normal = { family = "CommitMono Nerd Font", style = "Regular" }
-size = 14
-offset = { y = 4 }
 glyph_offset = { y = 2 }
+normal = { family = "CommitMono Nerd Font", style = "Regular" }
+offset = { y = 4 }
+size = 14
 
 [window]
-padding = { x = 10, y = 10 }
+decorations = "None"
+dimensions = { columns = 96, lines = 58 }
+padding = { x = 6, y = 6 }
+position = { x = 0, y = 0 }
 option_as_alt = "Both"
 
 [keyboard]
 bindings = [
   { key = "Tab", mods = "Control", action = "SelectNextTab" },
   { key = "Tab", mods = "Control|Shift", action = "SelectPreviousTab" },
+  { key = "i", mods = "Alt", action = "ToggleViMode" },
 ]
