@@ -11,7 +11,6 @@ offset = { y = 4 }
 size = 14
 
 [window]
-decorations = "None"
 dimensions = { columns = 96, lines = 58 }
 padding = { x = 10, y = 10 }
 position = { x = 0, y = 0 }

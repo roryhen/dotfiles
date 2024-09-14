@@ -66,7 +66,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Plugin configuration
-ZSH_COLORIZE_STYLE=dracula
+ZSH_COLORIZE_STYLE=stata-dark
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
