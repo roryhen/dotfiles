@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local mux = wezterm.mux
 
 local config = wezterm.config_builder()
 
@@ -10,6 +11,8 @@ config.line_height = 1.1
 config.window_decorations = "RESIZE"
 config.use_fancy_tab_bar = false
 config.show_tab_index_in_tab_bar = false
+config.initial_cols = 96
+config.initial_rows = 56
 
 local light_black = wezterm.color.parse("Black"):lighten(0.15)
 local lighter_black = wezterm.color.parse("Black"):lighten(0.2)
@@ -71,6 +74,11 @@ wezterm.on("update-status", function(window)
 	window:set_right_status(wezterm.format({
 		{ Text = " " .. date .. " " },
 	}))
+end)
+
+wezterm.on("gui-startup", function(cmd)
+	local tab, pane, window = mux.spawn_window(cmd or {})
+	window:gui_window():set_position(0, 0)
 end)
 
 return config
