@@ -8,11 +8,12 @@ config.font = wezterm.font("CommitMono Nerd Font")
 config.font_size = 14
 config.line_height = 1.1
 
+config.initial_cols = 96
+config.initial_rows = 56
 config.window_decorations = "RESIZE"
 config.use_fancy_tab_bar = false
 config.show_tab_index_in_tab_bar = false
-config.initial_cols = 96
-config.initial_rows = 56
+config.tab_max_width = 32
 
 local light_black = wezterm.color.parse("Black"):lighten(0.15)
 local lighter_black = wezterm.color.parse("Black"):lighten(0.2)
