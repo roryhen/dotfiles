@@ -3,7 +3,7 @@ local mux = wezterm.mux
 
 local config = wezterm.config_builder()
 
-config.color_scheme = "tokyonight"
+config.color_scheme = "carbonfox"
 config.font = wezterm.font("CommitMono Nerd Font")
 config.font_size = 14
 config.line_height = 1.1
