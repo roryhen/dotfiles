@@ -78,7 +78,6 @@ plugins=(
   colored-man-pages
   git-auto-fetch
   git
-  node
   safe-paste
 )
 
@@ -119,9 +118,6 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 # Aliases
 alias cat="ccat"
 alias src="omz reload"
-alias pn="pnpm"
-alias pdx="pnpm dlx"
-alias pex="pnpm exec"
 alias lsport="lsof -iTCP -sTCP:LISTEN -n -P"
 alias githistory="git log --format=reference -p --follow --"
 alias joke='curl -s -H "Accept: application/json" https://v2.jokeapi.dev/joke/Programming\?blacklistFlags\=nsfw,religious,political,racist,sexist,explicit | jq ".joke, .setup, .delivery | select(.)"'

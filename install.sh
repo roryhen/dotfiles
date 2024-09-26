@@ -55,7 +55,3 @@ if test -f ~/Brewfile; then
   echo "Brewing apps..."
   brew bundle
 fi
-
-echo "adding Alacritty themes..."
-mkdir -p ~/.config/alacritty/themes
-git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
