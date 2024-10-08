@@ -24,6 +24,7 @@ brew "pygments"
 brew "ripgrep"
 brew "spaceship"
 brew "trash"
+brew "utf8proc", args: ["HEAD"]
 cask "arc"
 cask "docker"
 cask "firefox"
