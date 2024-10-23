@@ -6,11 +6,8 @@ return {
     ---@diagnostic disable-next-line: missing-fields
     opts = {
       ensure_installed = {
-        "css",
         "graphql",
-        "astro",
-        "liquid",
-        "vue",
+        "shopify_theme_ls",
       },
     },
   },
