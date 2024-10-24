@@ -7,7 +7,7 @@ return {
     opts = {
       ensure_installed = {
         "graphql",
-        "shopify_theme_ls",
+        "liquid",
       },
     },
   },
