@@ -74,10 +74,16 @@ ZSH_COLORIZE_STYLE=stata-dark
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  aws
   colorize
   colored-man-pages
+  deno
+  docker
+  docker-compose
+  gh
   git-auto-fetch
   git
+  npm
   safe-paste
 )
 
