@@ -91,11 +91,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -110,7 +110,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Path mods
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
@@ -171,5 +170,8 @@ export FZF_DEFAULT_OPTS="--height=40% --reverse"
 # mise
 eval "$(mise activate zsh)"
 
+
 # https://spaceship-prompt.sh
 source /opt/homebrew/opt/spaceship/spaceship.zsh
+# https://github.com/jeffreytse/zsh-vi-mode
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
