@@ -8,14 +8,6 @@ return {
         emmet_ls = {
           filetypes = { "liquid" },
         },
-        eslint = {
-          root_dir = require("lspconfig").util.root_pattern("eslint.config.js"),
-          settings = {
-            experimental = {
-              useFlatConfig = true,
-            },
-          },
-        },
         denols = {
           root_dir = require("lspconfig").util.root_pattern("deno.json"),
         },

@@ -8,7 +8,6 @@ return {
       ensure_installed = {
         "graphql",
         "liquid",
-        "svelte",
       },
     },
   },
