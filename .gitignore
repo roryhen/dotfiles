@@ -12,10 +12,10 @@
 !.config/zed/keymap.json
 !.config/zed/snippets/
 !.config/zed/snippets/*
+!.config/starship.toml
 !.gitconfig
 !.gitignore
 !.mise.toml
-!.spaceshiprc.zsh
 !.wezterm.lua
 !.zshrc
 !Brewfile
