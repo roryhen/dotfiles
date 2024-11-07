@@ -1,20 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = """
-$username\
-$hostname\
-$localip\
-$shlvl\
-$singularity\
-$kubernetes\
-$directory\
-$character\
-"""
-
-right_format = """$all"""
-
 [git_branch]
-format = '[$symbol$branch(:$remote_branch)]($style) '
 symbol = "󰘬 "
 
 [git_commit]
