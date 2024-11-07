@@ -1,36 +1,24 @@
+### zsh
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 # update automatically without asking
 zstyle ':omz:update' mode auto      
-# Plugin configuration
-ZSH_COLORIZE_STYLE=stata-dark
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# oh-my-zsh plugins
 plugins=(
-  aws
-  colorize
   colored-man-pages
-  deno
-  docker
-  docker-compose
-  gh
   git-auto-fetch
-  git
-  npm
   safe-paste
 )
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nvim'
 fi
 
 # Path mods
@@ -38,24 +26,50 @@ export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
-# Aliases
-alias cat="ccat"
+### aliases
+
+# misc
 alias src="omz reload"
-alias lsport="lsof -iTCP -sTCP:LISTEN -n -P"
-alias githistory="git log --format=reference -p --follow --"
 alias joke='curl -s -H "Accept: application/json" https://v2.jokeapi.dev/joke/Programming\?blacklistFlags\=nsfw,religious,political,racist,sexist,explicit | jq ".joke, .setup, .delivery | select(.)"'
 alias dadjoke='echo -n "$(tput setaf 2)\""; curl -s -H "User-Agent: https://github.com/roryhen" -H "Accept: text/plain" https://icanhazdadjoke.com | \cat; echo "\"$(tput sgr0)"'
 alias kvim='NVIM_APPNAME="nvim-ks" nvim'
-alias ghas='gh auth switch'
-alias awsts='aws sts get-caller-identity'
-
-# Functions
 function path() { echo $PATH | tr ':' '\n' }
+function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
+
+# git
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add --all'
+alias gc='git commit --verbose'
+alias gc!='git commit --verbose --amend'
+alias gb='git branch'
+alias gsw='git switch'
+alias gswc='git switch -c'
+alias gswm='git switch main'
+alias gco='git checkout'
+alias gcb='git checkout --branch'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gf='git fetch'
+alias gfa='git fetch --all --tags --prune'
+alias glod="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
+alias glog='git log --oneline --decorate --graph'
+alias gp='git push'
+alias gpup='git push --set-upstream origin HEAD'
+alias gpl='git pull'
+alias gr='git restore'
+alias grs='git restore --staged'
+alias githistory="git log --format=reference -p --follow --"
+alias ghas='gh auth switch'
 function gswb() { 
   local BRANCHES=$(git for-each-ref --format='%(refname:lstrip=1)' | sed -E 's/^remotes\/|heads\///')
   local BRANCH=$(echo "$BRANCHES" | fzf)
   git switch "$(echo "$BRANCH" | sed -E 's/^origin\///')"
 }
+
+# web
+alias lsport="lsof -iTCP -sTCP:LISTEN -n -P"
+alias awsts='aws sts get-caller-identity'
 function pdev() {
   local PORT="${1:-3000}"
   pnpm --color dev -p $PORT |
@@ -70,7 +84,6 @@ function killport() {
   local PID=$(echo "$PORTS" | grep -Eo "[0-9]+.*$PORT" | cut -d ' ' -f 1)
   kill -9 "$PID" && echo "Process $PID running on port $PORT stopped" 
 }
-function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
 function crawlsitemap() {
   # check if empty arg  
   if [[  -z "$1"  ]]; then 
@@ -87,6 +100,12 @@ function crawlsitemap() {
     GREP_COLOR='01;31' grep -E --color '^[45]\d\d.*|$' | 
     GREP_COLOR='01;32' grep -E --color '^3\d\d.*|$'
 }
+
+### apps
+
+# bat config
+export BAT_THEME="base16"
+export BAT_STYLE=snip
 
 # https://starship.rs
 eval "$(starship init zsh)"
