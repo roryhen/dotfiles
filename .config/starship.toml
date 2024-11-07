@@ -8,3 +8,6 @@ tag_symbol = " 󰓼 "
 
 [package]
 symbol = "󰏗 "
+
+[aws]
+symbol = "󰅣 "
