@@ -31,6 +31,7 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 # misc
 alias src="omz reload"
+alias history="history | fzf"
 alias joke='curl -s -H "Accept: application/json" https://v2.jokeapi.dev/joke/Programming\?blacklistFlags\=nsfw,religious,political,racist,sexist,explicit | jq ".joke, .setup, .delivery | select(.)"'
 alias dadjoke='echo -n "$(tput setaf 2)\""; curl -s -H "User-Agent: https://github.com/roryhen" -H "Accept: text/plain" https://icanhazdadjoke.com | \cat; echo "\"$(tput sgr0)"'
 alias kvim='NVIM_APPNAME="nvim-ks" nvim'
