@@ -7,6 +7,7 @@ zstyle ':omz:update' mode auto
 
 # oh-my-zsh plugins
 plugins=(
+  git
   colored-man-pages
   git-auto-fetch
   safe-paste
@@ -39,28 +40,6 @@ function path() { echo $PATH | tr ':' '\n' }
 function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
 
 # git
-alias gs='git status'
-alias ga='git add'
-alias gaa='git add --all'
-alias gc='git commit --verbose'
-alias gc!='git commit --verbose --amend'
-alias gb='git branch'
-alias gsw='git switch'
-alias gswc='git switch -c'
-alias gswm='git switch main'
-alias gco='git checkout'
-alias gcb='git checkout --branch'
-alias gd='git diff'
-alias gds='git diff --staged'
-alias gf='git fetch'
-alias gfa='git fetch --all --tags --prune'
-alias glod="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
-alias glog='git log --oneline --decorate --graph'
-alias gp='git push'
-alias gpup='git push --set-upstream origin HEAD'
-alias gpl='git pull'
-alias gr='git restore'
-alias grs='git restore --staged'
 alias githistory="git log --format=reference -p --follow --"
 alias ghas='gh auth switch'
 function gswb() { 
