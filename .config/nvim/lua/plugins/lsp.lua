@@ -11,6 +11,15 @@ return {
         denols = {
           root_dir = require("lspconfig").util.root_pattern("deno.json"),
         },
+        vtsls = {
+          settings = {
+            typescript = {
+              preferences = {
+                importModuleSpecifierPreference = "relative",
+              },
+            },
+          },
+        },
       },
     },
   },
