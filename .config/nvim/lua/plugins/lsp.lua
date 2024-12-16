@@ -1,9 +1,10 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    ---@module 'lspconfig'
+    ---@type lspconfig.Config.command
     opts = {
       inlay_hints = { enabled = false },
-      ---@type lspconfig.options
       servers = {
         emmet_ls = {
           filetypes = { "liquid" },
