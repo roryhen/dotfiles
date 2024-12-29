@@ -13,7 +13,13 @@ return {
     opts = {
       adapters = {
         ["neotest-jest"] = {},
-        ["neotest-vitest"] = {},
+        ["neotest-vitest"] = {
+          is_test_file = function(file_path)
+            if string.match(file_path, ".vitest.ts") then
+              return true
+            end
+          end,
+        },
       },
     },
   },
