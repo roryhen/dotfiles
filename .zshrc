@@ -84,10 +84,6 @@ function crawlsitemap() {
 
 ### apps
 
-# bat config
-export BAT_THEME="base16"
-export BAT_STYLE=snip
-
 # https://starship.rs
 eval "$(starship init zsh)"
 
