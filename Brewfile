@@ -33,13 +33,13 @@ brew "trash", link: true
 brew "utf8proc", args: ["HEAD"]
 brew "zsh"
 brew "zsh-vi-mode"
-cask "firefox"
 cask "font-commit-mono-nerd-font"
 cask "ghostty"
 cask "google-chrome"
 cask "maccy"
 cask "rectangle"
+cask "spotify"
 cask "wezterm"
-cask "zed"
+cask "zen-browser"
 mas "Color Picker", id: 1545870783
 mas "Numbers", id: 409203825
