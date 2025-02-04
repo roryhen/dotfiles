@@ -13,8 +13,8 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # auto-hide dock
 defaults write com.apple.dock autohide -bool true
-# set dock size
-defaults write com.apple.dock tilesize -int 50
+# set dock recent apps count
+defaults write com.apple.dock show-recent-count -int 5
 # prevent .DS_Store creation
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 # turn off accented characters on keypress and hold
