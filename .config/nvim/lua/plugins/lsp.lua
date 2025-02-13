@@ -9,9 +9,6 @@ return {
         emmet_ls = {
           filetypes = { "liquid" },
         },
-        denols = {
-          root_dir = require("lspconfig").util.root_pattern("deno.json"),
-        },
         vtsls = {
           settings = {
             typescript = {
