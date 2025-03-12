@@ -15,8 +15,8 @@ return {
         ["neotest-jest"] = {},
         ["neotest-vitest"] = {
           vitestCommand = function(file_path)
-            if string.find(file_path, "/mktp-ui-widgets/") then
-              return "npm run test:unit:widgets"
+            if string.find(file_path, "/mktp-ui-widgets") then
+              return "npm run test:unit"
             end
           end,
           is_test_file = function(file_path)
