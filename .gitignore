@@ -7,6 +7,11 @@
 !.config/nvim/lua/config/*
 !.config/nvim/lua/plugins/
 !.config/nvim/lua/plugins/*
+!.config/kvim/
+!.config/kvim/*
+!.config/kvim/lua/*
+!.config/nvim/lua/config/*
+!.config/nvim/lua/plugins/*
 !.config/zed/
 !.config/zed/settings.json
 !.config/zed/keymap.json
