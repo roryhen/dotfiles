@@ -12,19 +12,12 @@ return {
     ---@diagnostic disable-next-line: missing-fields
     opts = {
       adapters = {
+        ---@module 'neotest-jest'
+        ---@type neotest.JestOptions
         ["neotest-jest"] = {},
-        ["neotest-vitest"] = {
-          vitestCommand = function(file_path)
-            if string.find(file_path, "/mktp-ui-widgets") then
-              return "npm run test:unit"
-            end
-          end,
-          is_test_file = function(file_path)
-            if string.match(file_path, ".vitest.ts") then
-              return true
-            end
-          end,
-        },
+        ---@module 'neotest-vitest'
+        ---@type neotest.VitestOptions
+        ["neotest-vitest"] = {},
       },
     },
   },
