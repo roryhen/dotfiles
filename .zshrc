@@ -26,7 +26,7 @@ fi
 export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 
 ### aliases
 

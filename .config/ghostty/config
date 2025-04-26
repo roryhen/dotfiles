@@ -5,3 +5,5 @@ adjust-cell-height = 20%
 window-padding-x = 6
 window-padding-balance = true
 macos-titlebar-style = tabs
+keybind = alt+tab=next_tab
+keybind = alt+tab+shift=previous_tab

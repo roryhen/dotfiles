@@ -1,4 +1,8 @@
 [tools]
+aws-cli = "latest"
 deno = "latest"
 node = "22"
-pnpm = "9.15"
+pnpm = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]

@@ -19,7 +19,6 @@ return {
             autoUseWorkspaceTsdk = true,
             typescript = {
               preferences = {
-                importModuleSpecifierPreference = "relative",
                 useAliasesForRenames = false,
                 preferTypeOnlyAutoImports = true,
               },
