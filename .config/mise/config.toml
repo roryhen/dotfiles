@@ -1,7 +1,7 @@
 [tools]
 aws-cli = "latest"
 deno = "latest"
-node = "22"
+node = "lts"
 pnpm = "latest"
 
 [settings]
