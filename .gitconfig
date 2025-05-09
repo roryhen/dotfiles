@@ -9,8 +9,6 @@
 	tool = nvimdiff
 [merge]
 	tool = nvim
-[pull]
-	rebase = true
 [push]
 	followTags = true
 [mergetool]

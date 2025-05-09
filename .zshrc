@@ -41,6 +41,7 @@ function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
 alias kvim='NVIM_APPNAME="kvim" nvim'
 
 # git
+alias gl="git pull --ff-only"
 alias githistory="git log --format=reference -p --follow --"
 alias ghas='gh auth switch'
 function gswb() { 
