@@ -178,6 +178,8 @@ return {
         },
       })
 
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
+
       -- To check the current status of installed tools and/or manually install
       -- other tools, you can run
       --    :Mason
@@ -199,21 +201,15 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
         automatic_installation = false,
+        automatic_enable = true,
         handlers = {
           function(server_name)
-            local config = opts.servers[server_name] or {}
-            vim.lsp.config(server_name, config)
-            vim.lsp.enable(server_name)
-
-            if server_name == "example_server" or server_name == "example_server2" then
-              -- This handles overriding only values explicitly passed
-              -- by the server configuration above. Useful when disabling
-              -- certain features of an LSP (for example, turning off formatting for ts_ls)
-              local capabilities = require("blink.cmp").get_lsp_capabilities()
-              config.capabilities = vim.tbl_deep_extend("force", {}, capabilities, config.capabilities or {})
-              require("mason-lspconfig")[server_name].setup(config)
-              return
-            end
+            local server = opts.servers[server_name] or {}
+            -- This handles overriding only values explicitly passed
+            -- by the server configuration above. Useful when disabling
+            -- certain features of an LSP (for example, turning off formatting for ts_ls)
+            server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+            require("lspconfig")[server_name].setup(server)
           end,
         },
       })
