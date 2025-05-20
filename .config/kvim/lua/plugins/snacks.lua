@@ -43,6 +43,9 @@ return {
     },
     -- stylua: ignore
     keys = {
+      -- buffers
+      { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
+      { "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Delete Other Buffers" },
       -- Top Pickers & Explorer
       { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files", },
       { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers", },
@@ -58,6 +61,8 @@ return {
       { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects", },
       { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent", },
       -- git
+      { "<leader>gg", function() Snacks.lazygit({ cwd = Snacks.git.get_root() }) end, desc = "Lazygit (Root Dir)" },
+      { "<leader>gG", function() Snacks.lazygit() end, desc = "Lazygit (cwd)" },
       { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches", },
       { "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log", },
       { "<leader>gL", function() Snacks.picker.git_log_line() end, desc = "Git Log Line", },
@@ -65,6 +70,9 @@ return {
       { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash", },
       { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)", },
       { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File", },
+      { "<leader>gb", function() Snacks.picker.git_log_line() end, desc = "Git Blame Line" },
+      { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse (open)", mode  = { "n", "x" } },
+      { "<leader>gY", function() Snacks.gitbrowse({ open = function(url) vim.fn.setreg("+", url) end, notify = false, }) end, desc = "Git Browse (copy)", mode = { "n", "x" } },
       -- Grep
       { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines", },
       { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers", },
@@ -113,7 +121,7 @@ return {
         desc = "Notification History",
       },
       -- Terminal
-      { "<C-/>", function() Snacks.terminal.toggle() end, mode = { "n", "t" }, desc = "Toggle Terminal", },
+      { "<C-/>", function() Snacks.terminal.toggle() end, desc = "Toggle Terminal", mode = { "n", "t" } },
     },
   },
 }

@@ -6,8 +6,8 @@ return {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      { "williamboman/mason.nvim", opts = {} },
-      "williamboman/mason-lspconfig.nvim",
+      { "mason-org/mason.nvim", opts = {} },
+      "mason-org/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
 
       -- Useful status updates for LSP.
@@ -154,7 +154,6 @@ return {
       vim.diagnostic.config({
         severity_sort = true,
         float = { border = "rounded", source = "if_many" },
-        underline = { severity = vim.diagnostic.severity.ERROR },
         signs = vim.g.have_nerd_font and {
           text = {
             [vim.diagnostic.severity.ERROR] = "󰅚 ",
@@ -165,16 +164,6 @@ return {
         } or {},
         virtual_text = {
           source = "if_many",
-          spacing = 2,
-          format = function(diagnostic)
-            local diagnostic_message = {
-              [vim.diagnostic.severity.ERROR] = diagnostic.message,
-              [vim.diagnostic.severity.WARN] = diagnostic.message,
-              [vim.diagnostic.severity.INFO] = diagnostic.message,
-              [vim.diagnostic.severity.HINT] = diagnostic.message,
-            }
-            return diagnostic_message[diagnostic.severity]
-          end,
         },
       })
 
@@ -198,21 +187,34 @@ return {
 
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-      require("mason-lspconfig").setup({
-        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-        automatic_installation = false,
-        automatic_enable = true,
-        handlers = {
-          function(server_name)
-            local server = opts.servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for ts_ls)
-            server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-            require("lspconfig")[server_name].setup(server)
-          end,
-        },
-      })
+      -- Handle lsp setups differently based on Neovim version
+      -- See :help vim.lsp.config and :help vim.lsp.enable for Neovim 0.11+
+      if vim.fn.has("nvim-0.11") == 1 then
+        for server, config in pairs(opts.servers) do
+          -- This handles overriding only values explicitly passed
+          -- by the server configuration above. Useful when disabling
+          -- certain features of an LSP (for example, turning off formatting for ts_ls)
+          config.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+          vim.lsp.config(server, config)
+          vim.lsp.enable(server)
+        end
+      else
+        -- For Neovim 0.10 and below, use mason-lspconfig for setup
+        require("mason-lspconfig").setup({
+          ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+          automatic_installation = false,
+          handlers = {
+            function(server_name)
+              local server = opts.servers[server_name] or {}
+              -- This handles overriding only values explicitly passed
+              -- by the server configuration above. Useful when disabling
+              -- certain features of an LSP (for example, turning off formatting for ts_ls)
+              server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+              require("lspconfig")[server_name].setup(server)
+            end,
+          },
+        })
+      end
     end,
   },
 }
