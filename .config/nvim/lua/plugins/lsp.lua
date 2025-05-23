@@ -13,6 +13,7 @@ return {
           filetypes = { "typescript", "typescriptreact" },
           root_dir = require("lspconfig").util.root_pattern("deno.jsonc", "deno.json"),
         },
+        biome = {},
         vtsls = {
           settings = {
             enableMoveToFileCodeAction = true,
