@@ -55,7 +55,6 @@ return {
         svelte = {},
         tailwindcss = {},
         taplo = {},
-        volar = {},
         vtsls = {
           settings = {
             enableMoveToFileCodeAction = true,
