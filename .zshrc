@@ -38,7 +38,7 @@ alias dadjoke='echo -n "$(tput setaf 2)\""; curl -s -H "User-Agent: https://gith
 alias kvim='NVIM_APPNAME="nvim-ks" nvim'
 function path() { echo $PATH | tr ':' '\n' }
 function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
-alias kvim='NVIM_APPNAME="kvim" nvim'
+alias vim='NVIM_APPNAME="kvim" nvim'
 
 # git
 alias gl="git pull --ff-only"

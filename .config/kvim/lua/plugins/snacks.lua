@@ -23,7 +23,7 @@ return {
       indent = {},
       input = {},
       lazygit = {},
-      notifier = { top_down = false },
+      notifier = {},
       quickfile = {},
       picker = {},
       rename = {},
