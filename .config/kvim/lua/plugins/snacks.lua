@@ -25,7 +25,11 @@ return {
       lazygit = {},
       notifier = {},
       quickfile = {},
-      picker = {},
+      picker = {
+        sources = {
+          explorer = {},
+        },
+      },
       rename = {},
       scope = {},
       statuscolumn = {},

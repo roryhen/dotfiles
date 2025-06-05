@@ -7,7 +7,6 @@ return {
       "mason-org/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       { "j-hui/fidget.nvim", opts = {} },
-      "saghen/blink.cmp",
     },
     opts = {
       servers = {
@@ -70,30 +69,8 @@ return {
 
           if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_completion) then
             vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+            vim.keymap.set("i", "<C-space>", vim.lsp.completion.get, { desc = "trigger autocompletion" })
           end
-
-          -- if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
-          --   local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
-          --   vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-          --     buffer = event.buf,
-          --     group = highlight_augroup,
-          --     callback = vim.lsp.buf.document_highlight,
-          --   })
-          --
-          --   vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-          --     buffer = event.buf,
-          --     group = highlight_augroup,
-          --     callback = vim.lsp.buf.clear_references,
-          --   })
-          --
-          --   vim.api.nvim_create_autocmd("LspDetach", {
-          --     group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
-          --     callback = function(event2)
-          --       vim.lsp.buf.clear_references()
-          --       vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
-          --     end,
-          --   })
-          -- end
         end,
       })
 
