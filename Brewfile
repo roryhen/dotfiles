@@ -1,4 +1,5 @@
 tap "homebrew/autoupdate"
+brew "awscli"
 brew "cask"
 brew "certifi"
 brew "colima"

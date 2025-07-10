@@ -14,6 +14,7 @@ return {
           root_dir = require("lspconfig").util.root_pattern("deno.jsonc", "deno.json"),
         },
         biome = {},
+        --- https://github.com/yioneko/vtsls/blob/main/packages/service/configuration.schema.json
         vtsls = {
           settings = {
             enableMoveToFileCodeAction = true,
@@ -22,6 +23,7 @@ return {
               preferences = {
                 useAliasesForRenames = false,
                 preferTypeOnlyAutoImports = true,
+                importModuleSpecifierEnding = "js",
               },
             },
           },

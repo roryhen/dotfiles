@@ -1,5 +1,4 @@
 [tools]
-aws-cli = "latest"
 deno = "latest"
 node = "lts"
 pnpm = "latest"
