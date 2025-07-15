@@ -23,7 +23,6 @@ return {
               preferences = {
                 useAliasesForRenames = false,
                 preferTypeOnlyAutoImports = true,
-                importModuleSpecifierEnding = "js",
               },
             },
           },
