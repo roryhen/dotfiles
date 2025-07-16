@@ -35,7 +35,6 @@ alias src="omz reload"
 alias history="history | fzf"
 alias joke='curl -s -H "Accept: application/json" https://v2.jokeapi.dev/joke/Programming\?blacklistFlags\=nsfw,religious,political,racist,sexist,explicit | jq ".joke, .setup, .delivery | select(.)"'
 alias dadjoke='echo -n "$(tput setaf 2)\""; curl -s -H "User-Agent: https://github.com/roryhen" -H "Accept: text/plain" https://icanhazdadjoke.com | \cat; echo "\"$(tput sgr0)"'
-alias kvim='NVIM_APPNAME="nvim-ks" nvim'
 function path() { echo $PATH | tr ':' '\n' }
 function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
 alias vim='NVIM_APPNAME="kvim" nvim'

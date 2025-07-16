@@ -24,6 +24,7 @@ return {
         },
         eslint = {},
         graphql = {},
+        html = {},
         ["js-debug-adapter"] = {},
         jsonls = {},
         lua_ls = {
@@ -99,9 +100,6 @@ return {
       })
 
       local ensure_installed = vim.tbl_keys(opts.servers or {})
-      vim.list_extend(ensure_installed, {
-        "stylua", -- Used to format Lua code
-      })
 
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

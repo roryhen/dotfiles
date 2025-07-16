@@ -30,6 +30,8 @@ map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 
 -- Clear search, diff update and redraw
+map("n", "<Esc>", "<cmd>nohlsearch<CR>")
+-- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
 map("n", "<leader>ur", "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>", { desc = "Redraw / Clear hlsearch / Diff Update" })
 
