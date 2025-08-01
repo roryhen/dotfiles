@@ -11,3 +11,5 @@ symbol = "󰏗 "
 
 [aws]
 symbol = "󰅣 "
+[aws.region_aliases]
+us-east-1 = "us-e1"
