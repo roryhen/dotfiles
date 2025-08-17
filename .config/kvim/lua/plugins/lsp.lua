@@ -7,6 +7,7 @@ return {
       "mason-org/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       { "j-hui/fidget.nvim", opts = {} },
+      { "saghen/blink.cmp" },
     },
     opts = {
       servers = {
@@ -94,7 +95,6 @@ return {
       })
 
       ---@type MasonLspconfigSettings
-      ---@diagnostic disable-next-line: missing-fields
       require("mason-lspconfig").setup({
         automatic_enable = vim.tbl_keys(opts.servers or {}),
       })

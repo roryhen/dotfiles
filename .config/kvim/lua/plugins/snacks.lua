@@ -15,24 +15,12 @@ return {
     ---@type snacks.Config
     ---@diagnostic disable-next-line: missing-fields
     opts = {
-      bigfile = {},
-      bufdelete = {},
-      explorer = {},
-      git = {},
-      gitbrowse = {},
-      indent = {},
-      input = {},
-      lazygit = {},
       notifier = {},
-      quickfile = {},
       picker = {
         sources = {
           explorer = {},
         },
       },
-      rename = {},
-      scope = {},
-      statuscolumn = {},
       terminal = {
         win = {
           keys = {
@@ -43,7 +31,6 @@ return {
           },
         },
       },
-      words = {},
     },
     -- stylua: ignore
     keys = {
