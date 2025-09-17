@@ -1,5 +1,4 @@
 *
-.DS_Store
 !.config/
 !.config/*vim/
 !.config/*vim/*
@@ -17,3 +16,4 @@
 !.zshrc
 !Brewfile
 !install.sh
+.DS_Store
