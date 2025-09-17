@@ -1,6 +1,6 @@
 font-family = "CommitMono Nerd Font"
 font-size = 14
-theme = "carbonfox"
+theme = carbonfox
 adjust-cell-height = 20%
 window-padding-x = 6
 window-padding-balance = true

@@ -1,4 +1,5 @@
 *
+.DS_Store
 !.config/
 !.config/*vim/
 !.config/*vim/*
@@ -6,6 +7,9 @@
 !.config/*vim/lua/*
 !.config/*vim/lua/config/*
 !.config/*vim/lua/plugins/*
+!.config/ghostty/
+!.config/ghostty/*
+!.config/ghostty/themes/*
 !.config/starship.toml
 !.gitconfig
 !.gitignore
