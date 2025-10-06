@@ -13,7 +13,6 @@ return {
           filetypes = { "typescript", "typescriptreact" },
           root_dir = require("lspconfig").util.root_pattern("deno.jsonc", "deno.json"),
         },
-        biome = {},
         --- https://github.com/yioneko/vtsls/blob/main/packages/service/configuration.schema.json
         vtsls = {
           settings = {
