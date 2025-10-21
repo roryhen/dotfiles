@@ -1,6 +1,8 @@
+local prettier_and_friends = { "prettierd", "prettier", "denols", stop_after_first = true }
+
 return {
   { "tpope/vim-sleuth" }, -- sets tabstop and shiftwidth for you
-  { -- Autoformat
+  {                       -- Autoformat
     "stevearc/conform.nvim",
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
@@ -35,11 +37,15 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        html = { "prettierd", "prettier", "deno_ls", stop_after_first = true },
-        css = { "prettierd", "prettier", "deno_ls", stop_after_first = true },
-        javascript = { "prettierd", "prettier", stop_after_first = true },
-        typescript = { "prettierd", "prettier", "deno_ls", stop_after_first = true },
-        typescriptreact = { "prettierd", "prettier", "deno_ls", stop_after_first = true },
+        css = prettier_and_friends,
+        html = prettier_and_friends,
+        javascript = prettier_and_friends,
+        json = prettier_and_friends,
+        jsonc = prettier_and_friends,
+        jsx = prettier_and_friends,
+        markdown = prettier_and_friends,
+        tsx = prettier_and_friends,
+        typescript = prettier_and_friends,
       },
     },
   },

@@ -18,7 +18,9 @@ return {
       notifier = {},
       picker = {
         sources = {
-          explorer = {},
+          explorer = {
+            replace_netrw = true,
+          },
         },
       },
       terminal = {
