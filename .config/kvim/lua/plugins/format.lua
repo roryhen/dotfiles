@@ -1,4 +1,4 @@
-local prettier_and_friends = { "prettierd", "prettier", "denols", stop_after_first = true }
+local prettier_and_friends = { "prettierd", "prettier", "deno_fmt", stop_after_first = true }
 
 return {
   { "tpope/vim-sleuth" }, -- sets tabstop and shiftwidth for you

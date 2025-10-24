@@ -4,7 +4,7 @@ return {
     event = "VeryLazy",
     opts_extend = { "spec" },
     opts = {
-      preset = "",
+      preset = "helix",
       defaults = {},
       spec = {
         {
@@ -30,8 +30,15 @@ return {
           -- stylua: ignore
           { "<leader>b", group = "buffer", expand = function() return require("which-key.extras").expand.buf() end, },
           -- stylua: ignore
-          { "<leader>w", group = "windows", proxy = "<c-w>", expand = function() return require("which-key.extras")
-            .expand.win() end, },
+          {
+            "<leader>w",
+            group = "windows",
+            proxy = "<c-w>",
+            expand = function()
+              return require("which-key.extras")
+                  .expand.win()
+            end,
+          },
           -- better descriptions
           { "gx", desc = "Open with system app" },
         },

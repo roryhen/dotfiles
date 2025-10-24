@@ -9,6 +9,12 @@ return {
     },
     lazy = false,
     opts = {
+      close_if_last_window = true,
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+        },
+      },
       window = {
         mappings = {
           ["l"] = "open",
