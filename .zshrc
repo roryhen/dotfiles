@@ -48,6 +48,7 @@ function gswb() {
   local BRANCH=$(echo "$BRANCHES" | fzf)
   git switch "$(echo "$BRANCH" | sed -E 's/^origin\///')"
 }
+alias trimbranch='echo "$(git branch --show-current)" | cut -c 1-36'
 
 # web
 alias lsport="lsof -iTCP -sTCP:LISTEN -n -P"
