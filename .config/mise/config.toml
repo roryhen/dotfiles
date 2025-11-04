@@ -3,7 +3,6 @@ bun = "latest"
 deno = "latest"
 node = "lts"
 pnpm = "latest"
-postgres = "17"
 tree-sitter = "latest"
 
 [settings]

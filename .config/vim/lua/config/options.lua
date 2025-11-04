@@ -22,3 +22,4 @@ vim.o.timeoutlen = 300
 vim.o.undofile = true
 vim.o.updatetime = 250
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.o.winborder = "single"

@@ -20,32 +20,24 @@ return {
         },
         docker_compose_language_service = {},
         dockerls = {},
-        emmet_ls = {
+        emmet_language_server = {
           filetypes = { "liquid" },
         },
-        eslint = {},
+        eslint_d = {},
+        ["eslint-lsp"] = {},
         graphql = {},
+        hadolint = {},
         html = {},
         ["js-debug-adapter"] = {},
         jsonls = {},
-        lua_ls = {
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = "Replace",
-              },
-            },
-          },
-        },
+        lua_ls = {},
         marksman = {},
-        prettier = {},
         prettierd = {},
         shellcheck = {},
         shfmt = {},
         shopify_theme_ls = {},
         sqlfluff = {},
         stylua = {},
-        svelte = {},
         tailwindcss = {},
         taplo = {},
         vtsls = {
@@ -65,8 +57,12 @@ return {
     },
     config = function(_, opts)
       vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("my.lsp", {}),
+        group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
         callback = function(args)
+          vim.keymap.set("n", "grn", vim.lsp.buf.rename, { buffer = args.buf, desc = "LSP: Rename" })
+          vim.keymap.set({ "n", "x" }, "gra", vim.lsp.buf.code_action, { buffer = args.buf, desc = "LSP: Goto Code Action" })
+          vim.keymap.set("n", "grD", vim.lsp.buf.declaration, { buffer = args.buf, desc = "LSP: Goto Declaration" })
+
           local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
           -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|

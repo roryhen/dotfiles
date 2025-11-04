@@ -26,7 +26,12 @@ fi
 export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+# icu4c
+export PATH="/opt/homebrew/opt/icu4c@77/bin:$PATH"
+export PATH="/opt/homebrew/opt/icu4c@77/sbin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/icu4c@77/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/icu4c@77/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/icu4c@77/lib/pkgconfig"
 
 ### aliases
 
@@ -37,7 +42,8 @@ alias joke='curl -s -H "Accept: application/json" https://v2.jokeapi.dev/joke/Pr
 alias dadjoke='echo -n "$(tput setaf 2)\""; curl -s -H "User-Agent: https://github.com/roryhen" -H "Accept: text/plain" https://icanhazdadjoke.com | \cat; echo "\"$(tput sgr0)"'
 function path() { echo $PATH | tr ':' '\n' }
 function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
-alias vim='NVIM_APPNAME="kvim" nvim'
+alias kvim='NVIM_APPNAME="kvim" nvim'
+alias vim='NVIM_APPNAME="vim" nvim'
 
 # git
 alias gl="git fetch && git pull --ff-only"
