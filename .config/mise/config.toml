@@ -1,7 +1,7 @@
 [tools]
 bun = "latest"
 deno = "latest"
-node = "lts"
+node = "latest"
 pnpm = "latest"
 tree-sitter = "latest"
 

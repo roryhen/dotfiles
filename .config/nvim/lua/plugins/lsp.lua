@@ -6,13 +6,7 @@ return {
     opts = {
       inlay_hints = { enabled = false },
       servers = {
-        emmet_ls = {
-          filetypes = { "liquid" },
-        },
-        denols = {
-          filetypes = { "typescript", "typescriptreact" },
-          root_dir = require("lspconfig").util.root_pattern("deno.jsonc", "deno.json"),
-        },
+        emmet_language_server = {},
         --- https://github.com/yioneko/vtsls/blob/main/packages/service/configuration.schema.json
         vtsls = {
           settings = {

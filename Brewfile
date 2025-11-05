@@ -22,7 +22,6 @@ brew "mas"
 brew "mise"
 brew "utf8proc", args: ["HEAD"]
 brew "neovim"
-brew "postgresql@17"
 brew "pygments"
 brew "python@3.12"
 brew "ripgrep"
@@ -37,4 +36,5 @@ cask "microsoft-edge"
 cask "rectangle"
 mas "Color Picker", id: 1545870783
 mas "Numbers", id: 409203825
+mas "Slack", id: 803453959
 mas "UTC Time", id: 1538245904
