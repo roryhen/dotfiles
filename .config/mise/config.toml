@@ -3,7 +3,6 @@ bun = "latest"
 deno = "latest"
 node = "latest"
 pnpm = "latest"
-tree-sitter = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
