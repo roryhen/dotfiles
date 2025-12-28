@@ -26,12 +26,6 @@ fi
 export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-# icu4c
-export PATH="/opt/homebrew/opt/icu4c@77/bin:$PATH"
-export PATH="/opt/homebrew/opt/icu4c@77/sbin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/icu4c@77/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/icu4c@77/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/icu4c@77/lib/pkgconfig"
 
 ### aliases
 
@@ -115,4 +109,4 @@ export FZF_DEFAULT_OPTS="--height=40% --reverse"
 eval "$(mise activate zsh)"
 
 # https://github.com/jeffreytse/zsh-vi-mode
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
