@@ -13,6 +13,7 @@ brew "ffmpeg"
 brew "fzf"
 brew "gh"
 brew "git"
+brew "git-filter-repo"
 brew "gnu-sed"
 brew "grep"
 brew "imagemagick"
@@ -29,12 +30,9 @@ brew "starship"
 brew "trash", link: true
 brew "zsh"
 brew "zsh-vi-mode"
+cask "brave-browser"
 cask "font-commit-mono-nerd-font"
 cask "ghostty"
 cask "maccy"
 cask "microsoft-edge"
 cask "rectangle"
-mas "Color Picker", id: 1545870783
-mas "Numbers", id: 409203825
-mas "Slack", id: 803453959
-mas "UTC Time", id: 1538245904
