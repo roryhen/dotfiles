@@ -1,5 +1,6 @@
 tap "homebrew/autoupdate"
 brew "awscli"
+brew "bash"
 brew "cask"
 brew "certifi"
 brew "colima"
@@ -36,3 +37,4 @@ cask "ghostty"
 cask "maccy"
 cask "microsoft-edge"
 cask "rectangle"
+mas "Slack", id: 803453959
