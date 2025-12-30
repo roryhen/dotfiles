@@ -1,4 +1,5 @@
 *
+!.bashrc
 !.config/
 !.config/*vim/
 !.config/*vim/*
@@ -12,6 +13,7 @@
 !.config/starship.toml
 !.gitconfig
 !.gitignore
+!.inputrc
 !.mise.toml
 !.zshrc
 !Brewfile

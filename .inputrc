@@ -1,0 +1,16 @@
+# color
+set colored-stats on
+set colored-completion-prefix on
+
+# vi mode
+set editing-mode vi
+set show-mode-in-prompt on
+set vi-cmd-mode-string "\1\e[1 q\2"
+set vi-ins-mode-string "\1\e[5 q\2"
+
+# completions
+"\t":menu-complete
+"\e[Z":menu-complete-backward
+set menu-complete-display-prefix on
+set show-all-if-ambiguous on
+set completion-ignore-case on
