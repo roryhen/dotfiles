@@ -14,7 +14,11 @@ return {
       adapters = {
         ---@module 'neotest-jest'
         ---@type neotest.JestOptions
-        ["neotest-jest"] = {},
+        ["neotest-jest"] = {
+          isTestFile = function(file_path)
+            return string.match(file_path, "%.test%.[jt]sx?$")
+          end,
+        },
         ---@module 'neotest-vitest'
         ---@type neotest.VitestOptions
         ["neotest-vitest"] = {
@@ -25,7 +29,7 @@ return {
             return "vite.config.ts"
           end,
           is_test_file = function(file_path)
-            return string.match(file_path, "^.*%.*(test|spec|vitest)%.ts$")
+            return string.match(file_path, "%.(test|spec|vitest)%.[jt]sx?$")
           end,
         },
       },
