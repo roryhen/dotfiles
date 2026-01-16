@@ -1,6 +1,7 @@
 tap "homebrew/autoupdate"
 brew "awscli"
 brew "bash"
+brew "tree-sitter"
 brew "cask"
 brew "certifi"
 brew "colima"
