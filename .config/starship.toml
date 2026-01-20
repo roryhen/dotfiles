@@ -10,6 +10,7 @@ tag_symbol = " 󰓼 "
 symbol = "󰏗 "
 
 [aws]
+disabled = true
 symbol = "󰅣 "
 [aws.region_aliases]
 us-east-1 = "use1"
