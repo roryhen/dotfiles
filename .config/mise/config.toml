@@ -3,6 +3,7 @@ bun = "latest"
 deno = "latest"
 node = "latest"
 pnpm = "latest"
+python = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
