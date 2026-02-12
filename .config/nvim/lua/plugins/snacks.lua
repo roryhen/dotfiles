@@ -11,7 +11,11 @@ return {
           style = "float",
         },
       },
-      image = {},
+      picker = {
+        preview = {
+          enabled = false,
+        },
+      },
     },
   },
 }
