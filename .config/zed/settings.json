@@ -17,4 +17,8 @@
     "dark": "Carbonfox - opaque",
   },
   "relative_line_numbers": "enabled",
+  "auto_install_extensions": {
+    "liquid": true,
+    "nvim-nightfox": true,
+  },
 }
