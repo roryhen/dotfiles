@@ -1,0 +1,45 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor || Terminal",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "shift-h": "vim::GoToPreviousTab",
+      "shift-l": "vim::GoToTab"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
+    "bindings": {
+      // mini.ai plugin behavior
+      "q": "vim::MiniQuotes",
+      "b": "vim::MiniBrackets"
+    }
+  }
+]

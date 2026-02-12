@@ -5,6 +5,7 @@ return {
       ensure_installed = {
         "shopify-cli",
         "css-lsp",
+        "emmet-language-server",
       },
     },
   },
