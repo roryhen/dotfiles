@@ -7,12 +7,6 @@
 // from the command palette.
 [
   {
-    "context": "Workspace",
-    "bindings": {
-      // "shift shift": "file_finder::Toggle"
-    },
-  },
-  {
     "context": "Editor || Terminal",
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
@@ -24,15 +18,8 @@
   {
     "context": "vim_mode == normal",
     "bindings": {
-      "shift-h": "pane::ActivateNextItem",
-      "shift-l": "pane::ActivatePreviousItem",
-    },
-  },
-  {
-    "context": "vim_mode == insert",
-    "bindings": {
-      "kk": "vim::PushAddSurrounds",
-      // "j k": "vim::NormalBefore"
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
     },
   },
   {
@@ -47,6 +34,15 @@
       // mini.ai plugin behavior
       "q": "vim::MiniQuotes",
       "b": "vim::MiniBrackets",
+    },
+  },
+  {
+    "context": "((vim_mode == normal || vim_mode == visual) || vim_mode == operator)",
+    "bindings": {
+      "] ]": "vim::GoToNextReference",
+      "[ [": "vim::GoToPreviousReference",
+      "] s": "vim::NextSectionStart",
+      "[ s": "vim::PreviousSectionStart",
     },
   },
 ]

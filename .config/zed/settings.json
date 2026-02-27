@@ -7,9 +7,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "show_edit_predictions": false,
   "vim_mode": true,
-  "ui_font_size": 16,
-  "buffer_font_size": 15,
+  "ui_font_size": 14,
+  "buffer_font_size": 14,
   "ui_font_family": "CommitMono Nerd Font Mono",
   "theme": {
     "mode": "system",
@@ -20,5 +21,8 @@
   "auto_install_extensions": {
     "liquid": true,
     "nvim-nightfox": true,
+  },
+  "which_key": {
+    "enabled": true,
   },
 }
