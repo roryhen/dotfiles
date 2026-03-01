@@ -30,28 +30,28 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 ### aliases
 
 # misc
-alias src="omz reload"
-alias history="history | fzf"
+alias src='omz reload'
+alias history='history | fzf'
 alias joke='curl -s -H "Accept: application/json" https://v2.jokeapi.dev/joke/Programming\?blacklistFlags\=nsfw,religious,political,racist,sexist,explicit | jq ".joke, .setup, .delivery | select(.)"'
 alias dadjoke='echo -n "$(tput setaf 2)\""; curl -s -H "User-Agent: https://github.com/roryhen" -H "Accept: text/plain" https://icanhazdadjoke.com | \cat; echo "\"$(tput sgr0)"'
-function path() { echo $PATH | tr ':' '\n' }
+alias path="echo $PATH | tr ':' '\n'"
 function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
 alias kvim='NVIM_APPNAME="kvim" nvim'
 alias vim='NVIM_APPNAME="vim" nvim'
 
 # git
-alias gl="git fetch && git pull --ff-only"
-alias githistory="git log --format=reference -p --follow --"
+alias gl='git fetch && git pull --ff-only'
+alias githistory='git log --format=reference -p --follow --'
 alias ghas='gh auth switch'
 function gswb() { 
-  local BRANCHES=$(git for-each-ref --format='%(refname:lstrip=1)' | sed -E 's/^remotes\/|heads\///')
-  local BRANCH=$(echo "$BRANCHES" | fzf)
+  local BRANCHES="$(git for-each-ref --format='%(refname:lstrip=1)' | sed -E 's/^remotes\/|heads\///')"
+  local BRANCH="$(echo "$BRANCHES" | fzf)"
   git switch "$(echo "$BRANCH" | sed -E 's/^origin\///')"
 }
 alias trimbranch='echo "$(git branch --show-current)" | cut -c 1-41'
 
 # web
-alias lsport="lsof -iTCP -sTCP:LISTEN -n -P"
+alias lsport='lsof -iTCP -sTCP:LISTEN -n -P'
 alias awsts='aws sts get-caller-identity'
 function pdev() {
   local PORT="${1:-3000}"
