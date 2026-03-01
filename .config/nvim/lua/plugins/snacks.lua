@@ -2,18 +2,12 @@ return {
   {
     "folke/snacks.nvim",
     ---@module 'snacks'
-    ---@type snacks.Config
-    ---@diagnostic disable-next-line: missing-fields
+    ---@type snacks.plugins.Config
     opts = {
       scratch = {
         win = {
           relative = "editor",
           style = "float",
-        },
-      },
-      picker = {
-        preview = {
-          enabled = false,
         },
       },
     },
