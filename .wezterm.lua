@@ -12,17 +12,20 @@ config.line_height = 1.2
 config.initial_cols = 96
 config.initial_rows = 56
 config.window_decorations = "RESIZE"
-config.use_fancy_tab_bar = false
-config.show_tab_index_in_tab_bar = false
-config.tab_max_width = 32
 
+-- Ansi colors: Black, Maroon, Green, Olive, Navy, Purple, Teal, Silver, Grey, Red, Lime, Yellow, Blue, Fuchsia, Aqua, White
 local light_black = wezterm.color.parse("Black"):lighten(0.15)
 local lighter_black = wezterm.color.parse("Black"):lighten(0.2)
--- Ansi colors: Black, Maroon, Green, Olive, Navy, Purple, Teal, Silver, Grey, Red, Lime, Yellow, Blue, Fuchsia, Aqua, White
+
+config.window_frame = {
+	font = config.font,
+	font_size = 12,
+	active_titlebar_bg = light_black,
+	inactive_titlebar_bg = lighter_black,
+}
+
 config.colors = {
 	tab_bar = {
-		background = light_black,
-
 		active_tab = {
 			bg_color = "Black",
 			fg_color = "White",
