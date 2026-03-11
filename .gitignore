@@ -19,6 +19,7 @@
 !.inputrc
 !.mise.toml
 !.zshrc
+!.wezterm.lua
 !Brewfile
 !install.sh
 .DS_Store
