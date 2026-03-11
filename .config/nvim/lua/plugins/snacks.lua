@@ -10,6 +10,9 @@ return {
           style = "float",
         },
       },
+      notifier = {
+        top_down = false,
+      },
     },
   },
 }
