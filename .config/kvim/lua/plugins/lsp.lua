@@ -3,7 +3,13 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      { "mason-org/mason.nvim", opts = {} },
+      {
+        "mason-org/mason.nvim",
+        ---@module 'mason.settings'
+        ---@type MasonSettings
+        ---@diagnostic disable-next-line: missing-fields
+        opts = {},
+      },
       "mason-org/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       { "j-hui/fidget.nvim", opts = {} },
@@ -58,61 +64,51 @@ return {
     config = function(_, opts)
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
-        callback = function(args)
-          vim.keymap.set("n", "grn", vim.lsp.buf.rename, { buffer = args.buf, desc = "LSP: Rename" })
-          vim.keymap.set({ "n", "x" }, "gra", vim.lsp.buf.code_action, { buffer = args.buf, desc = "LSP: Goto Code Action" })
-          vim.keymap.set("n", "grD", vim.lsp.buf.declaration, { buffer = args.buf, desc = "LSP: Goto Declaration" })
-
-          local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-
-          -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
-          if client:supports_method("textDocument/completion") then
-            vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+        callback = function(event)
+          local map = function(keys, func, desc, mode)
+            mode = mode or "n"
+            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
           end
 
-          -- Auto-format ("lint") on save.
-          -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
-          if not client:supports_method("textDocument/willSaveWaitUntil") and client:supports_method("textDocument/formatting") then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              group = vim.api.nvim_create_augroup("my.lsp", { clear = false }),
-              buffer = args.buf,
-              callback = function()
-                vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+          map("<leader>cr", vim.lsp.buf.rename, "Rename")
+          map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
+
+          local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
+          if client and client:supports_method("textDocument/documentHighlight", event.buf) then
+            local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+            vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+              buffer = event.buf,
+              group = highlight_augroup,
+              callback = vim.lsp.buf.document_highlight,
+            })
+
+            vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+              buffer = event.buf,
+              group = highlight_augroup,
+              callback = vim.lsp.buf.clear_references,
+            })
+
+            vim.api.nvim_create_autocmd("LspDetach", {
+              group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+              callback = function(event2)
+                vim.lsp.buf.clear_references()
+                vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
               end,
             })
           end
         end,
       })
 
-      -- Diagnostic Config
-      -- See :help vim.diagnostic.Opts
-      vim.diagnostic.config({
-        severity_sort = true,
-        float = { border = "rounded", source = "if_many" },
-        signs = vim.g.have_nerd_font and {
-          text = {
-            [vim.diagnostic.severity.ERROR] = "󰅚 ",
-            [vim.diagnostic.severity.WARN] = "󰀪 ",
-            [vim.diagnostic.severity.INFO] = "󰋽 ",
-            [vim.diagnostic.severity.HINT] = "󰌶 ",
-          },
-        } or {},
-        virtual_text = {
-          source = "if_many",
-        },
-      })
-
-      ---@type MasonLspconfigSettings
-      require("mason-lspconfig").setup({
-        automatic_enable = vim.tbl_keys(opts.servers or {}),
-      })
-
       local ensure_installed = vim.tbl_keys(opts.servers or {})
+      vim.list_extend(ensure_installed, {
+        -- You can add other tools here that you want Mason to install
+      })
 
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-      for server_name, config in pairs(opts.servers) do
-        vim.lsp.config(server_name, config)
+      for name, server in pairs(opts.servers) do
+        vim.lsp.config(name, server)
+        vim.lsp.enable(name)
       end
     end,
   },
