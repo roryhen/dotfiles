@@ -2,7 +2,8 @@ return {
   {
     "neovim/nvim-lspconfig",
     ---@module 'lspconfig'
-    ---@type lspconfig.Config.command
+    ---@type lspconfig.Config
+    ---@diagnostic disable-next-line: missing-fields
     opts = {
       inlay_hints = { enabled = false },
       servers = {

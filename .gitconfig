@@ -2,7 +2,6 @@
 	defaultBranch = main
 [user]
 	name = Rory Hendrickson
-	email = 35480205+roryhen@users.noreply.github.com
 [core]
 	editor = nvim
 [diff]

@@ -1,13 +1,11 @@
 return {
   {
     "saghen/blink.cmp",
+    ---@module 'blink'
+    ---@type blink.cmp.Config
     opts = {
-      completion = {
-        list = {
-          selection = {
-            preselect = false,
-          },
-        },
+      keymap = {
+        preset = "super-tab",
       },
     },
   },
