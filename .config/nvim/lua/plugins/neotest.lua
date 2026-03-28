@@ -23,7 +23,8 @@ return {
         ---@type neotest.VitestOptions
         ["neotest-vitest"] = {
           vitestConfigFile = function()
-            if string.match(vim.fn.expand("%:p:h"), "src/widgets") then
+            local attributes = require("lfs").attributes("src/widgets")
+            if attributes and attributes.mode == "directory" then
               return "vite.widgets.config.ts"
             end
             return "vite.config.ts"
