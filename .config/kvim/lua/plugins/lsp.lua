@@ -36,7 +36,35 @@ return {
         html = {},
         ["js-debug-adapter"] = {},
         jsonls = {},
-        lua_ls = {},
+        lua_ls = {
+          on_init = function(client)
+            if client.workspace_folders then
+              local path = client.workspace_folders[1].name
+              if path ~= vim.fn.stdpath("config") and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc")) then
+                return
+              end
+            end
+
+            client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+              runtime = {
+                version = "LuaJIT",
+                path = { "lua/?.lua", "lua/?/init.lua" },
+              },
+              workspace = {
+                checkThirdParty = false,
+                -- NOTE: this is a lot slower and will cause issues when working on your own configuration.
+                --  See https://github.com/neovim/nvim-lspconfig/issues/3189
+                library = vim.tbl_extend("force", vim.api.nvim_get_runtime_file("", true), {
+                  "${3rd}/luv/library",
+                  "${3rd}/busted/library",
+                }),
+              },
+            })
+          end,
+          settings = {
+            Lua = {},
+          },
+        },
         marksman = {},
         prettierd = {},
         shellcheck = {},
@@ -70,8 +98,9 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
           end
 
-          map("<leader>cr", vim.lsp.buf.rename, "Rename")
-          map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
+          map("grn", vim.lsp.buf.rename, "Rename")
+          map("gra", vim.lsp.buf.code_action, "Goto Code Action", { "n", "x" })
+          map("grD", vim.lsp.buf.declaration, "Goto Declaration")
 
           local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
           if client and client:supports_method("textDocument/documentHighlight", event.buf) then
