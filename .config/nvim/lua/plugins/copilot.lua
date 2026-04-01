@@ -7,6 +7,7 @@ return {
     ---@module 'CopilotChat'
     ---@type CopilotChat.config.Config
     opts = {
+      model = "claude-sonnet-4.5",
       window = {
         layout = "horizontal",
       },
