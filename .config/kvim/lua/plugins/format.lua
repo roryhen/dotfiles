@@ -4,7 +4,7 @@ return {
   { "tpope/vim-sleuth" }, -- sets tabstop and shiftwidth for you
   { -- Autoformat
     "stevearc/conform.nvim",
-    event = { "BufWritePre" },
+    event = "BufWritePre",
     cmd = { "ConformInfo" },
     keys = {
       {

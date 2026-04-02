@@ -15,6 +15,7 @@ return {
       { "j-hui/fidget.nvim", opts = {} },
       { "saghen/blink.cmp" },
     },
+    lazy = false,
     opts = {
       servers = {
         astro = {},
@@ -88,20 +89,28 @@ return {
         },
         yamlls = {},
       },
+      -- stylua: ignore
+      keys = {
+        { "<leader>cl", function() Snacks.picker.lsp_config() end, desc = "Lsp Info", },
+        { "gd", vim.lsp.buf.definition, desc = "Goto Definition", has = "definition" },
+        { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
+        { "gI", vim.lsp.buf.implementation, desc = "Goto Implementation" },
+        { "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
+        { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
+        { "K", function() return vim.lsp.buf.hover() end, desc = "Hover", },
+        { "gK", function() return vim.lsp.buf.signature_help() end, desc = "Signature Help", has = "signatureHelp", },
+        { "<c-k>", function() return vim.lsp.buf.signature_help() end, mode = "i", desc = "Signature Help", has = "signatureHelp", },
+        { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "x" }, has = "codeAction" },
+        { "<leader>cc", vim.lsp.codelens.run, desc = "Run Codelens", mode = { "n", "x" }, has = "codeLens" },
+        { "<leader>cC", vim.lsp.codelens.refresh, desc = "Refresh & Display Codelens", mode = { "n" }, has = "codeLens" },
+        { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File", mode = { "n" }, has = { "workspace/didRenameFiles", "workspace/willRenameFiles" }, },
+        { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
+      },
     },
     config = function(_, opts)
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
         callback = function(event)
-          local map = function(keys, func, desc, mode)
-            mode = mode or "n"
-            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
-          end
-
-          map("grn", vim.lsp.buf.rename, "Rename")
-          map("gra", vim.lsp.buf.code_action, "Goto Code Action", { "n", "x" })
-          map("grD", vim.lsp.buf.declaration, "Goto Declaration")
-
           local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
           if client and client:supports_method("textDocument/documentHighlight", event.buf) then
             local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })

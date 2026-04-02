@@ -58,6 +58,7 @@ return {
   },
   {
     "echasnovski/mini.surround",
+    event = "VeryLazy",
     opts = {
       mappings = {
         add = "gsa", -- Add surrounding in Normal and Visual modes
@@ -70,4 +71,5 @@ return {
       },
     },
   },
+  { "nvim-mini/mini.align", version = "*", event = "VeryLazy" },
 }
