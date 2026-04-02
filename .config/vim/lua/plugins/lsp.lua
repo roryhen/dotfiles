@@ -89,31 +89,31 @@ return {
         },
         yamlls = {},
       },
-      -- stylua: ignore
-      keys = {
-        { "<leader>cl", function() Snacks.picker.lsp_config() end, desc = "Lsp Info", },
-        { "gd", vim.lsp.buf.definition, desc = "Goto Definition", has = "definition" },
-        { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
-        { "gI", vim.lsp.buf.implementation, desc = "Goto Implementation" },
-        { "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
-        { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
-        { "K", function() return vim.lsp.buf.hover() end, desc = "Hover", },
-        { "gK", function() return vim.lsp.buf.signature_help() end, desc = "Signature Help", has = "signatureHelp", },
-        { "<c-k>", function() return vim.lsp.buf.signature_help() end, mode = "i", desc = "Signature Help", has = "signatureHelp", },
-        { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "x" }, has = "codeAction" },
-        { "<leader>cc", vim.lsp.codelens.run, desc = "Run Codelens", mode = { "n", "x" }, has = "codeLens" },
-        { "<leader>cC", vim.lsp.codelens.refresh, desc = "Refresh & Display Codelens", mode = { "n" }, has = "codeLens" },
-        { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File", mode = { "n" }, has = { "workspace/didRenameFiles", "workspace/willRenameFiles" }, },
-        { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
-      },
     },
     config = function(_, opts)
+      local function augroup(name, clear)
+        if clear == nil then
+          clear = true
+        end
+        return vim.api.nvim_create_augroup("user_" .. name, { clear = clear })
+      end
       vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
+        group = augroup("lsp-attach"),
         callback = function(event)
+          local function map(keys, func, desc, mode)
+            mode = mode or "n"
+            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
+          end
+          map("gd", vim.lsp.buf.definition, "Goto Definition")
+          map("gD", vim.lsp.buf.declaration, "Goto Declaration")
+          map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
+          map("<leader>cc", vim.lsp.codelens.run, "Run Codelens", { "n", "x" })
+          map("<leader>cC", vim.lsp.codelens.refresh, "Refresh & Display Codelens")
+          map("<leader>cr", vim.lsp.buf.rename, "Rename")
+
           local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
           if client and client:supports_method("textDocument/documentHighlight", event.buf) then
-            local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+            local highlight_augroup = augroup("lsp-highlight", false)
             vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
               buffer = event.buf,
               group = highlight_augroup,
@@ -127,10 +127,10 @@ return {
             })
 
             vim.api.nvim_create_autocmd("LspDetach", {
-              group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+              group = augroup("lsp-detach"),
               callback = function(event2)
                 vim.lsp.buf.clear_references()
-                vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
+                vim.api.nvim_clear_autocmds({ group = "user_lsp-highlight", buffer = event2.buf })
               end,
             })
           end

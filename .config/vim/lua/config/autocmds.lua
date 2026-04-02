@@ -1,5 +1,5 @@
 local function augroup(name)
-  return vim.api.nvim_create_augroup("vim_" .. name, { clear = true })
+  return vim.api.nvim_create_augroup("user_" .. name, { clear = true })
 end
 
 -- Check if we need to reload the file when it changed
@@ -17,6 +17,18 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   group = augroup("highlight_yank"),
   callback = function()
     (vim.hl or vim.highlight).on_yank()
+  end,
+})
+
+-- Clear cmdline after command execution
+vim.api.nvim_create_autocmd("CmdlineLeave", {
+  group = vim.api.nvim_create_augroup("ClearCmdLine", { clear = true }),
+  callback = function()
+    vim.fn.timer_start(3000, function()
+      if vim.api.nvim_get_mode().mode == "n" then
+        vim.cmd.echon('""')
+      end
+    end)
   end,
 })
 
