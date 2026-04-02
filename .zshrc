@@ -36,7 +36,6 @@ alias joke='curl -s -H "Accept: application/json" https://v2.jokeapi.dev/joke/Pr
 alias dadjoke='echo -n "$(tput setaf 2)\""; curl -s -H "User-Agent: https://github.com/roryhen" -H "Accept: text/plain" https://icanhazdadjoke.com | \cat; echo "\"$(tput sgr0)"'
 alias path="echo $PATH | tr ':' '\n'"
 function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
-alias kvim='NVIM_APPNAME="kvim" nvim'
 alias vim='NVIM_APPNAME="vim" nvim'
 
 # git

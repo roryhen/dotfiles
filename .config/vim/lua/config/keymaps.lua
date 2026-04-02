@@ -49,6 +49,9 @@ map("v", ">", ">gv")
 map("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Below" })
 map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Above" })
 
+-- lazy
+map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
@@ -68,11 +71,26 @@ map("n", "<leader>xq", function()
   end
 end, { desc = "Quickfix List" })
 
+-- diagnostic
+local diagnostic_goto = function(next, severity)
+  severity = severity and vim.diagnostic.severity[severity] or nil
+  return function()
+    vim.diagnostic.jump({ severity = severity, count = next and 1 or -1 })
+  end
+end
+map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+map("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
+map("n", "[d", diagnostic_goto(false), { desc = "Prev Diagnostic" })
+map("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
+map("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
+map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
+map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
+
 -- highlights under cursor
 map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
 map("n", "<leader>uI", function()
   vim.treesitter.inspect_tree()
- vim.api.nvim_input("I")
+  vim.api.nvim_input("I")
 end, { desc = "Inspect Tree" })
 
 -- windows
