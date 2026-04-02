@@ -1,13 +1,7 @@
 return {
   {
-    "folke/tokyonight.nvim",
-    name = "tokyonight",
-    opts = {
-      style = "night",
-    },
-  },
-  {
     "bluz71/vim-nightfly-colors",
+    enabled = false,
     name = "nightfly",
   },
   {

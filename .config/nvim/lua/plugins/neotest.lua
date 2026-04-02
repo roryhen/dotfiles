@@ -8,8 +8,7 @@ return {
       "marilari88/neotest-vitest",
     },
     ---@module 'neotest'
-    ---@type neotest.Config
-    ---@diagnostic disable-next-line: missing-fields
+    ---@class (partial) Config : neotest.Config
     opts = {
       adapters = {
         ---@module 'neotest-jest'

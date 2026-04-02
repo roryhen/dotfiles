@@ -1,6 +1,6 @@
 return {
   {
-    "echasnovski/mini.ai",
+    "nvim-mini/mini.ai",
     event = "VeryLazy",
     opts = function()
       local ai = require("mini.ai")
@@ -26,7 +26,7 @@ return {
     end,
   },
   {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
     lazy = true,
     opts = {
       filetype = {
@@ -41,7 +41,7 @@ return {
     end,
   },
   {
-    "echasnovski/mini.pairs",
+    "nvim-mini/mini.pairs",
     event = "VeryLazy",
     opts = {
       modes = { insert = true, command = true, terminal = false },
@@ -57,7 +57,7 @@ return {
     },
   },
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     event = "VeryLazy",
     opts = {
       mappings = {
@@ -71,5 +71,4 @@ return {
       },
     },
   },
-  { "nvim-mini/mini.align", version = "*", event = "VeryLazy" },
 }

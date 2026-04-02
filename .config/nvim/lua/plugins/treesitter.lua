@@ -1,7 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    ---@module 'nvim-treesitter.configs'
+    ---@module 'nvim-treesitter'
     ---@type TSConfig
     ---@diagnostic disable-next-line: missing-fields
     opts = {
