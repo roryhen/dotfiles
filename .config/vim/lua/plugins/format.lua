@@ -1,5 +1,3 @@
-local formatters = { "prettierd", "deno_fmt", stop_after_first = true }
-
 return {
   { "tpope/vim-sleuth" }, -- sets tabstop and shiftwidth for you
   { -- Autoformat
@@ -34,19 +32,22 @@ return {
           lsp_format = lsp_format_opt,
         }
       end,
-      formatters_by_ft = {
-        lua = { "stylua" },
-        -- You can use 'stop_after_first' to run the first available formatter from the list
-        css = formatters,
-        html = formatters,
-        javascript = formatters,
-        json = formatters,
-        jsonc = formatters,
-        jsx = formatters,
-        markdown = formatters,
-        tsx = formatters,
-        typescript = formatters,
-      },
+      formatters_by_ft = function()
+        local formatters = { "prettierd", "deno_fmt", stop_after_first = true }
+        return {
+          lua = { "stylua" },
+          -- You can use 'stop_after_first' to run the first available formatter from the list
+          css = formatters,
+          html = formatters,
+          javascript = formatters,
+          json = formatters,
+          jsonc = formatters,
+          jsx = formatters,
+          markdown = formatters,
+          tsx = formatters,
+          typescript = formatters,
+        }
+      end,
     },
   },
 }
