@@ -18,6 +18,16 @@ return {
             },
           },
         },
+        tsgo = {
+          settings = {
+            typescript = {
+              preferences = {
+                useAliasesForRenames = false,
+                preferTypeOnlyAutoImports = true,
+              },
+            },
+          },
+        },
       },
     },
   },
