@@ -13,6 +13,11 @@ return {
       notifier = {
         top_down = false,
       },
+      picker = {
+        sources = {
+          files = { hidden = true },
+        },
+      },
     },
   },
 }
