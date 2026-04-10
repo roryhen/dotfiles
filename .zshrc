@@ -22,6 +22,9 @@ else
   export EDITOR='nvim'
 fi
 
+# Preferred program for man pages
+export MANPAGER='nvim +Man!'
+
 # Path mods
 export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
