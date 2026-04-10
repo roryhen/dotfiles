@@ -11,13 +11,16 @@ end
 return {
   {
     "folke/snacks.nvim",
+    lazy = false,
+    priority = 1000,
     ---@module 'snacks'
     ---@type snacks.Config
     opts = {
+      explorer = { enabled = true },
       indent = { enabled = true },
       notifier = { enabled = true },
       picker = { enabled = true },
-      words = { enabled = true },
+      statuscolumn = { enabled = true },
       terminal = {
         win = {
           keys = {
@@ -28,9 +31,11 @@ return {
           },
         },
       },
+      words = { enabled = true },
     },
     -- stylua: ignore
     keys = {
+      { "<leader>e", function() Snacks.explorer() end, desc = "Explorer", },
       -- buffers
       { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer", },
       { "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Delete Other Buffers", },
@@ -55,9 +60,8 @@ return {
       { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash", },
       { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)", },
       { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File", },
-      { "<leader>gb", function() Snacks.git.blame_line() end, desc = "Git Blame Line", },
+      { "<leader>ga", function() Snacks.git.blame_line() end, desc = "Git Blame Line", },
       { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse (open)", mode = { "n", "x" }, },
-      { "<leader>gY", function() Snacks.gitbrowse({ open = function(url) vim.fn.setreg("+", url) end, notify = false, }) end, desc = "Git Browse (copy)", mode = { "n", "x" }, },
       -- Grep
       { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines", },
       { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers", },
@@ -86,6 +90,13 @@ return {
       { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History", },
       { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes", },
       -- LSP
+      { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
+      { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
+      { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
+      { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
+      { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
+      { "gai", function() Snacks.picker.lsp_incoming_calls() end, desc = "C[a]lls Incoming" },
+      { "gao", function() Snacks.picker.lsp_outgoing_calls() end, desc = "C[a]lls Outgoing" },
       { "<leader>cl", function() Snacks.picker.lsp_config() end, desc = "LSP Info", },
       { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols", },
       { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols", },

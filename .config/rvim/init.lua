@@ -13,6 +13,7 @@ vim.o.inccommand = "split"
 vim.o.list = true
 vim.o.mouse = "a"
 vim.o.number = true
+vim.o.relativenumber = true
 vim.o.scrolloff = 20
 vim.o.showmode = false
 vim.o.signcolumn = "yes"
@@ -90,12 +91,17 @@ end, { desc = "Quickfix List" })
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)
-  severity = severity and vim.diagnostic.severity[severity] or nil
   return function()
-    vim.diagnostic.jump({ severity = severity, count = next and 1 or -1 })
+    vim.diagnostic.jump({
+      count = (next and 1 or -1) * vim.v.count1,
+      severity = severity and vim.diagnostic.severity[severity] or nil,
+      float = true,
+    })
   end
 end
 vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+vim.keymap.set("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
+vim.keymap.set("n", "[d", diagnostic_goto(false), { desc = "Prev Diagnostic" })
 vim.keymap.set("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
 vim.keymap.set("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
 vim.keymap.set("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
@@ -363,6 +369,7 @@ end
 
 vim.pack.add({ gh("folke/snacks.nvim") })
 require("snacks").setup({
+  explorer = { enabled = true },
   indent = { enabled = true },
   notifier = { enabled = true },
   picker = { enabled = true },
@@ -380,6 +387,8 @@ require("snacks").setup({
 })
 
 -- stylua: ignore start
+vim.keymap.set("n", "<leader>fe", function() Snacks.explorer() end, { desc = "Explorer" })
+vim.keymap.set("n", "<leader>e", "<leader>fe", { desc = "Explorer", remap = true })
 -- buffers
 vim.keymap.set("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Delete Buffer" })
 vim.keymap.set("n", "<leader>bo", function() Snacks.bufdelete.other() end, { desc = "Delete Other Buffers" })
@@ -434,6 +443,13 @@ vim.keymap.set("n", "<leader>sR", function() Snacks.picker.resume() end, { desc 
 vim.keymap.set("n", "<leader>su", function() Snacks.picker.undo() end, { desc = "Undo History" })
 vim.keymap.set("n", "<leader>uC", function() Snacks.picker.colorschemes() end, { desc = "Colorschemes" })
 -- LSP
+vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, { desc = "Goto Definition" })
+vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations() end, { desc = "Goto Declaration" })
+vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end, { nowait = true, desc = "References" })
+vim.keymap.set("n", "gI", function() Snacks.picker.lsp_implementations() end, { desc = "Goto Implementation" })
+vim.keymap.set("n", "gy", function() Snacks.picker.lsp_type_definitions() end, { desc = "Goto T[y]pe Definition" })
+vim.keymap.set("n", "gai", function() Snacks.picker.lsp_incoming_calls() end, { desc = "C[a]lls Incoming" })
+vim.keymap.set("n", "gao", function() Snacks.picker.lsp_outgoing_calls() end, { desc = "C[a]lls Outgoing" })
 vim.keymap.set("n", "<leader>cl", function() Snacks.picker.lsp_config() end, { desc = "LSP Info" })
 vim.keymap.set("n", "<leader>ss", function() Snacks.picker.lsp_symbols() end, { desc = "LSP Symbols" })
 vim.keymap.set("n", "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, { desc = "LSP Workspace Symbols" })
@@ -471,47 +487,6 @@ vim.keymap.set({ "n", "o", "x" }, "S", function() require("flash").treesitter() 
 vim.keymap.set("o", "r", function() require("flash").remote() end, { desc = "Remote Flash" })
 vim.keymap.set({ "o", "x" }, "R", function() require("flash").treesitter_search() end, { desc = "Treesitter Search" })
 vim.keymap.set({ "c" }, "<c-s>", function() require("flash").toggle() end, { desc = "Toggle Flash Search" })
--- stylua: ignore end
-
-vim.pack.add({
-  { src = gh("nvim-neo-tree/neo-tree.nvim"), version = vim.version.range("3") },
-  gh("nvim-lua/plenary.nvim"),
-  gh("MunifTanjim/nui.nvim"),
-  gh("nvim-tree/nvim-web-devicons"),
-})
-require("neo-tree").setup({
-  close_if_last_window = true,
-  filesystem = {
-    filtered_items = {
-      hide_dotfiles = false,
-    },
-  },
-  window = {
-    mappings = {
-      ["l"] = "open",
-      ["h"] = "close_node",
-      ["<space>"] = "none",
-      ["Y"] = {
-        function(state)
-          vim.fn.setreg("+", state.tree:get_node():get_id(), "c")
-        end,
-        desc = "Copy Path to Clipboard",
-      },
-      ["O"] = {
-        function(state)
-          vim.fn.jobstart({ "open", state.tree:get_node().path }, { detach = true })
-        end,
-        desc = "Open with System Application",
-      },
-      ["P"] = { "toggle_preview", config = { use_float = false } },
-    },
-  },
-})
--- stylua: ignore start
-vim.keymap.set("n", "<leader>fe", function() require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() }) end, { desc = "Explorer NeoTree", })
-vim.keymap.set("n","<leader>e", "<leader>fe", {desc = "Explorer NeoTree", remap = true })
-vim.keymap.set("n", "<leader>ge", function() require("neo-tree.command").execute({ source = "git_status", toggle = true }) end, { desc = "Git Explorer", })
-vim.keymap.set("n", "<leader>be", function() require("neo-tree.command").execute({ source = "buffers", toggle = true }) end, { desc = "Buffer Explorer", })
 -- stylua: ignore end
 
 vim.pack.add({ gh("nvim-mini/mini.ai") })
@@ -676,15 +651,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
       mode = mode or "n"
       vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
     end
-    map("gd", vim.lsp.buf.definition, "Goto Definition")
-    map("gD", vim.lsp.buf.declaration, "Goto Declaration")
-    map("K", vim.lsp.buf.hover, "Hover Docs")
-    map("<c-space>", vim.lsp.completion, "Completion Menu", "i")
-    map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
-    map("<leader>cc", vim.lsp.codelens.run, "Run Codelens", { "n", "x" })
-    map("<leader>cr", vim.lsp.buf.rename, "Rename")
 
     local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
+
+    if client and client:supports_method("textDocument/rename", event.buf) then
+      map("<leader>cr", vim.lsp.buf.rename, "Rename")
+    end
+
+    if client and client:supports_method("textDocument/codeAction", event.buf) then
+      map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
+    end
+
+    if client and client:supports_method("textDocument/codeLens") then
+      map("<leader>cc", vim.lsp.codelens.run, "Run Codelens", { "n", "x" })
+    end
+
     if client and client:supports_method("textDocument/documentHighlight", event.buf) then
       local highlight_augroup = augroup("lsp_highlight", false)
       vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -716,8 +697,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+---@module 'lspconfig'
+---@type lspconfig.Config
+---@diagnostic disable-next-line: missing-fields
 local servers = {
   astro = {},
+  bashls = {},
   denols = {
     root_dir = function()
       return require("lspconfig").util.root_pattern("deno.jsonc", "deno.json")
@@ -732,30 +717,9 @@ local servers = {
   ["eslint-lsp"] = {},
   graphql = {},
   hadolint = {},
-  prettierd = {},
-  shopify_theme_ls = {},
-  sqlfluff = {},
-  tailwindcss = {},
-  vtsls = {
-    settings = {
-      enableMoveToFileCodeAction = true,
-      autoUseWorkspaceTsdk = true,
-      typescript = {
-        preferences = {
-          useAliasesForRenames = false,
-          preferTypeOnlyAutoImports = true,
-        },
-      },
-    },
-  },
-}
-
-local ensure_installed = vim.tbl_keys(servers or {})
-vim.list_extend(ensure_installed, {
-  "bashls",
-  "html",
-  "jsonls",
-  "js-debug-adapter",
+  html = {},
+  jsonls = {},
+  ["js-debug-adapter"] = {},
   lua_ls = {
     on_init = function(client)
       if client.workspace_folders then
@@ -785,13 +749,31 @@ vim.list_extend(ensure_installed, {
       Lua = {},
     },
   },
-  "marksman",
-  "shellcheck",
-  "shfmt",
-  "stylua",
-  "taplo",
-  "yamlls",
-})
+  marksman = {},
+  prettierd = {},
+  shellcheck = {},
+  shfmt = {},
+  shopify_theme_ls = {},
+  sqlfluff = {},
+  stylua = {},
+  tailwindcss = {},
+  taplo = {},
+  tsgo = {
+    settings = {
+      enableMoveToFileCodeAction = true,
+      autoUseWorkspaceTsdk = true,
+      typescript = {
+        preferences = {
+          useAliasesForRenames = false,
+          preferTypeOnlyAutoImports = true,
+        },
+      },
+    },
+  },
+  yamlls = {},
+}
+
+local ensure_installed = vim.tbl_keys(servers or {})
 
 require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

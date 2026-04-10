@@ -3,13 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      {
-        "mason-org/mason.nvim",
-        ---@module 'mason.settings'
-        ---@type MasonSettings
-        ---@diagnostic disable-next-line: missing-fields
-        opts = {},
-      },
+      { "mason-org/mason.nvim", opts = {} },
       "mason-org/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       { "j-hui/fidget.nvim", opts = {} },
@@ -37,7 +31,7 @@ return {
         shopify_theme_ls = {},
         sqlfluff = {},
         tailwindcss = {},
-        vtsls = {
+        tsgo = {
           settings = {
             enableMoveToFileCodeAction = true,
             autoUseWorkspaceTsdk = true,
@@ -65,15 +59,21 @@ return {
             mode = mode or "n"
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
           end
-          map("gd", vim.lsp.buf.definition, "Goto Definition")
-          map("gD", vim.lsp.buf.declaration, "Goto Declaration")
-          map("K", vim.lsp.buf.hover, "Hover Docs")
-          map("<c-space>", vim.lsp.completion, "Completion Menu", "i")
-          map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
-          map("<leader>cc", vim.lsp.codelens.run, "Run Codelens", { "n", "x" })
-          map("<leader>cr", vim.lsp.buf.rename, "Rename")
 
           local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
+
+          if client and client:supports_method("textDocument/rename", event.buf) then
+            map("<leader>cr", vim.lsp.buf.rename, "Rename")
+          end
+
+          if client and client:supports_method("textDocument/codeAction", event.buf) then
+            map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
+          end
+
+          if client and client:supports_method("textDocument/codeLens") then
+            map("<leader>cc", vim.lsp.codelens.run, "Run Codelens", { "n", "x" })
+          end
+
           if client and client:supports_method("textDocument/documentHighlight", event.buf) then
             local highlight_augroup = augroup("lsp_highlight", false)
             vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -105,12 +105,11 @@ return {
         end,
       })
 
-      local ensure_installed = vim.tbl_keys(opts.servers or {})
-      vim.list_extend(ensure_installed, {
-        "bashls",
-        "html",
-        "jsonls",
-        "js-debug-adapter",
+      local all_servers = vim.tbl_extend("force", {
+        bashls = {},
+        html = {},
+        jsonls = {},
+        ["js-debug-adapter"] = {},
         lua_ls = {
           on_init = function(client)
             if client.workspace_folders then
@@ -140,17 +139,19 @@ return {
             Lua = {},
           },
         },
-        "marksman",
-        "shellcheck",
-        "shfmt",
-        "stylua",
-        "taplo",
-        "yamlls",
-      })
+        marksman = {},
+        shellcheck = {},
+        shfmt = {},
+        stylua = {},
+        taplo = {},
+        yamlls = {},
+      }, opts.servers)
+
+      local ensure_installed = vim.tbl_keys(all_servers)
 
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-      for name, server in pairs(opts.servers) do
+      for name, server in pairs(all_servers) do
         vim.lsp.config(name, server)
         vim.lsp.enable(name)
       end
