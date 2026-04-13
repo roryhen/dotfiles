@@ -28,6 +28,7 @@ require("config.autocmds")
 
 -- Setup lazy.nvim
 require("lazy").setup({
+  lazy = false,
   spec = {
     -- import your plugins
     { import = "plugins" },

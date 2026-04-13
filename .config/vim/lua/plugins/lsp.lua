@@ -45,6 +45,9 @@ return {
         },
       },
     },
+    keys = {
+      { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason", },
+    },
     config = function(_, opts)
       local function augroup(name, clear)
         if clear == nil then

@@ -489,7 +489,7 @@ vim.keymap.set({ "o", "x" }, "R", function() require("flash").treesitter_search(
 vim.keymap.set({ "c" }, "<c-s>", function() require("flash").toggle() end, { desc = "Toggle Flash Search" })
 -- stylua: ignore end
 
-vim.pack.add({ gh("nvim-mini/mini.ai") })
+vim.pack.add({ gh("nvim-mini/mini.nvim") })
 require("mini.ai").setup({
   opts = function()
     local ai = require("mini.ai")
@@ -515,7 +515,6 @@ require("mini.ai").setup({
   end,
 })
 
-vim.pack.add({ gh("nvim-mini/mini.icons") })
 require("mini.icons").setup({
   filetype = {
     dotenv = { glyph = "", hl = "MiniIconsYellow" },
@@ -528,7 +527,6 @@ require("mini.icons").setup({
   end,
 })
 
-vim.pack.add({ gh("nvim-mini/mini.pairs") })
 require("mini.pairs").setup({
   modes = { insert = true, command = true, terminal = false },
   -- skip autopair when next character is one of these
@@ -542,7 +540,6 @@ require("mini.pairs").setup({
   markdown = true,
 })
 
-vim.pack.add({ gh("nvim-mini/mini.surround") })
 require("mini.surround").setup({
   mappings = {
     add = "gsa",
