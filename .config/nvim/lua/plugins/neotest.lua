@@ -8,7 +8,7 @@ return {
       "marilari88/neotest-vitest",
     },
     ---@module 'neotest'
-    ---@class (partial) Config : neotest.Config
+    ---@class (partial) PartialNTConfig : neotest.Config
     opts = {
       adapters = {
         ---@module 'neotest-jest'

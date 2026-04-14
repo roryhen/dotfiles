@@ -2,23 +2,12 @@ return {
   {
     "neovim/nvim-lspconfig",
     ---@module 'lspconfig'
-    ---@type lspconfig.Config
-    ---@diagnostic disable-next-line: missing-fields
+    ---@class (partial) PartialLspConfig : lspconfig.Config
     opts = {
       inlay_hints = { enabled = false },
       servers = {
-        --- https://github.com/yioneko/vtsls/blob/main/packages/service/configuration.schema.json
-        vtsls = {
-          settings = {
-            typescript = {
-              preferences = {
-                useAliasesForRenames = false,
-                preferTypeOnlyAutoImports = true,
-              },
-            },
-          },
-        },
         tsgo = {
+          ---@type lspconfig.settings.ts_ls
           settings = {
             typescript = {
               preferences = {
