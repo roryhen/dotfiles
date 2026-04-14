@@ -33,7 +33,7 @@ cask "brave-browser"
 cask "font-commit-mono-nerd-font"
 cask "ghostty"
 cask "maccy"
+cask "microsoft-edge"
 cask "rectangle"
-cask "wezterm"
 cask "zed"
 mas "Slack", id: 803453959
