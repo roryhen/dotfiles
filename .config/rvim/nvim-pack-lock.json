@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "456d38d1cd3743926f329204c2340f3e7840aad6",
+      "rev": "37c96dc06032b3f128b230b5fb193706535b3811",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.nvim": {
@@ -29,7 +29,7 @@
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "grug-far.nvim": {
-      "rev": "b08a9f8d0602fdf075262e8e1b6dc776b3966003",
+      "rev": "21604255d0e8f9968322f61f2b6c09e5efe1285a",
       "src": "https://github.com/MagicDuck/grug-far.nvim"
     },
     "lazydev.nvim": {
@@ -37,7 +37,7 @@
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "lualine.nvim": {
-      "rev": "f5d2a8570f8b736ddb9bb4be504355bcd6e15ec8",
+      "rev": "a905eeebc4e63fdc48b5135d3bf8aea5618fb21c",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "mason-lspconfig.nvim": {
@@ -57,8 +57,12 @@
       "src": "https://github.com/nvim-mini/mini.ai"
     },
     "mini.icons": {
-      "rev": "7fdae2443a0e2910015ca39ad74b50524ee682d3",
+      "rev": "bac6317300e205335df425296570d84322730067",
       "src": "https://github.com/nvim-mini/mini.icons"
+    },
+    "mini.nvim": {
+      "rev": "27a3e747a4e603b4121f5759e74020430ec7b7d5",
+      "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "mini.pairs": {
       "rev": "42387c7fe68fc0b6e95eaf37f1bb76e7bffaa0d9",
@@ -82,7 +86,7 @@
       "src": "https://github.com/MunifTanjim/nui.nvim"
     },
     "nvim-lspconfig": {
-      "rev": "cb5bc0b2b35a6d513e3298d285db81453e791f4f",
+      "rev": "b80f82f59544f0770981b5a6c7d129ca276dab36",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {

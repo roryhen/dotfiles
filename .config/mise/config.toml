@@ -4,6 +4,7 @@ deno = "latest"
 node = "latest"
 pnpm = "latest"
 python = "latest"
+viteplus = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
