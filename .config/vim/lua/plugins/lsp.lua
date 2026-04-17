@@ -11,13 +11,10 @@ return {
     },
     lazy = false,
     opts = {
+      ---@type table<string, vim.lsp.Config>
       servers = {
         astro = {},
-        denols = {
-          root_dir = function()
-            return require("lspconfig").util.root_pattern("deno.jsonc", "deno.json")
-          end,
-        },
+        denols = {},
         docker_compose_language_service = {},
         dockerls = {},
         emmet_language_server = {
@@ -46,7 +43,7 @@ return {
       },
     },
     keys = {
-      { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason", },
+      { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" },
     },
     config = function(_, opts)
       local function augroup(name, clear)
@@ -65,50 +62,53 @@ return {
 
           local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
 
-          if client and client:supports_method("textDocument/rename", event.buf) then
-            map("<leader>cr", vim.lsp.buf.rename, "Rename")
-          end
+          if client then
+            if client:supports_method("textDocument/rename", event.buf) then
+              map("<leader>cr", vim.lsp.buf.rename, "Rename")
+            end
 
-          if client and client:supports_method("textDocument/codeAction", event.buf) then
-            map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
-          end
+            if client:supports_method("textDocument/codeAction", event.buf) then
+              map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
+            end
 
-          if client and client:supports_method("textDocument/codeLens") then
-            map("<leader>cc", vim.lsp.codelens.run, "Run Codelens", { "n", "x" })
-          end
+            if client:supports_method("textDocument/codeLens") then
+              map("<leader>cc", vim.lsp.codelens.run, "Run Codelens", { "n", "x" })
+            end
 
-          if client and client:supports_method("textDocument/documentHighlight", event.buf) then
-            local highlight_augroup = augroup("lsp_highlight", false)
-            vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-              buffer = event.buf,
-              group = highlight_augroup,
-              callback = vim.lsp.buf.document_highlight,
-            })
+            if client:supports_method("textDocument/documentHighlight", event.buf) then
+              local highlight_augroup = augroup("lsp_highlight", false)
+              vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+                buffer = event.buf,
+                group = highlight_augroup,
+                callback = vim.lsp.buf.document_highlight,
+              })
 
-            vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-              buffer = event.buf,
-              group = highlight_augroup,
-              callback = vim.lsp.buf.clear_references,
-            })
+              vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+                buffer = event.buf,
+                group = highlight_augroup,
+                callback = vim.lsp.buf.clear_references,
+              })
 
-            vim.api.nvim_create_autocmd("LspDetach", {
-              group = augroup("lsp-detach"),
-              callback = function(event2)
-                vim.lsp.buf.clear_references()
-                vim.api.nvim_clear_autocmds({ group = "user_lsp_highlight", buffer = event2.buf })
-              end,
-            })
-          end
+              vim.api.nvim_create_autocmd("LspDetach", {
+                group = augroup("lsp-detach"),
+                callback = function(event2)
+                  vim.lsp.buf.clear_references()
+                  vim.api.nvim_clear_autocmds({ group = "user_lsp_highlight", buffer = event2.buf })
+                end,
+              })
+            end
 
-          if client and client:supports_method("textDocument/inlayHint", event.buf) then
-            map("<leader>th", function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-            end, "Toggle Inlay Hints")
+            if client:supports_method("textDocument/inlayHint", event.buf) then
+              map("<leader>th", function()
+                vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+              end, "Toggle Inlay Hints")
+            end
           end
         end,
       })
 
-      local all_servers = vim.tbl_extend("force", {
+      ---@type table<string, vim.lsp.Config>
+      local all_servers = {
         bashls = {},
         html = {},
         jsonls = {},
@@ -148,9 +148,9 @@ return {
         stylua = {},
         taplo = {},
         yamlls = {},
-      }, opts.servers)
+      }
 
-      local ensure_installed = vim.tbl_keys(all_servers)
+      local ensure_installed = vim.tbl_keys(vim.tbl_extend("force", all_servers, opts.servers))
 
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

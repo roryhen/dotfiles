@@ -11,9 +11,30 @@ return {
     },
   },
   {
-    "folke/todo-comments.nvim",
-    event = "BufReadPre",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = { signs = false },
+    "akinsho/bufferline.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    version = "*",
+    event = "VeryLazy",
+    opts = {
+      options = {
+        close_command = function(n)
+          Snacks.bufdelete(n)
+        end,
+        always_show_bufferline = false,
+        offsets = {
+          {
+            filetype = "snacks_layout_box",
+          },
+        },
+      },
+    },
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" },
+    event = "VeryLazy",
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
   },
 }

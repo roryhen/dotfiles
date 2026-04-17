@@ -1,9 +1,13 @@
 -- You can use 'stop_after_first' to run the first available formatter from the list
 local formatters = { "oxfmt", "deno_fmt", stop_after_first = true }
 return {
-  { "tpope/vim-sleuth" }, -- sets tabstop and shiftwidth for you
+  { -- sets tabstop and shiftwidth for you
+    "tpope/vim-sleuth",
+    event = "VeryLazy",
+  },
   { -- Autoformat
     "stevearc/conform.nvim",
+    event = "VeryLazy",
     cmd = { "ConformInfo" },
     keys = {
       {

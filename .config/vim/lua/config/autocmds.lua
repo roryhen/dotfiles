@@ -6,19 +6,57 @@ end
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = augroup("highlight_yank"),
   callback = function()
-    (vim.hl or vim.highlight).on_yank()
+    vim.hl.on_yank()
   end,
 })
 
 -- Clear cmdline after command execution
 vim.api.nvim_create_autocmd("CmdlineLeave", {
-  group = vim.api.nvim_create_augroup("ClearCmdLine", { clear = true }),
+  group = augroup("clear_cmdline"),
   callback = function()
     vim.fn.timer_start(3000, function()
       if vim.api.nvim_get_mode().mode == "n" then
         vim.cmd.echon('""')
       end
     end)
+  end,
+})
+
+-- set up diagnostics
+vim.api.nvim_create_autocmd("BufReadPre", {
+  group = augroup("diag_config"),
+  callback = function()
+    vim.diagnostic.config({
+      update_in_insert = false,
+      severity_sort = true,
+      float = { source = "if_many" },
+      underline = { severity = { min = vim.diagnostic.severity.WARN } },
+      virtual_text = true, -- Text shows up at the end of the line
+      virtual_lines = false, -- Text shows up underneath the line, with virtual lines
+      jump = {
+        on_jump = function(_, bufnr)
+          vim.diagnostic.open_float({
+            bufnr = bufnr,
+            scope = "cursor",
+            focus = false,
+          })
+        end,
+      },
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "󰅚",
+          [vim.diagnostic.severity.WARN] = "󰀪",
+          [vim.diagnostic.severity.INFO] = "󰋽",
+          [vim.diagnostic.severity.HINT] = "󰌶",
+        },
+        texthl = {
+          [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+          [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+          [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+          [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+        },
+      },
+    })
   end,
 })
 

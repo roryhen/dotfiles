@@ -1,6 +1,7 @@
 return {
   {
     "MagicDuck/grug-far.nvim",
+    event = "VeryLazy",
     opts = { headerMaxWidth = 80 },
     cmd = "GrugFar",
     keys = {
@@ -24,7 +25,6 @@ return {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    vscode = true,
     ---@type Flash.Config
     opts = {},
     -- stylua: ignore
@@ -34,6 +34,18 @@ return {
       { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
       { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
       { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+    },
+  },
+  {
+    "folke/trouble.nvim",
+    event = "VeryLazy",
+    opts = {},
+    cmd = "Trouble",
+    keys = {
+      { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
+      { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
+      { "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
+      { "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
     },
   },
 }

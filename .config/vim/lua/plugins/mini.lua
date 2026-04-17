@@ -27,7 +27,7 @@ return {
   },
   {
     "nvim-mini/mini.icons",
-    lazy = true,
+    event = "VeryLazy",
     opts = {
       filetype = {
         dotenv = { glyph = "", hl = "MiniIconsYellow" },
@@ -71,5 +71,4 @@ return {
       },
     },
   },
-  { "nvim-mini/mini.tabline" },
 }
