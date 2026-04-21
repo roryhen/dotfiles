@@ -1,3 +1,5 @@
+local autocmd = require("util").autocmd
+
 return {
   { -- Highlight, edit, and navigate code
     "nvim-treesitter/nvim-treesitter",
@@ -61,7 +63,7 @@ return {
       end
 
       local available_parsers = require("nvim-treesitter").get_available()
-      vim.api.nvim_create_autocmd("FileType", {
+      autocmd("FileType", {
         callback = function(args)
           local buf, filetype = args.buf, args.match
 

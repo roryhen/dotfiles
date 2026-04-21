@@ -1,4 +1,3 @@
---  See `:help vim.keymap.set()`
 local map = require("util").map
 
 -- better up/down
@@ -23,7 +22,7 @@ map("<leader>`", "<cmd>e #<cr>", "Switch to Other Buffer")
 map("<leader>bD", "<cmd>:bd<cr>", "Delete Buffer and Window")
 
 -- Clear search, diff update and redraw
-map("<Esc>", "<cmd>nohlsearch<CR>")
+map("<Esc>", "<cmd>nohlsearch<CR>", nil)
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 map("n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
@@ -38,15 +37,17 @@ map(",", ",<c-g>u", nil, "i")
 map(".", ".<c-g>u", nil, "i")
 map(";", ";<c-g>u", nil, "i")
 
--- keywordprg
+--keywordprg
 map("<leader>K", "<cmd>norm! K<cr>", "Keywordprg")
 
 -- better indenting
 map("<", "<gv", nil, "v")
 map(">", ">gv", nil, "v")
 
--- lazy
-map("<leader>l", "<cmd>Lazy<cr>", "Lazy")
+--vim.pack
+map("<leader>p", function()
+  vim.pack.update()
+end, "Pack Update")
 
 -- new file
 map("<leader>fn", "<cmd>enew<cr>", "New File")
@@ -81,7 +82,6 @@ map("]e", diagnostic_goto(true, "ERROR"), "Next Error")
 map("[e", diagnostic_goto(false, "ERROR"), "Prev Error")
 map("]w", diagnostic_goto(true, "WARN"), "Next Warning")
 map("[w", diagnostic_goto(false, "WARN"), "Prev Warning")
-
 -- highlights under cursor
 map("<leader>ui", vim.show_pos, "Inspect Pos")
 map("<leader>uI", function()

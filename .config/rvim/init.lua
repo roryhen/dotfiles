@@ -146,7 +146,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Clear cmdline after command execution
 vim.api.nvim_create_autocmd("CmdlineLeave", {
-  group = vim.api.nvim_create_augroup("ClearCmdLine", { clear = true }),
+  group = augroup("clear_cmdline"),
   callback = function()
     vim.fn.timer_start(3000, function()
       if vim.api.nvim_get_mode().mode == "n" then
