@@ -64,7 +64,7 @@ map("<leader>gS", function() Snacks.picker.git_stash() end, { desc = "Git Stash"
 map("<leader>gd", function() Snacks.picker.git_diff() end, { desc = "Git Diff (Hunks)" })
 map("<leader>gf", function() Snacks.picker.git_log_file() end, { desc = "Git Log File" })
 map("<leader>ga", function() Snacks.git.blame_line() end, { desc = "Git Blame Line" })
-map("<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse (open)", mode = { "n", "x" } }, { "n", "x" })
+map("<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse (open)" }, { "n", "x" })
 
 -- Grep
 map("<leader>sb", function() Snacks.picker.lines() end, { desc = "Buffer Lines" })

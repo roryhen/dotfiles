@@ -8,12 +8,13 @@ require("nightfox").setup()
 vim.cmd.colorscheme("carbonfox")
 
 add({
-  "saghen/blink.cmp",
+  { src = "saghen/blink.cmp", version = vim.version.range("1.x") },
   "rafamadriz/friendly-snippets",
 })
 
 require("blink.cmp").setup({
   keymap = { preset = "enter" },
+  fuzzy = { implementation = "prefer_rust" },
 })
 
 add({

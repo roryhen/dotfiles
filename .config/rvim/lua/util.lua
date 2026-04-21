@@ -1,12 +1,18 @@
 local M = {}
 
 ---Add GitHub packages to vim.pack
----@param list string[] List of GitHub repository paths
+---@param list string[]|vim.pack.Spec[] List of GitHub repository paths
 M.add = function(list)
   local packs = {}
   local prefix = "https://github.com/"
   for _, source in ipairs(list) do
-    table.insert(packs, prefix .. source)
+    local new_pack
+    if type(source) == "string" then
+      new_pack = prefix .. source
+    else
+      new_pack = vim.tbl_extend("keep", { src = prefix .. source.src }, source)
+    end
+    table.insert(packs, new_pack)
   end
   vim.pack.add(packs)
 end
@@ -32,7 +38,7 @@ end
 ---@param clear? boolean Clear group on creation. Defaults to true
 M.autocmd = function(event, opts, clear)
   clear = clear or true
-  opts.group = vim.api.nvim_create_augroup("user_" .. opts.group, { clear = clear })
+  opts.group = vim.api.nvim_create_augroup("user_" .. (opts.group or "autocmd"), { clear = clear })
   vim.api.nvim_create_autocmd(event, opts)
 end
 

@@ -31,4 +31,4 @@ require("conform").setup({
 
 map("<leader>cf", function()
   require("conform").format({ async = true, lsp_format = "fallback" })
-end, "Format buffer", "")
+end, "Format buffer", { "n", "i", "v" })
