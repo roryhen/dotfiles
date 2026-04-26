@@ -3,6 +3,8 @@
 vim.schedule(function()
   vim.o.clipboard = "unnamedplus"
 end)
+vim.bo.autocomplete = vim.bo.buftype == ""
+vim.o.completeopt = "menu,menuone,popup,noselect"
 vim.o.breakindent = true
 vim.o.confirm = true
 vim.o.cursorline = true
@@ -11,6 +13,7 @@ vim.o.inccommand = "split"
 vim.o.list = true
 vim.o.mouse = "a"
 vim.o.number = true
+vim.o.pumheight = 10
 vim.o.relativenumber = true
 vim.o.scrolloff = 20
 vim.o.showmode = false

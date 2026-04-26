@@ -71,6 +71,10 @@ return {
               map("<leader>cc", vim.lsp.codelens.run, "Run Codelens", { "n", "x" })
             end
 
+            if client:supports_method("textDocument/completion") then
+              vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+            end
+
             if client:supports_method("textDocument/documentHighlight", event.buf) then
               local highlight_augroup = "lsp_highlight"
               autocmd({ "CursorHold", "CursorHoldI" }, {
