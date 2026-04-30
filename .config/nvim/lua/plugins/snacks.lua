@@ -17,7 +17,15 @@ return {
         sources = {
           files = { hidden = true },
           grep = { hidden = true },
-          explorer = { hidden = true },
+          explorer = {
+            hidden = true,
+            layout = {
+              preview = {
+                main = true,
+                enabled = false,
+              },
+            },
+          },
         },
       },
     },
