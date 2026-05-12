@@ -1,4 +1,4 @@
-tap "homebrew/autoupdate"
+tap "anomalyco/tap"
 brew "awscli"
 brew "bash"
 brew "tree-sitter"
@@ -29,6 +29,7 @@ brew "trash", link: true
 brew "tree-sitter-cli"
 brew "zsh"
 brew "zsh-vi-mode"
+brew "anomalyco/tap/opencode"
 cask "brave-browser"
 cask "font-commit-mono-nerd-font"
 cask "ghostty"
