@@ -10,6 +10,8 @@
 !.config/ghostty/
 !.config/ghostty/*
 !.config/ghostty/themes/*
+!.config/opencode/
+!.config/opencode/*
 !.config/zed/
 !.config/zed/keymap.json
 !.config/zed/settings.json
