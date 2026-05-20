@@ -11,7 +11,10 @@
 !.config/ghostty/*
 !.config/ghostty/themes/*
 !.config/opencode/
-!.config/opencode/*
+!.config/opencode/opencode.json
+!.config/opencode/AGENTS.md
+!.config/opencode/skills/
+!.config/opencode/skills/**
 !.config/zed/
 !.config/zed/keymap.json
 !.config/zed/settings.json
