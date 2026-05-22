@@ -11,6 +11,13 @@ return {
       window = {
         layout = "horizontal",
       },
+      trusted_tools = { "file", "glob", "grep" },
+      sticky = {
+        "#selection",
+        "#buffer:listed",
+        "#gitdiff:unstaged",
+        "#gitdiff:staged",
+      },
     },
   },
 }
