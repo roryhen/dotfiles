@@ -3,7 +3,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 # update automatically without asking
-zstyle ':omz:update' mode auto      
+zstyle ':omz:update' mode auto
 
 # oh-my-zsh plugins
 plugins=(
@@ -43,8 +43,6 @@ alias vim='NVIM_APPNAME="vim" nvim'
 alias rvim='NVIM_APPNAME="rvim" nvim'
 
 # git
-alias gl='git fetch && git pull --ff-only'
-alias githistory='git log --format=reference -p --follow --'
 alias ghas='gh auth switch'
 function gswb() { 
   local BRANCHES="$(git for-each-ref --format='%(refname:lstrip=1)' | sed -E 's/^remotes\/|heads\///')"
@@ -55,7 +53,12 @@ alias trimbranch='echo "$(git branch --show-current)" | cut -c 1-41'
 
 # web
 alias lsport='lsof -iTCP -sTCP:LISTEN -n -P'
-alias awsts='aws sts get-caller-identity'
+function killport() { 
+  local PORT="$1"
+  local PORTS="$(lsof -iTCP -sTCP:LISTEN -n -P)"
+  local PID=$(echo "$PORTS" | grep -Eo "[0-9]+.*$PORT" | cut -d ' ' -f 1)
+  kill -9 "$PID" && echo "Process $PID running on port $PORT stopped" 
+}
 function pdev() {
   local PORT="${1:-3000}"
   pnpm --color dev -p $PORT |
@@ -63,12 +66,6 @@ function pdev() {
       grep -q "Ready in " && open "http://localhost:$PORT"
       cat >/dev/null
     }
-}
-function killport() { 
-  local PORT="$1"
-  local PORTS="$(lsof -iTCP -sTCP:LISTEN -n -P)"
-  local PID=$(echo "$PORTS" | grep -Eo "[0-9]+.*$PORT" | cut -d ' ' -f 1)
-  kill -9 "$PID" && echo "Process $PID running on port $PORT stopped" 
 }
 function crawlsitemap() {
   # check if empty arg  
