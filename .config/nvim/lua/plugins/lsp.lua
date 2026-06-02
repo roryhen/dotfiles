@@ -6,8 +6,8 @@ return {
     opts = {
       inlay_hints = { enabled = false },
       servers = {
-        tsgo = {
-          ---@type lspconfig.settings.ts_ls
+        vtsls = {
+          ---@type lspconfig.settings.vtsls
           settings = {
             typescript = {
               preferences = {

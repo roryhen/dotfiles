@@ -49,7 +49,16 @@ function gswb() {
   local BRANCH="$(echo "$BRANCHES" | fzf)"
   git switch "$(echo "$BRANCH" | sed -E 's/^origin\///')"
 }
-alias trimbranch='echo "$(git branch --show-current)" | cut -c 1-41'
+function gblen() {
+  local branch len
+  branch=$(git branch --show-current)
+  len=${#branch}
+  if [ "$len" -gt 40 ]; then
+    echo "Error: branch name is ${len} chars (limit: 40)" >&2
+  else
+    echo "OK: branch name is ${len} chars"
+  fi
+}
 
 # web
 alias lsport='lsof -iTCP -sTCP:LISTEN -n -P'
@@ -59,6 +68,7 @@ function killport() {
   local PID=$(echo "$PORTS" | grep -Eo "[0-9]+.*$PORT" | cut -d ' ' -f 1)
   kill -9 "$PID" && echo "Process $PID running on port $PORT stopped" 
 }
+alias getip='curl -s https://ipinfo.io/ip'
 function pdev() {
   local PORT="${1:-3000}"
   pnpm --color dev -p $PORT |
