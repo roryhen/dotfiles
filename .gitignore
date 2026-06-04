@@ -13,6 +13,8 @@
 !.config/opencode/
 !.config/opencode/opencode.json
 !.config/opencode/AGENTS.md
+!.config/opencode/opencode-quota/
+!.config/opencode/opencode-quota/*
 !.config/opencode/skills/
 !.config/opencode/skills/**
 !.config/zed/

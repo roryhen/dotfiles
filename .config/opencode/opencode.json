@@ -1,5 +1,9 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "lsp": true,
-  "formatter": true
+  "formatter": true,
+  "small_model": "deepseek/deepseek-v4-flash",
+  "plugin": [
+    "@slkiser/opencode-quota"
+  ]
 }
