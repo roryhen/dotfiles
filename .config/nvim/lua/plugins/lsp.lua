@@ -16,6 +16,9 @@ return {
               },
             },
           },
+          keys = {
+            { "<leader>cu", LazyVim.lsp.action["source.removeUnused.ts"], desc = "Remove unused imports" },
+          },
         },
       },
     },

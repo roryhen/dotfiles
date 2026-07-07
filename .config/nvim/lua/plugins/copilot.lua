@@ -7,6 +7,7 @@ return {
     ---@module 'CopilotChat'
     ---@type CopilotChat.config.Config
     opts = {
+      model = "auto",
       window = {
         layout = "horizontal",
       },
