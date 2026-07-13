@@ -1,4 +1,4 @@
-local formatters = { "oxfmt", "prettierd", stop_after_first = true }
+local formatters = { "prettierd", "oxfmt", stop_after_first = true }
 return {
   {
     "stevearc/conform.nvim",
@@ -15,7 +15,7 @@ return {
         json = formatters,
         liquid = formatters,
         markdown = formatters,
-        markdown_mdx = formatters,
+        ["markdown.mdx"] = formatters,
         scss = formatters,
         svelte = formatters,
         typescript = formatters,
