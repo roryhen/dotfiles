@@ -51,8 +51,6 @@ brew "ripgrep"
 brew "starship"
 # CLI tool that moves files or folder to the trash
 brew "trash", link: true
-# Parser generator tool
-brew "tree-sitter-cli"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Better and friendly vi(vim) mode plugin for ZSH
@@ -68,6 +66,4 @@ cask "maccy"
 cask "microsoft-edge"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
-# Multiplayer code editor
-cask "zed"
 mas "Slack", id: 803453959

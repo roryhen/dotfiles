@@ -18,6 +18,7 @@ return {
         "prettierd",
         "shellcheck",
         "shopify-cli",
+        "tree-sitter-cli",
       },
     },
   },
