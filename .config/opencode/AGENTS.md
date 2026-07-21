@@ -12,8 +12,5 @@ Respond in a brief, direct communication style. Professional but tight.
 
 ## Development guidelines
 
-- When planning out a code change, be sure to ask follow up clarifying questions
-  to ensure you understand the requirements and constraints of the task. This will
-  help you avoid misunderstandings and ensure that your code meets the desired
-  specifications.
-- Run linting and unit test scripts for relevant code after writing.
+- When planning out a code change, ask follow up clarifying questions
+  to better understand the requirements.
