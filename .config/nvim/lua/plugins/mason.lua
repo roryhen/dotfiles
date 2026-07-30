@@ -7,6 +7,7 @@ return {
       ensure_installed = {
         "astro-language-server",
         "bash-language-server",
+        "copilot-language-server",
         "css-lsp",
         "deno",
         "emmet-language-server",
