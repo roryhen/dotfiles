@@ -6,6 +6,7 @@ return {
     ---@type conform.setupOpts
     opts = {
       formatters_by_ft = {
+        astro = formatters,
         css = formatters,
         graphql = formatters,
         handlebars = formatters,

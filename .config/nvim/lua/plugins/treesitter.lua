@@ -5,6 +5,7 @@ return {
     ---@class (partial) PartialTSConfig : TSConfig
     opts = {
       ensure_installed = {
+        "astro",
         "liquid",
         "styled",
       },

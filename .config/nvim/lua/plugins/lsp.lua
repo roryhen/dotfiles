@@ -6,8 +6,10 @@ return {
     opts = {
       inlay_hints = { enabled = false },
       servers = {
-        tsgo = {
-          ---@type lspconfig.settings.vtsls
+        astro = {},
+        tsc = {
+          cmd = { "/opt/homebrew/bin/tsc", "--lsp", "--stdio" },
+          ---@type lspconfig.settings.ts_ls
           settings = {
             typescript = {
               preferences = {
