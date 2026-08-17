@@ -1,10 +1,22 @@
-local formatters = { "prettierd", "oxfmt", stop_after_first = true }
+local formatters = { "oxfmt", "deno_fmt", stop_after_first = true }
+local prettier_compat = {
+  append_args = {
+    "--print-width",
+    "80",
+    "--sort-tailwindcss",
+    "true",
+  },
+}
 return {
   {
     "stevearc/conform.nvim",
     ---@module 'conform'
     ---@type conform.setupOpts
     opts = {
+      formatters = {
+        typescript = prettier_compat,
+        typescriptreact = prettier_compat,
+      },
       formatters_by_ft = {
         astro = formatters,
         css = formatters,
@@ -17,7 +29,6 @@ return {
         liquid = formatters,
         markdown = formatters,
         ["markdown.mdx"] = formatters,
-        scss = formatters,
         svelte = formatters,
         typescript = formatters,
         typescriptreact = formatters,

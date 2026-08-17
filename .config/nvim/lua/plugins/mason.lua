@@ -16,7 +16,6 @@ return {
         "json-lsp",
         "oxfmt",
         "oxlint",
-        "prettierd",
         "shellcheck",
         "shopify-cli",
         "tree-sitter-cli",
