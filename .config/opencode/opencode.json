@@ -3,7 +3,25 @@
   "lsp": true,
   "formatter": true,
   "small_model": "deepseek/deepseek-v4-flash",
-  "plugin": [
-    "@slkiser/opencode-quota"
-  ]
+  "plugin": ["@slkiser/opencode-quota"],
+  "provider": {
+    "docker-module-runner": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "docker-module-runner (local)",
+      "options": {
+        "baseURL": "http://localhost:8080"
+      },
+      "models": {
+        "ai/qwen3-coder": {
+          "name": "Qwen3-Coder-30B-A3B-Instruct (local)"
+        },
+        "ai/glm-5.2": {
+          "name": "GLM 5.2 (local)"
+        },
+        "ai/kimi-k3": {
+          "name": "Kimi K3 (local)"
+        }
+      }
+    }
+  }
 }

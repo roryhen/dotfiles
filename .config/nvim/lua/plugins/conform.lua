@@ -1,41 +1,50 @@
-local formatters = { "oxfmt", "deno_fmt", stop_after_first = true }
-local prettier_compat = {
-  append_args = {
-    "--print-width",
-    "80",
-    "--sort-tailwindcss",
-    "true",
-  },
-}
 return {
   {
     "stevearc/conform.nvim",
     ---@module 'conform'
-    ---@type conform.setupOpts
-    opts = {
-      formatters = {
-        typescript = prettier_compat,
-        typescriptreact = prettier_compat,
-      },
-      formatters_by_ft = {
-        astro = formatters,
-        css = formatters,
-        graphql = formatters,
-        handlebars = formatters,
-        html = formatters,
-        javascript = formatters,
-        javascriptreact = formatters,
-        json = formatters,
-        liquid = formatters,
-        markdown = formatters,
-        ["markdown.mdx"] = formatters,
-        svelte = formatters,
-        typescript = formatters,
-        typescriptreact = formatters,
-        vue = formatters,
-        yaml = formatters,
-        toml = formatters,
-      },
-    },
+    ---@type function|conform.setupOpts
+    opts = function(_, opts)
+      local function formatters_for_js(bufnr)
+        local filename = vim.api.nvim_buf_get_name(bufnr)
+        local directory = vim.fs.dirname(filename)
+
+        local deno_config = vim.fs.find({
+          "deno.json",
+          "deno.jsonc",
+          "deno.lock",
+        }, {
+          path = directory,
+          upward = true,
+          type = "file",
+        })
+
+        if #deno_config > 0 then
+          return { "deno_fmt" }
+        end
+
+        return { "prettierd" }
+      end
+
+      for _, filetype in ipairs({
+        "astro",
+        "css",
+        "graphql",
+        "html",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "liquid",
+        "markdown",
+        "markdown.mdx",
+        "svelte",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "yaml",
+        "toml",
+      }) do
+        opts.formatters_by_ft[filetype] = formatters_for_js
+      end
+    end,
   },
 }
