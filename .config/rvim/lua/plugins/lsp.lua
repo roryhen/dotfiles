@@ -122,11 +122,10 @@ local all_servers = {
   stylua = {},
   tailwindcss = {},
   taplo = {},
-  tsgo = {
+  tsc = {
+    ---@type lspconfig.settings.tsc
     settings = {
-      enableMoveToFileCodeAction = true,
-      autoUseWorkspaceTsdk = true,
-      typescript = {
+      ["js/ts"] = {
         preferences = {
           useAliasesForRenames = false,
           preferTypeOnlyAutoImports = true,
@@ -137,7 +136,13 @@ local all_servers = {
   yamlls = {},
 }
 
-require("mason-tool-installer").setup({ ensure_installed = vim.tbl_keys(all_servers) })
+local tools = {
+  "tree-sitter-cli",
+}
+
+local ensure_installed = vim.list_extend(vim.deepcopy(tools), vim.tbl_keys(all_servers))
+
+require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 for name, server in pairs(all_servers) do
   vim.lsp.config(name, server)

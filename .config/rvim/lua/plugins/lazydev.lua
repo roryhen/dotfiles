@@ -1,7 +1,9 @@
 local add = require("util").add
 local autocmd = require("util").autocmd
 
-add({ "folke/lazydev.nvim" })
+add({
+  "folke/lazydev.nvim",
+})
 
 autocmd("FileType", {
   group = "lazydev_setup",

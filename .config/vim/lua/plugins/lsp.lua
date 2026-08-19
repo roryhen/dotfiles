@@ -30,11 +30,10 @@ return {
         shopify_theme_ls = {},
         sqlfluff = {},
         tailwindcss = {},
-        tsgo = {
+        tsc = {
+          ---@type lspconfig.settings.tsc
           settings = {
-            enableMoveToFileCodeAction = true,
-            autoUseWorkspaceTsdk = true,
-            typescript = {
+            ["js/ts"] = {
               preferences = {
                 useAliasesForRenames = false,
                 preferTypeOnlyAutoImports = true,
@@ -150,11 +149,16 @@ return {
         yamlls = {},
       }
 
-      local ensure_installed = vim.tbl_keys(vim.tbl_extend("force", all_servers, opts.servers))
+      local tools = {
+        "tree-sitter-cli",
+      }
+
+      local servers = vim.tbl_extend("force", all_servers, opts.servers)
+      local ensure_installed = vim.list_extend(vim.deepcopy(tools), vim.tbl_keys(servers))
 
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-      for name, server in pairs(all_servers) do
+      for name, server in pairs(servers) do
         vim.lsp.config(name, server)
         vim.lsp.enable(name)
       end

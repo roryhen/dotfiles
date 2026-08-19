@@ -8,10 +8,9 @@ return {
       servers = {
         astro = {},
         tsc = {
-          cmd = { "/opt/homebrew/bin/tsc", "--lsp", "--stdio" },
-          ---@type lspconfig.settings.ts_ls
+          ---@type lspconfig.settings.tsc
           settings = {
-            typescript = {
+            ["js/ts"] = {
               preferences = {
                 useAliasesForRenames = false,
                 preferTypeOnlyAutoImports = true,

@@ -6,9 +6,6 @@ add({
   "stevearc/conform.nvim",
 })
 
--- You can use 'stop_after_first' to run the first available formatter from the list
-local formatters = { "oxfmt", "deno_fmt", stop_after_first = true }
-
 require("conform").setup({
   notify_on_error = false,
   format_on_save = {
@@ -16,16 +13,17 @@ require("conform").setup({
     lsp_format = "fallback",
   },
   formatters_by_ft = {
+    astro = { "deno_fmt" },
+    css = { "deno_fmt" },
+    html = { "deno_fmt" },
+    javascript = { "deno_fmt" },
+    javascriptreact = { "deno_fmt" },
+    json = { "deno_fmt" },
+    jsonc = { "deno_fmt" },
     lua = { "stylua" },
-    css = formatters,
-    html = formatters,
-    javascript = formatters,
-    json = formatters,
-    jsonc = formatters,
-    jsx = formatters,
-    markdown = formatters,
-    tsx = formatters,
-    typescript = formatters,
+    markdown = { "deno_fmt" },
+    typescript = { "deno_fmt" },
+    typescriptreact = { "deno_fmt" },
   },
 })
 

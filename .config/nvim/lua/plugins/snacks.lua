@@ -20,10 +20,8 @@ return {
           explorer = {
             hidden = true,
             layout = {
-              preview = {
-                main = true,
-                enabled = false,
-              },
+              preview = "main",
+              hidden = { "preview" },
             },
           },
         },
