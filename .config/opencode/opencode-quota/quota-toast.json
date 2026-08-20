@@ -1,16 +1,7 @@
 {
-  "enableToast": false,
-  "showSessionTokens": false,
   "enabledProviders": "auto",
-  "formatStyle": "singleWindow",
+  "enableToast": false,
   "percentDisplayMode": "used",
-  "tuiSidebarPanel": {
-    "enabled": false
-  },
-  "tuiCompactStatus": {
-    "enabled": true,
-    "homeBottom": true,
-    "sessionPrompt": true,
-    "suppressWhenNativeProviderQuota": true
-  }
+  "tuiCommandDisplay": "dialog",
+  "tuiPromptBar": { "enabled": true }
 }
