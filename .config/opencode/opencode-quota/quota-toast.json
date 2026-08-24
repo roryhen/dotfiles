@@ -1,7 +1,0 @@
-{
-  "enabledProviders": "auto",
-  "enableToast": false,
-  "percentDisplayMode": "used",
-  "tuiCommandDisplay": "dialog",
-  "tuiPromptBar": { "enabled": true }
-}

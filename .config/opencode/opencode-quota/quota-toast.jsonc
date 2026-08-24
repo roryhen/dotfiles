@@ -1,0 +1,14 @@
+{
+  "enabledProviders": "auto",
+  "percentDisplayMode": "used",
+  "formatStyle": "allWindows",
+  "tuiSidebarPanel": {
+    "enabled": true,
+    "formatStyle": "allWindows",
+  },
+  "tuiCompactStatus": {
+    "enabled": true,
+    "homeBottom": true,
+    "suppressWhenNativeProviderQuota": false,
+  },
+}
