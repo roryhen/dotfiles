@@ -1,14 +1,21 @@
 {
+  "enableToast": false,
   "enabledProviders": "auto",
   "percentDisplayMode": "used",
   "formatStyle": "allWindows",
+  "resetNotifications": {
+    "enabled": true,
+    "windows": ["weekly"],
+  },
   "tuiSidebarPanel": {
     "enabled": true,
-    "formatStyle": "allWindows",
   },
   "tuiCompactStatus": {
     "enabled": true,
     "homeBottom": true,
     "suppressWhenNativeProviderQuota": false,
+  },
+  "tuiPromptBar": {
+    "enabled": true,
   },
 }
