@@ -2,18 +2,18 @@ return {
   {
     "folke/snacks.nvim",
     ---@module 'snacks'
-    ---@type snacks.plugins.Config
-    opts = {
-      scratch = {
+    ---@type function|snacks.plugins.Config
+    opts = function(_, opts)
+      opts.scratch = {
         win = {
           relative = "editor",
           style = "float",
         },
-      },
-      notifier = {
+      }
+      opts.notifier = {
         top_down = false,
-      },
-      picker = {
+      }
+      opts.picker = {
         sources = {
           files = { hidden = true },
           grep = { hidden = true },
@@ -25,7 +25,13 @@ return {
             },
           },
         },
-      },
-    },
+      }
+
+      Snacks.util.set_hl({
+        SnacksPickerGitStatusUntracked = { link = "Special" },
+      })
+
+      return opts
+    end,
   },
 }
