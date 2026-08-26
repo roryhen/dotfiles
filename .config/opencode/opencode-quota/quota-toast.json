@@ -5,17 +5,17 @@
   "formatStyle": "allWindows",
   "resetNotifications": {
     "enabled": true,
-    "windows": ["weekly"],
+    "windows": ["weekly"]
   },
   "tuiSidebarPanel": {
-    "enabled": true,
+    "enabled": true
   },
   "tuiCompactStatus": {
     "enabled": true,
     "homeBottom": true,
-    "suppressWhenNativeProviderQuota": false,
+    "suppressWhenNativeProviderQuota": false
   },
   "tuiPromptBar": {
-    "enabled": true,
-  },
+    "enabled": true
+  }
 }

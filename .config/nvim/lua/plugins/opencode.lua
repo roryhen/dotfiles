@@ -3,9 +3,13 @@ return {
     "nickjvandyke/opencode.nvim",
     version = "*", -- Latest stable release
     config = function()
+      local opencode_cmd = "opencode --port"
       ---@type opencode.Opts
       vim.g.opencode_opts = {
-        -- Your configuration, if any; goto definition on the type for details
+        win = {
+          position = "right",
+          enter = false,
+        },
       }
 
       vim.o.autoread = true -- Required for `vim.g.opencode_opts.events.reload`
@@ -13,6 +17,12 @@ return {
       require("which-key").add({
         { "<leader>o", group = "OpenCode" },
       })
+
+      -- Can also leverage toggle functionality.
+      -- If you use <leader> here, remove 't' — otherwise Neovim will add input delay to your <leader> when typing in the terminal to watch for the mapping.
+      vim.keymap.set({ "n", "t" }, "<C-.>", function()
+        require("snacks.terminal").toggle(opencode_cmd, vim.g.opencode_opts)
+      end, { desc = "Toggle OpenCode" })
 
       -- Recommended/example keymaps
       vim.keymap.set({ "n", "x" }, "<leader>oa", function()
