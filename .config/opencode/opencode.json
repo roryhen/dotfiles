@@ -20,7 +20,16 @@
     "builder-cms": {
       "type": "remote",
       "url": "https://mcp.builder.io/mcp/publish",
-      "enabled": true
+      "enabled": false
+    },
+    "github": {
+      "type": "remote",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "enabled": false,
+      "oauth": false,
+      "headers": {
+        "Authorization": "Bearer {env:GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
     }
   },
   "permission": {
