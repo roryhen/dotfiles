@@ -3,7 +3,8 @@ return {
     "saghen/blink.cmp",
     dependencies = { "rafamadriz/friendly-snippets" },
     version = "1.*",
-    event = "VeryLazy",
+    lazy = true,
+    event = "BufEnter",
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {

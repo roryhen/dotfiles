@@ -1,10 +1,11 @@
 return {
   {
     "nvim-mini/mini.ai",
-    event = "VeryLazy",
-    opts = function()
+    lazy = true,
+    event = "BufReadPre",
+    config = function(_, opts)
       local ai = require("mini.ai")
-      return {
+      local defaults = {
         n_lines = 500,
         custom_textobjects = {
           o = ai.gen_spec.treesitter({ -- code block
@@ -23,11 +24,15 @@ return {
           U = ai.gen_spec.function_call({ name_pattern = "[%w_]" }), -- without dot in function name
         },
       }
+
+      local options = vim.tbl_deep_extend("force", defaults, opts or {})
+      require("mini.ai").setup(options)
     end,
   },
   {
     "nvim-mini/mini.icons",
-    event = "VeryLazy",
+    lazy = true,
+    event = "BufEnter",
     opts = {
       filetype = {
         dotenv = { glyph = "", hl = "MiniIconsYellow" },
@@ -42,7 +47,8 @@ return {
   },
   {
     "nvim-mini/mini.pairs",
-    event = "VeryLazy",
+    lazy = true,
+    event = "BufReadPre",
     opts = {
       modes = { insert = true, command = true, terminal = false },
       -- skip autopair when next character is one of these
@@ -58,7 +64,7 @@ return {
   },
   {
     "nvim-mini/mini.surround",
-    event = "VeryLazy",
+    lazy = true,
     opts = {
       mappings = {
         add = "gsa",

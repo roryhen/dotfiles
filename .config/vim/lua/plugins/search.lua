@@ -1,7 +1,7 @@
 return {
   {
     "MagicDuck/grug-far.nvim",
-    event = "VeryLazy",
+    lazy = true,
     opts = { headerMaxWidth = 80 },
     cmd = "GrugFar",
     keys = {
@@ -24,21 +24,22 @@ return {
   },
   {
     "folke/flash.nvim",
-    event = "VeryLazy",
+    lazy = true,
+    enter = "BufEnter",
     ---@type Flash.Config
     opts = {},
-    -- stylua: ignore 
-    keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash", },
-      { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter", },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash", },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search", },
-      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search", },
-    },
+		-- stylua: ignore
+		keys = {
+			{ "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash", },
+			{ "S",     mode = { "n", "o", "x" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter", },
+			{ "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash", },
+			{ "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search", },
+			{ "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search", },
+		},
   },
   {
     "folke/trouble.nvim",
-    event = "VeryLazy",
+    lazy = true,
     opts = {},
     cmd = "Trouble",
     keys = {

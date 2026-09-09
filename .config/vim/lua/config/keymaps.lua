@@ -45,8 +45,8 @@ map("<leader>K", "<cmd>norm! K<cr>", "Keywordprg")
 map("<", "<gv", nil, "v")
 map(">", ">gv", nil, "v")
 
--- lazy
-map("<leader>l", "<cmd>Lazy<cr>", "Lazy")
+-- pack
+map("<leader>p", "<cmd>Pack<cr>", "Pack")
 
 -- new file
 map("<leader>fn", "<cmd>enew<cr>", "New File")

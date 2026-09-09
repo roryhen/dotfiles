@@ -5,7 +5,14 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      { "mason-org/mason.nvim", opts = {} },
+      {
+        "mason-org/mason.nvim",
+        opts = {
+          ui = {
+            border = "rounded",
+          },
+        },
+      },
       "mason-org/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       { "j-hui/fidget.nvim", opts = {} },
