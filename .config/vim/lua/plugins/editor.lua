@@ -64,12 +64,8 @@ return {
         exclude = {
           filetypes = {
             "Trouble",
-            "alpha",
-            "dashboard",
             "help",
-            "lazy",
             "mason",
-            "neo-tree",
             "notify",
             "snacks_dashboard",
             "snacks_notif",

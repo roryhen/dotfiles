@@ -45,6 +45,8 @@ return {
       }) do
         opts.formatters_by_ft[filetype] = formatters_for_js
       end
+
+      return opts
     end,
   },
 }

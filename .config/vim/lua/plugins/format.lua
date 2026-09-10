@@ -42,7 +42,10 @@ return {
       end
 
       local defaults = {
-        formatters_by_ft = {},
+        formatters_by_ft = {
+          lua = { "stylua" },
+          sh = { "shfmt" },
+        },
         notify_on_error = false,
         format_on_save = {
           timeout_ms = 500,

@@ -19,7 +19,18 @@ require("snacks").setup({
   explorer = { enabled = true },
   indent = { enabled = true },
   notifier = { enabled = true },
-  picker = { enabled = true },
+  picker = {
+    enabled = true,
+    sources = {
+      explorer = {
+        hidden = true,
+        layout = {
+          preview = "main",
+          hidden = { "preview" },
+        },
+      },
+    },
+  },
   statuscolumn = { enabled = true },
   terminal = {
     win = {

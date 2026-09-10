@@ -43,7 +43,7 @@ return {
       },
       words = { enabled = true },
     },
-    -- stylua: ignore
+    -- stylua: ignore start
     keys = {
       { "<leader>e",       function() Snacks.explorer() end,                                       desc = "Explorer", },
       -- buffers
@@ -116,6 +116,7 @@ return {
       { "]]",              function() Snacks.words.jump(vim.v.count1) end,                         desc = "Next Reference",            mode = { "n", "t" }, },
       { "[[",              function() Snacks.words.jump(-vim.v.count1) end,                        desc = "Prev Reference",            mode = { "n", "t" }, },
       { "<C-/>",           function() Snacks.terminal.toggle() end,                                desc = "Toggle Terminal",           mode = { "n", "t" }, },
+      -- stylua: ignore end
     },
   },
 }
