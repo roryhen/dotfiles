@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "atlassian": {
+      "url": "https://mcp.atlassian.com/v1/mcp/authv2"
+    },
+    "figma": {
+      "url": "https://mcp.figma.com/mcp",
+      "disabled": true
+    },
+    "builder-cms": {
+      "url": "https://mcp.builder.io/mcp/publish",
+      "disabled": true
+    },
+    "github": {
+      "url": "https://api.githubcopilot.com/mcp/",
+      "auth": false,
+      "disabled": true,
+      "headers": {
+        "Authorization": "Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    }
+  }
+}

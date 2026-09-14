@@ -13,6 +13,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
+require("config.options")
 
 require("lazy").setup({
   spec = {
@@ -31,6 +32,9 @@ require("lazy").setup({
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
   install = { colorscheme = { "tokyonight", "habamax" } },
+  ui = {
+    border = "rounded",
+  },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update

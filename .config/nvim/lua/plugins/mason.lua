@@ -4,6 +4,11 @@ return {
     ---@module 'mason'
     ---@type MasonSettings
     opts = {
+      ui = {
+        border = "rounded",
+        width = 0.8,
+        height = 0.8,
+      },
       ensure_installed = {
         "astro-language-server",
         "bash-language-server",

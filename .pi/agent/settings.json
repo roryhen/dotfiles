@@ -1,0 +1,17 @@
+{
+  "lastChangelogVersion": "0.85.1",
+  "theme": "carbonfox",
+  "shellCommandPrefix": "shopt -s expand_aliases\neval \"$(grep '^alias ' ~/.zshrc)\"",
+  "defaultProvider": "github-copilot",
+  "defaultModel": "gpt-5.6-terra",
+  "packages": [
+    "npm:pi-mcp-adapter",
+    "npm:pi-web-access",
+    "npm:pi-subagents",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-lens",
+    "npm:context-mode"
+  ],
+  "editorPaddingX": 1,
+  "outputPad": 1
+}

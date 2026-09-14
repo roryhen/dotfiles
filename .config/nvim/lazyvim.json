@@ -1,6 +1,7 @@
 {
   "extras": [
     "lazyvim.plugins.extras.ai.copilot-native",
+    "lazyvim.plugins.extras.ai.sidekick",
     "lazyvim.plugins.extras.coding.mini-surround",
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.dap.core",
@@ -13,6 +14,8 @@
     "lazyvim.plugins.extras.lang.sql",
     "lazyvim.plugins.extras.lang.tailwind",
     "lazyvim.plugins.extras.lang.toml",
+    "lazyvim.plugins.extras.lang.typescript.oxc",
+    "lazyvim.plugins.extras.lang.typescript.tsc",
     "lazyvim.plugins.extras.lang.yaml",
     "lazyvim.plugins.extras.linting.eslint",
     "lazyvim.plugins.extras.test.core",
