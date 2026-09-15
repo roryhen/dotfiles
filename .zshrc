@@ -41,6 +41,7 @@ alias path="echo $PATH | tr ':' '\n'"
 function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
 alias vim='NVIM_APPNAME="vim" nvim'
 alias rvim='NVIM_APPNAME="rvim" nvim'
+alias wm='workmux'
 
 # git
 alias ghas='gh auth switch'
