@@ -1,7 +1,8 @@
 {
   "mcpServers": {
     "atlassian": {
-      "url": "https://mcp.atlassian.com/v1/mcp/authv2"
+      "url": "https://mcp.atlassian.com/v1/mcp/authv2",
+      "disabled": true
     },
     "figma": {
       "url": "https://mcp.figma.com/mcp",
