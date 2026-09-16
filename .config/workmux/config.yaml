@@ -1,3 +1,4 @@
+nerdfont: true
 merge_strategy: rebase
 agent: opencode
 

@@ -22,6 +22,20 @@ return {
           return { "deno_fmt" }
         end
 
+        local oxc_config = vim.fs.find({
+          ".oxfmtrc.json",
+          ".oxfmtrc.jsonc",
+          "oxfmt.config.ts",
+        }, {
+          path = directory,
+          upward = true,
+          type = "file",
+        })
+
+        if #oxc_config > 0 then
+          return { "oxfmt" }
+        end
+
         return { "prettierd" }
       end
 
