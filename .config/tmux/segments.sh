@@ -16,7 +16,7 @@ cpu() {
   local cpus_line
   local cpu_idle
 
-  cpus_line=$(top -e -l 1 | grep "CPU usage:" | head -1)
+  cpus_line=$(top -l 2 -s 1 -n 0 | awk '/CPU usage:/ { line = $0 } END { print line }')
   cpus_line="${cpus_line//CPU usage: /}"
   cpu_idle=$(echo "$cpus_line" | awk '{print $5}')
   cpu_idle="${cpu_idle//%/}"
