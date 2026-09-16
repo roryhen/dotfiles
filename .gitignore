@@ -19,6 +19,7 @@
 !.config/starship.toml
 !.config/tmux/
 !.config/tmux/tmux.conf
+!.config/tmux/segments.sh
 !.config/{vim,nvim,rvim}/
 !.config/{vim,nvim,rvim}/*
 !.config/{vim,nvim,rvim}/lsp/*
