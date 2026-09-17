@@ -4,6 +4,8 @@
 export ZSH=$HOME/.oh-my-zsh
 # update automatically without asking
 zstyle ':omz:update' mode auto
+# Theme
+ZSH_THEME="webcode"
 
 # oh-my-zsh plugins
 plugins=(
@@ -107,9 +109,6 @@ starttransfer:  %{time_starttransfer}s\n\
 }
 
 ### apps
-
-# https://starship.rs
-eval "$(starship init zsh)"
 
 # fzf
 source <(fzf --zsh)

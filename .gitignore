@@ -9,6 +9,9 @@
 !.config/mcp/mcp.json
 !.config/mise/
 !.config/mise/config.toml
+!.config/oh-my-zsh/
+!.config/oh-my-zsh/themes/
+!.config/oh-my-zsh/themes/*
 !.config/opencode/
 !.config/opencode/AGENTS.md
 !.config/opencode/opencode.json

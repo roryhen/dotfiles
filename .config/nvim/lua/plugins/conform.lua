@@ -11,7 +11,6 @@ return {
         local deno_config = vim.fs.find({
           "deno.json",
           "deno.jsonc",
-          "deno.lock",
         }, {
           path = directory,
           upward = true,

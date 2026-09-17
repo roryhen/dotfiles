@@ -4,6 +4,8 @@
 	name = Rory Hendrickson
 [core]
 	editor = nvim
+	fsmonitor = true
+	untrackedCache = true
 [diff]
 	tool = nvimdiff
 [merge]
@@ -25,3 +27,5 @@
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [pull]
 	rebase = true
+[feature]
+	manyFiles = true
