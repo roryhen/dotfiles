@@ -5,6 +5,8 @@
 !.config/ghostty/
 !.config/ghostty/*
 !.config/ghostty/themes/*
+!.config/git/
+!.config/git/ignore
 !.config/mcp/
 !.config/mcp/mcp.json
 !.config/mise/

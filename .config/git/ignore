@@ -1,0 +1,10 @@
+# local tooling config
+mise.toml
+.workmux.yaml
+opencode.json
+
+# local editor config
+.nvim.lua
+
+# macOS metadata
+.DS_Store

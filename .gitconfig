@@ -6,6 +6,7 @@
 	editor = nvim
 	fsmonitor = true
 	untrackedCache = true
+	excludesfile = /Users/rory/.config/git/ignore
 [diff]
 	tool = nvimdiff
 [merge]
