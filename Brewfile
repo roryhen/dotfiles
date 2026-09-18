@@ -1,4 +1,7 @@
 tap "anomalyco/tap"
+tap "docker/tap", trusted: true
+tap "raine/workmux"
+tap "tmuxpack/tpack"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Bourne-Again SHell, a UNIX command interpreter
@@ -39,16 +42,22 @@ brew "imagemagick"
 brew "jq"
 # Mac App Store command-line interface
 brew "mas"
+# Unicode conversion routines, fast
+brew "simdutf"
+# C++ lexer for extracting named exports from CommonJS modules
+brew "merve"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Clean C library for processing UTF-8 Unicode data
 brew "utf8proc", args: ["HEAD"]
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# AI agent toolkit
+brew "pi-coding-agent"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Cross-shell prompt for astronauts
-brew "starship"
+# Terminal multiplexer
+brew "tmux"
 # CLI tool that moves files or folder to the trash
 brew "trash", link: true
 # UNIX shell (command interpreter)
@@ -57,13 +66,21 @@ brew "zsh"
 brew "zsh-vi-mode"
 # The AI coding agent built for the terminal.
 brew "anomalyco/tap/opencode", trusted: true
+# Opinionated workflow tool that orchestrates git worktrees and tmux
+brew "raine/workmux/workmux", trusted: true
 cask "font-commit-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# Web browser
+cask "google-chrome"
 # Clipboard manager
 cask "maccy"
 # Multi-platform web browser
 cask "microsoft-edge"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# Build, run, and govern agents across the software development lifecycle
+cask "docker/tap/sbx", trusted: true
+# Tmux Plugin Manager
+cask "tmuxpack/tpack/tpack", trusted: true
 mas "Slack", id: 803453959
