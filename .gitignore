@@ -4,16 +4,12 @@
 !.config/
 !.config/ghostty/
 !.config/ghostty/*
-!.config/ghostty/themes/*
 !.config/git/
 !.config/git/ignore
 !.config/mcp/
 !.config/mcp/mcp.json
 !.config/mise/
 !.config/mise/config.toml
-!.config/oh-my-zsh/
-!.config/oh-my-zsh/themes/
-!.config/oh-my-zsh/themes/*
 !.config/opencode/
 !.config/opencode/AGENTS.md
 !.config/opencode/opencode.json
@@ -21,7 +17,6 @@
 !.config/opencode/skills/
 !.config/opencode/skills/**
 !.config/opencode/tui.json
-!.config/starship.toml
 !.config/tmux/
 !.config/tmux/tmux.conf
 !.config/tmux/segments.sh
@@ -42,6 +37,7 @@
 !.gitignore
 !.inputrc
 !install.sh
+!.p10k.zsh
 !.pi/
 !.pi/agent/
 !.pi/agent/settings.json
