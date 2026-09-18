@@ -30,3 +30,5 @@
 	rebase = true
 [feature]
 	manyFiles = true
+[index]
+	skipHash = false
