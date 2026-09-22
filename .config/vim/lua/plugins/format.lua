@@ -19,6 +19,7 @@ return {
         desc = "Format buffer",
       },
     },
+    ---@type function|conform.setupOpts
     config = function(_, opts)
       local function formatters_for_js(bufnr)
         local filename = vim.api.nvim_buf_get_name(bufnr)
@@ -27,7 +28,6 @@ return {
         local deno_config = vim.fs.find({
           "deno.json",
           "deno.jsonc",
-          "deno.lock",
         }, {
           path = directory,
           upward = true,
@@ -38,9 +38,24 @@ return {
           return { "deno_fmt" }
         end
 
+        local oxc_config = vim.fs.find({
+          ".oxfmtrc.json",
+          ".oxfmtrc.jsonc",
+          "oxfmt.config.ts",
+        }, {
+          path = directory,
+          upward = true,
+          type = "file",
+        })
+
+        if #oxc_config > 0 then
+          return { "oxfmt" }
+        end
+
         return { "prettierd" }
       end
 
+      ---@type conform.setupOpts
       local defaults = {
         formatters_by_ft = {
           lua = { "stylua" },

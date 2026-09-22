@@ -35,6 +35,8 @@ return {
         ["eslint-lsp"] = {},
         graphql = {},
         hadolint = {},
+        oxlint = {},
+        oxfmt = {},
         prettierd = {},
         shopify_theme_ls = {},
         sqlfluff = {},
