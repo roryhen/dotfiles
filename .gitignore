@@ -13,10 +13,10 @@
 !.config/opencode/
 !.config/opencode/AGENTS.md
 !.config/opencode/opencode.json
+!.config/opencode/cli.json
 !.config/opencode/opencode-quota/quota-toast.json
 !.config/opencode/skills/
 !.config/opencode/skills/**
-!.config/opencode/tui.json
 !.config/tmux/
 !.config/tmux/tmux.conf
 !.config/tmux/segments.sh

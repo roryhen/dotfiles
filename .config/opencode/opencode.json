@@ -1,45 +1,42 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["@slkiser/opencode-quota@4.8.2"],
-  "lsp": true,
   "formatter": true,
   "default_agent": "plan",
   "mcp": {
-    "atlassian": {
-      "type": "remote",
-      "url": "https://mcp.atlassian.com/v1/mcp/authv2",
-      "enabled": false
-    },
-    "builder-cms": {
-      "type": "remote",
-      "url": "https://mcp.builder.io/mcp/publish",
-      "enabled": false
-    },
-    "github": {
-      "type": "remote",
-      "url": "https://api.githubcopilot.com/mcp/",
-      "enabled": false,
-      "oauth": false,
-      "headers": {
-        "Authorization": "Bearer {env:GITHUB_PERSONAL_ACCESS_TOKEN}"
+    "servers": {
+      "atlassian": {
+        "type": "remote",
+        "url": "https://mcp.atlassian.com/v1/mcp/authv2",
+        "disabled": true
+      },
+      "builder-cms": {
+        "type": "remote",
+        "url": "https://mcp.builder.io/mcp/publish",
+        "disabled": true
+      },
+      "github": {
+        "type": "remote",
+        "url": "https://api.githubcopilot.com/mcp/",
+        "disabled": true,
+        "oauth": false,
+        "headers": {
+          "Authorization": "Bearer {env:GITHUB_PERSONAL_ACCESS_TOKEN}"
+        }
+      },
+      "figma": {
+        "type": "remote",
+        "url": "https://mcp.figma.com/mcp",
+        "disabled": true
       }
-    },
-    "figma": {
-      "type": "remote",
-      "url": "https://mcp.figma.com/mcp",
-      "enabled": false
     }
   },
-  "permission": {
-    "external_directory": {
-      "~/dev/**": "allow"
+  "permissions": [
+    {
+      "action": "external_directory",
+      "resource": "~/dev/**",
+      "effect": "allow"
     },
-    "skill": {
-      "daily-health-check": "allow",
-      "scaffold-app": "allow"
-    }
-  },
-  "provider": {
-    "copilot": {}
-  }
+    { "action": "skill", "resource": "daily-health-check", "effect": "allow" },
+    { "action": "skill", "resource": "scaffold-app", "effect": "allow" }
+  ]
 }
