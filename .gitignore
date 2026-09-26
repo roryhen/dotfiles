@@ -41,6 +41,9 @@
 !.pi/
 !.pi/agent/
 !.pi/agent/settings.json
+!.pi/agent/keybindings.json
+!.pi/agent/skills/
+!.pi/agent/skills/**
 !.pi/agent/themes/
 !.pi/agent/themes/*
 !.zshrc
