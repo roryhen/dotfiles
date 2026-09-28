@@ -9,11 +9,10 @@
     "npm:pi-mcp-adapter",
     "npm:pi-web-access",
     "npm:pi-subagents",
-    "npm:@juicesharp/rpiv-ask-user-question",
     "npm:pi-lens",
     "npm:context-mode",
     "npm:pi-usage-meters",
-    "npm:pi-copilot-auto"
+    "npm:@janvitos/pi-plan-build"
   ],
   "editorPaddingX": 1,
   "outputPad": 1
