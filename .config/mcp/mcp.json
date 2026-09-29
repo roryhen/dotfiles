@@ -33,6 +33,16 @@
       "disabled": true,
       "command": "npx",
       "args": ["-y", "@playwright/mcp@latest"]
+    },
+    "vercel": {
+      "disabled": true,
+      "type": "http",
+      "url": "https://mcp.vercel.com/"
+    },
+    "newrelic": {
+      "disabled": true,
+      "type": "http",
+      "url": "https://mcp.newrelic.com/mcp/"
     }
   }
 }

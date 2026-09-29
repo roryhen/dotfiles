@@ -11,8 +11,9 @@
     "npm:pi-subagents",
     "npm:pi-lens",
     "npm:context-mode",
-    "npm:pi-usage-meters",
-    "npm:@janvitos/pi-plan-build"
+    "npm:@janvitos/pi-plan-build",
+    "npm:@each1024/pi-mini-mode",
+    "npm:@eiei114/pi-sub-bar"
   ],
   "editorPaddingX": 1,
   "outputPad": 1

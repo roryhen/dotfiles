@@ -1,6 +1,6 @@
 {
   "enableToast": false,
-  "enabledProviders": "auto",
+  "enabledProviders": ["copilot"],
   "percentDisplayMode": "used",
   "formatStyle": "allWindows",
   "resetNotifications": {

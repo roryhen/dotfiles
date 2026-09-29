@@ -27,6 +27,31 @@
         "type": "remote",
         "url": "https://mcp.figma.com/mcp",
         "disabled": true
+      },
+      "chrome-devtools": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "chrome-devtools-mcp@latest",
+          "--executablePath=/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge"
+        ],
+        "disabled": true
+      },
+      "playwright": {
+        "type": "local",
+        "command": ["npx", "-y", "@playwright/mcp@latest"],
+        "disabled": true
+      },
+      "vercel": {
+        "type": "remote",
+        "url": "https://mcp.vercel.com/",
+        "disabled": true
+      },
+      "newrelic": {
+        "type": "remote",
+        "url": "https://mcp.newrelic.com/mcp/",
+        "disabled": true
       }
     }
   },
@@ -38,5 +63,8 @@
     },
     { "action": "skill", "resource": "daily-health-check", "effect": "allow" },
     { "action": "skill", "resource": "scaffold-app", "effect": "allow" }
+  ],
+  "plugins": [
+    "@slkiser/opencode-quota@next"
   ]
 }
