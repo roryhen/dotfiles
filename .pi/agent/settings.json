@@ -16,5 +16,6 @@
     "npm:@eiei114/pi-sub-bar"
   ],
   "editorPaddingX": 1,
-  "outputPad": 1
+  "outputPad": 1,
+  "showHardwareCursor": true
 }

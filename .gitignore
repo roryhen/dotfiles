@@ -42,6 +42,8 @@
 !.pi/agent/
 !.pi/agent/settings.json
 !.pi/agent/keybindings.json
+!.pi/agent/pi-mini-mode.json
+!.pi/agent/pi-sub-bar-settings.json
 !.pi/agent/skills/
 !.pi/agent/skills/**
 !.pi/agent/themes/

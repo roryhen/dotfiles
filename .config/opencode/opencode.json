@@ -64,7 +64,5 @@
     { "action": "skill", "resource": "daily-health-check", "effect": "allow" },
     { "action": "skill", "resource": "scaffold-app", "effect": "allow" }
   ],
-  "plugins": [
-    "@slkiser/opencode-quota@next"
-  ]
+  "plugins": ["@slkiser/opencode-quota@next"]
 }

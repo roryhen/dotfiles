@@ -3,18 +3,20 @@
   "enabledProviders": ["copilot"],
   "percentDisplayMode": "used",
   "formatStyle": "allWindows",
+  "maintainerAnnouncements": {
+    "enabled": true,
+    "home": false
+  },
   "resetNotifications": {
     "enabled": true,
     "windows": ["weekly"]
   },
-  "tuiSidebarPanel": {
-    "enabled": true
-  },
+  "resetTimeSpaced": false,
   "tuiCompactStatus": {
     "enabled": true,
-    "homeBottom": true,
-    "suppressWhenNativeProviderQuota": false
+    "homeBottom": true
   },
+  "tuiCommandDisplay": "inline",
   "tuiPromptBar": {
     "enabled": true
   }
