@@ -1,27 +1,22 @@
 {
   "mcpServers": {
     "atlassian": {
-      "disabled": true,
       "url": "https://mcp.atlassian.com/v1/mcp/authv2"
     },
     "figma": {
-      "disabled": true,
       "url": "https://mcp.figma.com/mcp"
     },
     "builder-cms": {
-      "disabled": true,
       "url": "https://mcp.builder.io/mcp/publish"
     },
     "github": {
-      "disabled": true,
       "url": "https://api.githubcopilot.com/mcp/",
       "auth": false,
       "headers": {
-        "Authorization": "Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}"
+        "Authorization": "!echo Bearer $(gh auth token)"
       }
     },
     "chrome-devtools": {
-      "disabled": true,
       "command": "npx",
       "args": [
         "-y",
@@ -30,17 +25,14 @@
       ]
     },
     "playwright": {
-      "disabled": true,
       "command": "npx",
       "args": ["-y", "@playwright/mcp@latest"]
     },
     "vercel": {
-      "disabled": true,
       "type": "http",
       "url": "https://mcp.vercel.com/"
     },
     "newrelic": {
-      "disabled": true,
       "type": "http",
       "url": "https://mcp.newrelic.com/mcp/"
     }

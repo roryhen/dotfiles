@@ -1,12 +1,12 @@
 {
-  "lastChangelogVersion": "0.87.1",
+  "lastChangelogVersion": "0.99.2",
   "theme": "carbonfox",
   "tuiMode": "fullscreen",
   "shellCommandPrefix": "shopt -s expand_aliases\neval \"$(grep '^alias ' ~/.zshrc)\"",
   "defaultProvider": "github-copilot",
   "defaultModel": "gpt-6-luna",
+  "defaultTools": ["+grep", "+find", "+ls", "+codemode", "+tool_search"],
   "packages": [
-    "npm:pi-mcp-adapter",
     "npm:pi-web-access",
     "npm:pi-subagents",
     "npm:pi-lens",
@@ -16,6 +16,5 @@
     "npm:@eiei114/pi-sub-bar"
   ],
   "editorPaddingX": 1,
-  "outputPad": 1,
-  "showHardwareCursor": true
+  "outputPad": 1
 }

@@ -6,8 +6,6 @@
 !.config/ghostty/*
 !.config/git/
 !.config/git/ignore
-!.config/mcp/
-!.config/mcp/mcp.json
 !.config/mise/
 !.config/mise/config.toml
 !.config/opencode/
@@ -40,6 +38,7 @@
 !.p10k.zsh
 !.pi/
 !.pi/agent/
+!.pi/agent/mcp.json
 !.pi/agent/settings.json
 !.pi/agent/keybindings.json
 !.pi/agent/pi-mini-mode.json
