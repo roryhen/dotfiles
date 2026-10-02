@@ -52,6 +52,25 @@ alias vim='NVIM_APPNAME="vim" nvim'
 alias rvim='NVIM_APPNAME="rvim" nvim'
 alias wm='workmux'
 
+# passwords
+function setpass() {
+  local NAME=$1
+  [[ $NAME =~ '^[A-Za-z_][A-Za-z0-9_]*$' ]] || {
+    print -u2 'Usage: setpass ENV_VAR_NAME'
+    return 2
+  }
+  security add-generic-password -a "$USER" -s "$NAME" -U -w
+}
+function loadpass() {
+  local NAME=$1 SECRET
+  [[ $NAME =~ '^[A-Za-z_][A-Za-z0-9_]*$' ]] || {
+    print -u2 'Usage: loadpass ENV_VAR_NAME'
+    return 2
+  }
+  SECRET=$(security find-generic-password -a "$USER" -s "$NAME" -w) || return
+  export "$NAME=$SECRET"
+}
+
 # git
 alias ghas='gh auth switch'
 function gswb() { 
