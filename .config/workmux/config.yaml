@@ -1,7 +1,0 @@
-nerdfont: true
-merge_strategy: rebase
-agent: opencode
-
-panes:
-  - command: nvim
-    focus: true

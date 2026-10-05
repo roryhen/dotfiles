@@ -1,6 +1,9 @@
 *
 !.bashrc
 !Brewfile
+!.agents/
+!.agents/skills/
+!.agents/skills/**
 !.config/
 !.config/ghostty/
 !.config/ghostty/*
@@ -13,8 +16,6 @@
 !.config/opencode/opencode.json
 !.config/opencode/cli.json
 !.config/opencode/opencode-quota/quota-toast.json
-!.config/opencode/skills/
-!.config/opencode/skills/**
 !.config/tmux/
 !.config/tmux/tmux.conf
 !.config/tmux/segments.sh
@@ -26,8 +27,8 @@
 !.config/{vim,nvim}/lua/plugins/*
 !.config/wezterm/
 !.config/wezterm/wezterm.lua
-!.config/workmux/
-!.config/workmux/config.yaml
+!.config/worktrunk/
+!.config/worktrunk/config.toml
 !.config/zed/
 !.config/zed/keymap.json
 !.config/zed/settings.json
@@ -43,8 +44,6 @@
 !.pi/agent/keybindings.json
 !.pi/agent/pi-mini-mode.json
 !.pi/agent/pi-sub-bar-settings.json
-!.pi/agent/skills/
-!.pi/agent/skills/**
 !.pi/agent/themes/
 !.pi/agent/themes/*
 !.zshrc

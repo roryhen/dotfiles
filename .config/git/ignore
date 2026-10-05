@@ -1,6 +1,5 @@
 # local tooling config
 mise.toml
-.workmux.yaml
 opencode.json
 
 # local editor config

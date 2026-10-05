@@ -1,6 +1,5 @@
 tap "anomalyco/tap"
 tap "docker/tap", trusted: true
-tap "raine/workmux"
 tap "tmuxpack/tpack"
 # Official Amazon AWS command-line interface
 brew "awscli"
@@ -66,8 +65,8 @@ brew "zsh"
 brew "zsh-vi-mode"
 # The AI coding agent built for the terminal.
 brew "anomalyco/tap/opencode", trusted: true
-# Opinionated workflow tool that orchestrates git worktrees and tmux
-brew "raine/workmux/workmux", trusted: true
+# Git worktree manager
+brew "worktrunk"
 cask "font-commit-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
