@@ -70,6 +70,12 @@ function loadpass() {
   SECRET=$(security find-generic-password -a "$USER" -s "$NAME" -w) || return
   export "$NAME=$SECRET"
 }
+# load passwords from keychain into env vars
+# example: 
+# # in .env.zsh
+# loadpass MY_SECRET
+# loadpass ANOTHER_SECRET
+[[ -f ~/.env.zsh ]] && source ~/.env.zsh
 
 # git
 alias ghas='gh auth switch'

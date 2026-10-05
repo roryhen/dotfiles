@@ -50,8 +50,12 @@
       },
       "newrelic": {
         "type": "remote",
-        "url": "https://mcp.newrelic.com/mcp/",
-        "disabled": true
+        "url": "https://ai-gateway.engforbestech.com/newrelic/mcp",
+        "disabled": true,
+        "oauth": false,
+        "headers": {
+          "x-litellm-api-key": "Bearer {env:AI_GATEWAY_TOKEN}"
+        }
       }
     }
   },
@@ -60,9 +64,7 @@
       "action": "external_directory",
       "resource": "~/dev/**",
       "effect": "allow"
-    },
-    { "action": "skill", "resource": "daily-health-check", "effect": "allow" },
-    { "action": "skill", "resource": "scaffold-app", "effect": "allow" }
+    }
   ],
   "plugins": ["@slkiser/opencode-quota@next"]
 }

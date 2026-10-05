@@ -4,14 +4,16 @@
       "url": "https://mcp.atlassian.com/v1/mcp/authv2"
     },
     "figma": {
-      "url": "https://mcp.figma.com/mcp"
+      "url": "https://mcp.figma.com/mcp",
+      "oauth": {
+        "clientName": "Claude Code"
+      }
     },
     "builder-cms": {
       "url": "https://mcp.builder.io/mcp/publish"
     },
     "github": {
       "url": "https://api.githubcopilot.com/mcp/",
-      "auth": false,
       "headers": {
         "Authorization": "!echo Bearer $(gh auth token)"
       }
@@ -29,12 +31,13 @@
       "args": ["-y", "@playwright/mcp@latest"]
     },
     "vercel": {
-      "type": "http",
       "url": "https://mcp.vercel.com/"
     },
     "newrelic": {
-      "type": "http",
-      "url": "https://mcp.newrelic.com/mcp/"
+      "url": "https://ai-gateway.engforbestech.com/newrelic/mcp",
+      "headers": {
+        "x-litellm-api-key": "Bearer ${AI_GATEWAY_TOKEN}"
+      }
     }
   }
 }
