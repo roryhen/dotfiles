@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.99.2",
+  "lastChangelogVersion": "1.0.2",
   "theme": "carbonfox",
   "tuiMode": "fullscreen",
   "shellCommandPrefix": "shopt -s expand_aliases\neval \"$(grep '^alias ' ~/.zshrc)\"",
@@ -13,7 +13,7 @@
     "npm:context-mode",
     "npm:@janvitos/pi-plan-build",
     "npm:@each1024/pi-mini-mode",
-    "npm:@eiei114/pi-sub-bar"
+    "npm:@mtrojnar/pi-usage"
   ],
   "editorPaddingX": 1,
   "outputPad": 1

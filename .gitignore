@@ -43,7 +43,6 @@
 !.pi/agent/settings.json
 !.pi/agent/keybindings.json
 !.pi/agent/pi-mini-mode.json
-!.pi/agent/pi-sub-bar-settings.json
 !.pi/agent/themes/
 !.pi/agent/themes/*
 !.zshrc

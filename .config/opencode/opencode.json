@@ -66,5 +66,5 @@
       "effect": "allow"
     }
   ],
-  "plugins": ["@slkiser/opencode-quota@next"]
+  "plugins": ["@slkiser/opencode-quota"]
 }
