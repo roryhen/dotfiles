@@ -5,6 +5,8 @@
 !.agents/skills/
 !.agents/skills/**
 !.config/
+!.config/container/
+!.config/container/config.toml
 !.config/ghostty/
 !.config/ghostty/*
 !.config/git/

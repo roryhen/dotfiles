@@ -11,6 +11,8 @@ brew "tree-sitter"
 brew "cask"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima", restart_service: :changed
+# Create and run Linux containers using lightweight virtual machines
+brew "container"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Pack, ship and run any application as a lightweight container
@@ -59,14 +61,17 @@ brew "ripgrep"
 brew "tmux"
 # CLI tool that moves files or folder to the trash
 brew "trash", link: true
+# Utilities to create and convert Web Open Font File (WOFF) files
+brew "woff2"
+# CLI for Git worktree management, designed for parallel AI agent workflows
+brew "worktrunk"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Better and friendly vi(vim) mode plugin for ZSH
 brew "zsh-vi-mode"
-# The AI coding agent built for the terminal.
-brew "anomalyco/tap/opencode", trusted: true
-# Git worktree manager
-brew "worktrunk"
+# OpenCode V2 - the AI coding agent for the terminal
+brew "anomalyco/tap/opencode-v2", trusted: true
+# Commit Mono Nerd Font (patched font with a high number of glyphs)
 cask "font-commit-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
