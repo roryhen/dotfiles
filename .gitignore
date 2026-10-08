@@ -32,6 +32,8 @@
 !.config/{vim,nvim}/lua/plugins/*
 !.config/wezterm/
 !.config/wezterm/wezterm.lua
+!.config/workmux/
+!.config/workmux/config.yaml
 !.config/zed/
 !.config/zed/keymap.json
 !.config/zed/settings.json
