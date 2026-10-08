@@ -7,6 +7,11 @@ return {
           backend = "tmux",
           enabled = false,
         },
+        win = {
+          keys = {
+            files = false,
+          },
+        },
       },
     },
     keys = {

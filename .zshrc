@@ -50,8 +50,7 @@ alias path="echo $PATH | tr ':' '\n'"
 function tomp4() { ffmpeg -i "$1" -vcodec libx264 -crf 28 "$2" }
 alias vim='NVIM_APPNAME="vim" nvim'
 alias rvim='NVIM_APPNAME="rvim" nvim'
-# Worktrunk's shell function lets `wt switch` change this shell's directory.
-eval "$(wt config shell init zsh)"
+alias wm='workmux'
 
 # passwords
 function setpass() {
@@ -151,8 +150,12 @@ export FZF_DEFAULT_OPTS="--height=40% --reverse"
 # mise
 eval "$(mise activate zsh)"
 
+# workmux
+eval "$(workmux completions zsh)"
+
 # https://github.com/jeffreytse/zsh-vi-mode
 source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+

@@ -1,23 +1,19 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "formatter": true,
-  "default_agent": "plan",
   "mcp": {
     "servers": {
       "atlassian": {
         "type": "remote",
-        "url": "https://mcp.atlassian.com/v1/mcp/authv2",
-        "disabled": true
+        "url": "https://mcp.atlassian.com/v1/mcp/authv2"
       },
       "builder-cms": {
         "type": "remote",
-        "url": "https://mcp.builder.io/mcp/publish",
-        "disabled": true
+        "url": "https://mcp.builder.io/mcp/publish"
       },
       "github": {
         "type": "remote",
         "url": "https://api.githubcopilot.com/mcp/",
-        "disabled": true,
         "oauth": false,
         "headers": {
           "Authorization": "Bearer {env:GITHUB_PERSONAL_ACCESS_TOKEN}"
@@ -35,23 +31,19 @@
           "-y",
           "chrome-devtools-mcp@latest",
           "--executablePath=/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge"
-        ],
-        "disabled": true
+        ]
       },
       "playwright": {
         "type": "local",
-        "command": ["npx", "-y", "@playwright/mcp@latest"],
-        "disabled": true
+        "command": ["npx", "-y", "@playwright/mcp@latest"]
       },
       "vercel": {
         "type": "remote",
-        "url": "https://mcp.vercel.com/",
-        "disabled": true
+        "url": "https://mcp.vercel.com/"
       },
       "newrelic": {
         "type": "remote",
         "url": "https://ai-gateway.engforbestech.com/newrelic/mcp",
-        "disabled": true,
         "oauth": false,
         "headers": {
           "x-litellm-api-key": "Bearer {env:AI_GATEWAY_TOKEN}"
@@ -66,5 +58,9 @@
       "effect": "allow"
     }
   ],
-  "plugins": ["@slkiser/opencode-quota"]
+  "plugins": ["@slkiser/opencode-quota"],
+  "provider": {
+    "github-copilot": {},
+    "vercel": {}
+  }
 }

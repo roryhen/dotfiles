@@ -17,6 +17,9 @@
 !.config/opencode/AGENTS.md
 !.config/opencode/opencode.json
 !.config/opencode/cli.json
+!.config/opencode/plugins/
+!.config/opencode/plugins/workmux-status.ts
+!.config/opencode/plugins/workmux-status-local.md
 !.config/opencode/opencode-quota/quota-toast.json
 !.config/tmux/
 !.config/tmux/tmux.conf
@@ -29,8 +32,6 @@
 !.config/{vim,nvim}/lua/plugins/*
 !.config/wezterm/
 !.config/wezterm/wezterm.lua
-!.config/worktrunk/
-!.config/worktrunk/config.toml
 !.config/zed/
 !.config/zed/keymap.json
 !.config/zed/settings.json

@@ -1,5 +1,6 @@
 tap "anomalyco/tap"
 tap "docker/tap", trusted: true
+tap "raine/workmux"
 tap "tmuxpack/tpack"
 # Official Amazon AWS command-line interface
 brew "awscli"
@@ -63,20 +64,19 @@ brew "tmux"
 brew "trash", link: true
 # Utilities to create and convert Web Open Font File (WOFF) files
 brew "woff2"
-# CLI for Git worktree management, designed for parallel AI agent workflows
-brew "worktrunk"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Better and friendly vi(vim) mode plugin for ZSH
 brew "zsh-vi-mode"
 # OpenCode V2 - the AI coding agent for the terminal
 brew "anomalyco/tap/opencode-v2", trusted: true
-# Commit Mono Nerd Font (patched font with a high number of glyphs)
+# Opinionated workflow tool that orchestrates git worktrees and tmux
+brew "raine/workmux/workmux", trusted: true
+# Web browser focusing on privacy
+cask "brave-browser"
 cask "font-commit-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
-# Web browser
-cask "google-chrome"
 # Clipboard manager
 cask "maccy"
 # Multi-platform web browser

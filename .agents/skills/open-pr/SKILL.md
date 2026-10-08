@@ -5,7 +5,11 @@ disable-model-invocation: true
 allowed-tools: Read, Bash, Glob, Grep
 ---
 
-<!-- This is a starting point. Customize the template and guidelines to match your team's PR conventions. -->
+<!-- Source: raine/workmux v0.1.271. Local customization: explicit PR workflow, scoped staging, and project commit rules. -->
+
+Run only for an explicitly requested PR workflow. Never stage secrets or
+unrelated changes, force-push, or create a PR merely because this skill is
+installed. Preserve project commit conventions.
 
 ## Gather context
 
@@ -17,7 +21,10 @@ allowed-tools: Read, Bash, Glob, Grep
 ## Commit uncommitted changes
 
 1. Run `git status` to check for uncommitted changes
-2. If changes exist, commit them before proceeding
+2. Review changes and explicitly stage only task-relevant, non-secret paths.
+   Inspect the staged diff and write a project-compliant message (Partners Hub:
+   Conventional Commits). Ask about unrelated edits instead of committing them.
+   Ensure the intended PR changes are committed before proceeding.
 
 ## Write PR description
 
