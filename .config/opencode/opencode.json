@@ -11,6 +11,15 @@
         "type": "remote",
         "url": "https://mcp.builder.io/mcp/publish"
       },
+      "chrome-devtools": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "chrome-devtools-mcp@latest",
+          "--executablePath=/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge"
+        ]
+      },
       "github": {
         "type": "remote",
         "url": "https://api.githubcopilot.com/mcp/",
@@ -24,22 +33,9 @@
         "url": "https://mcp.figma.com/mcp",
         "disabled": true
       },
-      "chrome-devtools": {
-        "type": "local",
-        "command": [
-          "npx",
-          "-y",
-          "chrome-devtools-mcp@latest",
-          "--executablePath=/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge"
-        ]
-      },
-      "playwright": {
-        "type": "local",
-        "command": ["npx", "-y", "@playwright/mcp@latest"]
-      },
-      "vercel": {
+      "miro-mcp": {
         "type": "remote",
-        "url": "https://mcp.vercel.com/"
+        "url": "https://mcp.miro.com/"
       },
       "newrelic": {
         "type": "remote",
@@ -48,6 +44,14 @@
         "headers": {
           "x-litellm-api-key": "Bearer {env:AI_GATEWAY_TOKEN}"
         }
+      },
+      "playwright": {
+        "type": "local",
+        "command": ["npx", "-y", "@playwright/mcp@latest"]
+      },
+      "vercel": {
+        "type": "remote",
+        "url": "https://mcp.vercel.com/"
       }
     }
   },

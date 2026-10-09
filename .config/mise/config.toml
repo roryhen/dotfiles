@@ -1,5 +1,6 @@
 [tools]
 deno = "latest"
+bun = "latest"
 node = "latest"
 pnpm = "latest"
 python = "latest"

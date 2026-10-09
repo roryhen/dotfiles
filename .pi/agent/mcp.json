@@ -3,20 +3,8 @@
     "atlassian": {
       "url": "https://mcp.atlassian.com/v1/mcp/authv2"
     },
-    "figma": {
-      "url": "https://mcp.figma.com/mcp",
-      "oauth": {
-        "clientName": "Claude Code"
-      }
-    },
     "builder-cms": {
       "url": "https://mcp.builder.io/mcp/publish"
-    },
-    "github": {
-      "url": "https://api.githubcopilot.com/mcp/",
-      "headers": {
-        "Authorization": "!echo Bearer $(gh auth token)"
-      }
     },
     "chrome-devtools": {
       "command": "npx",
@@ -26,18 +14,33 @@
         "--executablePath=/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge"
       ]
     },
-    "playwright": {
-      "command": "npx",
-      "args": ["-y", "@playwright/mcp@latest"]
+    "github": {
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "!echo Bearer $(gh auth token)"
+      }
     },
-    "vercel": {
-      "url": "https://mcp.vercel.com/"
+    "figma": {
+      "url": "https://mcp.figma.com/mcp",
+      "oauth": {
+        "clientName": "Claude Code"
+      }
+    },
+    "miro-mcp": {
+      "url": "https://mcp.miro.com/"
     },
     "newrelic": {
       "url": "https://ai-gateway.engforbestech.com/newrelic/mcp",
       "headers": {
         "x-litellm-api-key": "Bearer ${AI_GATEWAY_TOKEN}"
       }
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
+    },
+    "vercel": {
+      "url": "https://mcp.vercel.com/"
     }
   }
 }
