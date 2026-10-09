@@ -1,1 +1,8 @@
 nerdfont: true
+# Keep OpenCode V2 status events tied to the agent's tmux pane.
+agent: opencode --standalone
+mode: window
+status_icons:
+  working: "󱙺"
+  waiting: "󰏨"
+  done: "󰄴"
