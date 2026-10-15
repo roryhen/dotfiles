@@ -11,6 +11,8 @@
 !.config/ghostty/*
 !.config/git/
 !.config/git/ignore
+!.config/herdr/
+!.config/herdr/config.toml
 !.config/mise/
 !.config/mise/config.toml
 !.config/opencode/

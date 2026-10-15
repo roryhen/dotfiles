@@ -13,12 +13,7 @@
       },
       "chrome-devtools": {
         "type": "local",
-        "command": [
-          "npx",
-          "-y",
-          "chrome-devtools-mcp@latest",
-          "--executablePath=/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge"
-        ]
+        "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
       },
       "github": {
         "type": "remote",

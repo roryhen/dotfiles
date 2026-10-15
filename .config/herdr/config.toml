@@ -1,0 +1,9 @@
+onboarding = false
+
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+[worktrees]
+directory = "~/dev/worktrees"
+

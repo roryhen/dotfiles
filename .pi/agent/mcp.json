@@ -8,11 +8,7 @@
     },
     "chrome-devtools": {
       "command": "npx",
-      "args": [
-        "-y",
-        "chrome-devtools-mcp@latest",
-        "--executablePath=/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge"
-      ]
+      "args": ["-y", "chrome-devtools-mcp@latest"]
     },
     "github": {
       "url": "https://api.githubcopilot.com/mcp/",
