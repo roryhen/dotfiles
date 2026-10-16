@@ -1,9 +1,0 @@
-# local tooling config
-mise.toml
-opencode.json
-
-# local editor config
-.nvim.lua
-
-# macOS metadata
-.DS_Store
