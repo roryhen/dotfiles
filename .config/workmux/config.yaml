@@ -1,4 +1,5 @@
 nerdfont: true
+status_format: false
 agent: opencode
 mode: window
 window_placement: rightmost

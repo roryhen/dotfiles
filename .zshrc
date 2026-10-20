@@ -153,6 +153,9 @@ eval "$(mise activate zsh)"
 # workmux
 eval "$(workmux completions zsh)"
 
+# zoxide
+eval "$(zoxide init zsh)"
+
 # https://github.com/jeffreytse/zsh-vi-mode
 source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
