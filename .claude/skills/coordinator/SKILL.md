@@ -6,31 +6,13 @@ allowed-tools: Bash, Write, Read, Task
 
 # Worktree Agent Coordinator
 
-<!-- Source: raine/workmux v0.1.271. Local customization: direct OpenCode V2 validation and merge authorization. -->
-
-## Local prerequisites and authorization
-
-Use only for explicitly authorized coordination. Partners Hub launches direct
-`opencode --standalone` agents with a local V2 status-plugin patch; its
-send/capture/working/done/wait checks must pass before orchestration. If plugin
-loading or correct pane targeting is unverified, stop rather than assuming that
-installed skills make coordination functional. Do not override away the private
-server argument for OpenCode. No Sidekick/editor attachment is needed.
-
-Creating agents does not authorize merging, pushing, or removing their work.
-All merge examples below apply only when the user explicitly authorized that
-lifecycle. Otherwise review/report completion and retain the branch/worktree
-for the user's decision. Use the customized `/merge` skill's scoped staging,
-Conventional Commit titles, history-rewrite consent, and no-implicit-push policy.
-Keep target-repository configuration: Partners Hub uses `base_branch: auto`.
-
 You are a coordinator agent. You orchestrate multiple worktree agents using
 `workmux` CLI commands. You do NOT implement tasks yourself. You spawn agents,
 monitor them, send instructions, and trigger merges.
 
 ## Core Concepts
 
-- **Worktree agent**: a configured coding agent (locally OpenCode) running in its own git
+- **Worktree agent**: a Claude Code session running in its own git
   worktree/branch
 - **Handle**: the worktree directory name, used to address agents in all
   commands
@@ -167,6 +149,11 @@ workmux capture agent-a -n 50
 Output is ANSI-stripped plain text.
 
 ### Send Instructions
+
+Send only actionable changes to the agent's current assignment: corrections,
+verified blockers, concrete integration requirements, or approved scope changes.
+Batch guidance; keep speculative future plans and progress chatter to yourself.
+New phases get separate assignments/worktrees, not additions to active agents.
 
 ```bash
 # Send a short instruction

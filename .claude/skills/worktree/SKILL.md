@@ -5,14 +5,7 @@ disable-model-invocation: true
 allowed-tools: Bash, Write
 ---
 
-<!-- Source: raine/workmux v0.1.271. Local customization: explicit dispatch/merge authorization and repo-configured bases. -->
-
-Launch one or more explicitly requested tasks in new git worktrees using workmux.
-Do not delegate or merge merely because this skill is installed. Run commands
-in the intended repository (Workmux has no `-C` option). For Partners Hub,
-`<agent>` launches `opencode --standalone` directly after installation; keep
-that private-server argument when overriding OpenCode to preserve V2 pane identity.
-For plain worktree creation without a task, omit prompts and report the path.
+Launch one or more tasks in new git worktrees using workmux.
 
 Tasks: $ARGUMENTS
 
@@ -145,11 +138,9 @@ project path or session name, ask for clarification instead of searching.
 Write ALL temp files first, THEN run all workmux commands.
 
 **IMPORTANT:** For same-repository tasks, run `workmux add` from the CURRENT
-directory. Do NOT `cd` to the main repo or any other directory. The branch base
-follows the repository configuration: Partners Hub uses `base_branch: auto`
-(the local default branch). Use `--base HEAD` only when the user explicitly
-requests the current branch as the base. The working directory and tmux session
-are independent. Background and agent tool
+directory. Do NOT `cd` to the main repo or any other directory. The new worktree
+branches from whatever branch is checked out in the current directory. The
+working directory and tmux session are independent. Background and agent tool
 invocations can omit `$TMUX_PANE`, so pass `--parent-session` whenever dispatch
 must land in a specific session. For cross-project tasks, set the command working
 directory to the target project and pass its session with `--parent-session` as

@@ -8,29 +8,6 @@ disable-model-invocation: true
 
 # workmux
 
-<!-- Source: raine/workmux v0.1.271. Local customization: personal Partners Hub defaults and OpenCode V2 prerequisites. -->
-
-## Local setup
-
-Partners Hub's personal `.workmux.yaml` is Git-excluded and copied into new
-worktrees. It copies `apps/*/.env.local`, symlinks `apps/*/.vercel`, runs
-`pnpm install` before opening windows, and creates a direct OpenCode pane plus
-a shell. Run `nvim .` manually in the shell for code review if desired.
-`base_branch: auto` starts new branches from the local default branch;
-`--base HEAD` is only for an explicitly requested current-branch base.
-Do not automatically reapply file operations to existing worktrees: native
-copies/symlinks overwrite destinations. Do not force-delete worktrees.
-
-OpenCode V2 uses `agent: opencode --standalone` and a local V2 status adapter
-covering raine/workmux#290's export format plus V2 prompt/event APIs and durable
-execution events. Private servers avoid #291's shared-service pane identity
-problem. See `~/.config/opencode/plugins/workmux-status-local.md`.
-Two-agent registration/send/capture/working/done/wait validation passed on
-OpenCode 2.0.24. Revalidate after upgrades; setup/upstream updates may overwrite
-the adapter. The export wrapper alone is insufficient on this version.
-Do not fetch, push, rewrite shared history, merge, or delegate without the
-applicable user authorization. Local merges do not merge remote GitHub PRs.
-
 workmux manages git worktrees paired with tmux windows for parallel
 development. Each worktree is an isolated workspace with its own branch,
 terminal state, and AI agent.
