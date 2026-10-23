@@ -1,6 +1,6 @@
 nerdfont: true
 status_format: false
-agent: opencode
+agent: pi
 mode: window
 window_placement: rightmost
 status_icons:
@@ -9,3 +9,4 @@ status_icons:
   done: "󰄴"
 sidebar:
   sort: window
+  width: 12%
