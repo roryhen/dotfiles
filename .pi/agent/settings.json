@@ -1,10 +1,8 @@
 {
-  "lastChangelogVersion": "1.1.0",
+  "lastChangelogVersion": "1.3.0",
   "theme": "carbonfox",
   "tuiMode": "fullscreen",
   "shellCommandPrefix": "shopt -s expand_aliases\neval \"$(grep '^alias ' ~/.zshrc)\"",
-  "defaultProvider": "github-copilot",
-  "defaultModel": "gpt-6-luna",
   "defaultTools": [
     "+grep",
     "+find",
@@ -15,7 +13,9 @@
   "packages": [
     "npm:pi-subagents",
     "npm:pi-lens",
-    "npm:jev-use"
+    "npm:jev-use",
+    "npm:pi-claude-bridge",
+    "npm:pi-tool-display"
   ],
   "editorPaddingX": 1,
   "outputPad": 1

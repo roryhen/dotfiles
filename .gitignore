@@ -20,9 +20,6 @@
 !.config/opencode/opencode.json
 !.config/opencode/cli.json
 !.config/opencode/plugins/
-!.config/opencode/plugins/workmux-status.ts
-!.config/opencode/plugins/workmux-status-local.md
-!.config/opencode/opencode-quota/quota-toast.json
 !.config/tmux/
 !.config/tmux/tmux.conf
 !.config/tmux/segments.sh
@@ -49,7 +46,10 @@
 !.pi/agent/mcp.json
 !.pi/agent/settings.json
 !.pi/agent/keybindings.json
-!.pi/agent/pi-mini-mode.json
+!.pi/agent/extensions/
+!.pi/agent/extensions/claude-usage.ts
+!.pi/agent/extensions/pi-tool-display/
+!.pi/agent/extensions/pi-tool-display/config.json
 !.pi/agent/themes/
 !.pi/agent/themes/*
 !.zshrc

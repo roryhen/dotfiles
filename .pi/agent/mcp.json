@@ -1,14 +1,17 @@
 {
   "mcpServers": {
     "atlassian": {
-      "url": "https://mcp.atlassian.com/v1/mcp/authv2"
+      "url": "https://mcp.atlassian.com/v2/mcp"
     },
     "builder-cms": {
       "url": "https://mcp.builder.io/mcp/publish"
     },
     "chrome-devtools": {
       "command": "npx",
-      "args": ["-y", "chrome-devtools-mcp@latest"]
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ]
     },
     "github": {
       "url": "https://api.githubcopilot.com/mcp/",
@@ -33,7 +36,10 @@
     },
     "playwright": {
       "command": "npx",
-      "args": ["-y", "@playwright/mcp@latest"]
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ]
     },
     "vercel": {
       "url": "https://mcp.vercel.com/"
