@@ -11,4 +11,5 @@ macos-titlebar-style = hidden
 keybind = alt+tab=next_tab
 keybind = alt+tab+shift=previous_tab
 keybind = alt+backspace=text:\x1b\x7f
-grapheme-width-method = legacy
+bell-features = audio,title
+bell-audio-path = /System/Library/Sounds/Submarine.aiff

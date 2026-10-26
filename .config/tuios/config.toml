@@ -3,6 +3,3 @@ theme = "none"
 hide_window_buttons = true
 window_title_style = "plain"
 window_title_align = "right"
-
-[appearance.sidebar]
-enabled = false
