@@ -9,6 +9,7 @@
 !.inputrc
 !install.sh
 !.p10k.zsh
+!.zshenv
 !.zshrc
 
 # Coding agents
@@ -63,6 +64,8 @@
 !.config/tmux/
 !.config/tmux/segments.sh
 !.config/tmux/tmux.conf
+!.config/tuios/
+!.config/tuios/config.toml
 !.config/wezterm/
 !.config/wezterm/wezterm.lua
 !.config/workmux/

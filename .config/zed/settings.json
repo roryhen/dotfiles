@@ -8,19 +8,25 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "agent_servers": {
-    "github-copilot-cli": {
-      "type": "registry",
+    "pi-acp": {
+      "default_config_options": {
+        "model": "claude-bridge/claude-haiku-5-5"
+      },
+      "type": "registry"
     },
-  },
-  "agent": {
-    "dock": "right",
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-sonnet-4-6",
+    "opencode-v2": {
+      "default_config_options": {
+        "model": "claude-code/claude-haiku-5-5"
+      },
+      "type": "registry"
     },
-  },
-  "edit_predictions": {
-    "provider": "copilot",
+    "claude-acp": {
+      "default_config_options": {
+        "model": "haiku",
+        "mode": "auto"
+      },
+      "type": "registry"
+    },
   },
   "vim_mode": true,
   "ui_font_size": 14,
@@ -33,7 +39,6 @@
   },
   "relative_line_numbers": "enabled",
   "auto_install_extensions": {
-    "liquid": true,
     "nvim-nightfox": true,
   },
   "which_key": {
