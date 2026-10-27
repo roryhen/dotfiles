@@ -18,16 +18,13 @@
 !.agents/skills/**
 !.claude/
 !.claude/skills/
-!.claude/skills/*/
-!.claude/skills/*/SKILL.md
+# symlinks to skills in .agents/skills/
+!.claude/skills/*
 !.config/opencode/
 !.config/opencode/AGENTS.md
 !.config/opencode/cli.json
 !.config/opencode/opencode.json
 !.config/opencode/plugins/
-!.config/opencode/skills/
-!.config/opencode/skills/*/
-!.config/opencode/skills/*/SKILL.md
 !.pi/
 !.pi/agent/
 !.pi/agent/extensions/
@@ -37,9 +34,6 @@
 !.pi/agent/keybindings.json
 !.pi/agent/mcp.json
 !.pi/agent/settings.json
-!.pi/agent/skills/
-!.pi/agent/skills/*/
-!.pi/agent/skills/*/SKILL.md
 !.pi/agent/themes/
 !.pi/agent/themes/*
 
@@ -51,8 +45,6 @@
 !.config/ghostty/*
 !.config/git/
 !.config/git/ignore
-!.config/herdr/
-!.config/herdr/config.toml
 !.config/mise/
 !.config/mise/config.toml
 !.config/{vim,nvim}/
