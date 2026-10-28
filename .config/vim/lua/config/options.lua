@@ -4,7 +4,7 @@ vim.schedule(function()
   vim.o.clipboard = "unnamedplus"
 end)
 vim.bo.autocomplete = vim.bo.buftype == ""
-vim.o.completeopt = "menu,menuone,popup,noselect"
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
 vim.o.breakindent = true
 vim.o.confirm = true
 vim.o.cursorline = true

@@ -17,8 +17,6 @@ return {
       },
       "mason-org/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
-      { "j-hui/fidget.nvim", opts = {} },
-      { "saghen/blink.cmp" },
     },
     lazy = false,
     opts = {
@@ -83,6 +81,7 @@ return {
 
             if client:supports_method("textDocument/completion") then
               vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+              map("<C-Space>", vim.lsp.completion.get, "Trigger autocompletion", { "i" })
             end
 
             if client:supports_method("textDocument/documentHighlight", event.buf) then

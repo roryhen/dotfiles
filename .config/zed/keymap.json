@@ -7,19 +7,16 @@
 // from the command palette.
 [
   {
-    "context": "Editor || Terminal",
-    "bindings": {
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-j": "workspace::ActivatePaneDown",
-      "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-l": "workspace::ActivatePaneRight",
-    },
-  },
-  {
-    "context": "vim_mode == normal",
+    "context": "vim_mode == normal || (Pane && !Editor)",
     "bindings": {
       "shift-h": "pane::ActivatePreviousItem",
       "shift-l": "pane::ActivateNextItem",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "escape escape": "workspace::ActivateLastPane",
     },
   },
   {
@@ -29,7 +26,7 @@
     },
   },
   {
-    "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
+   "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
     "bindings": {
       // mini.ai plugin behavior
       "q": "vim::MiniQuotes",
