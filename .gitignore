@@ -27,6 +27,7 @@
 !.config/opencode/plugins/
 !.pi/
 !.pi/agent/
+!.pi/agent/AGENTS.md
 !.pi/agent/extensions/
 !.pi/agent/extensions/claude-usage.ts
 !.pi/agent/extensions/pi-tool-display/

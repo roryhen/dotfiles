@@ -7,3 +7,6 @@ window_title_align = "right"
 [startup]
 daemon = true
 tiled = true
+
+[notifications.agent]
+sound = true
