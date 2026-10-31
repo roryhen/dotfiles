@@ -11,11 +11,10 @@
     "+tool_search"
   ],
   "packages": [
-    "npm:pi-subagents",
     "npm:pi-lens",
     "npm:jev-use",
     "npm:pi-claude-bridge",
-    "npm:pi-tool-display"
+    "npm:pi-zentui"
   ],
   "editorPaddingX": 1,
   "outputPad": 1

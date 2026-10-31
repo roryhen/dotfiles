@@ -37,6 +37,7 @@
 !.pi/agent/settings.json
 !.pi/agent/themes/
 !.pi/agent/themes/*
+!.pi/agent/zentui.json
 
 # ~/.config
 !.config/
