@@ -1,9 +1,5 @@
-tap "anomalyco/tap", trusted: true
 tap "docker/tap", trusted: true
-tap "raine/workmux"
 tap "tmuxpack/tpack"
-# Unicode conversion routines, fast
-brew "simdutf"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Bourne-Again SHell, a UNIX command interpreter
@@ -32,8 +28,6 @@ brew "fd"
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# GitHub command-line tool
-brew "gh"
 # Distributed revision control system
 brew "git"
 # GNU implementation of the famous stream editor
@@ -46,16 +40,12 @@ brew "imagemagick"
 brew "jq"
 # Mac App Store command-line interface
 brew "mas"
-# C++ lexer for extracting named exports from CommonJS modules
-brew "merve"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Clean C library for processing UTF-8 Unicode data
 brew "utf8proc", args: ["HEAD"]
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# AI agent toolkit
-brew "pi-coding-agent"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Terminal multiplexer
@@ -66,20 +56,12 @@ brew "trash", link: true
 brew "tuios"
 # Utilities to create and convert Web Open Font File (WOFF) files
 brew "woff2"
-# Shell extension to navigate your filesystem faster
-brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Better and friendly vi(vim) mode plugin for ZSH
 brew "zsh-vi-mode"
-# OpenCode V2 - the AI coding agent for the terminal
-brew "anomalyco/tap/opencode-v2"
-# Opinionated workflow tool that orchestrates git worktrees and tmux
-brew "raine/workmux/workmux", trusted: true
 # Web browser focusing on privacy
 cask "brave-browser"
-# Terminal-based AI coding assistant
-cask "claude-code"
 cask "font-commit-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"

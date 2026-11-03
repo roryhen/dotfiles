@@ -1,8 +1,15 @@
 [tools]
+agent-browser = "latest"
 bun = "latest"
+claude = "latest"
+gh = "latest"
 node = "latest"
+opencode = { version = "latest", allow_builds = ["@opencode/cli"] }
+opentofu = "latest"
+pi = "latest"
 pnpm = "latest"
 python = "latest"
+workmux = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]

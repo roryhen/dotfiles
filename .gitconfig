@@ -21,10 +21,10 @@
 	cmd = nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
 [credential "https://github.com"]
 	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+	helper = !/Users/rory/.local/share/mise/shims/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+	helper = !/Users/rory/.local/share/mise/shims/gh auth git-credential
 [pull]
 	rebase = true
 [feature]
