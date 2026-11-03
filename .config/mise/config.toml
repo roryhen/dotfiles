@@ -1,5 +1,4 @@
 [tools]
-agent-browser = "latest"
 bun = "latest"
 claude = "latest"
 gh = "latest"

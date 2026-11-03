@@ -9,9 +9,6 @@
   "tabs": {
     "mode": "off"
   },
-  "keybinds": {
-    "agent.cycle": "tab"
-  },
   "session": {
     "sidebar": "auto",
     "scrollbar": false,
