@@ -33,8 +33,7 @@
       },
       "figma": {
         "type": "remote",
-        "url": "https://mcp.figma.com/mcp",
-        "disabled": true
+        "url": "https://mcp.figma.com/mcp"
       },
       "miro-mcp": {
         "type": "remote",
