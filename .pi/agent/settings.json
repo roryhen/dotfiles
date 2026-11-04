@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.4.0",
+  "lastChangelogVersion": "1.5.0",
   "theme": "carbonfox",
   "tuiMode": "fullscreen",
   "shellCommandPrefix": "shopt -s expand_aliases\neval \"$(grep '^alias ' ~/.zshrc)\"",
@@ -18,5 +18,8 @@
   ],
   "editorPaddingX": 1,
   "outputPad": 1,
-  "showHardwareCursor": true
+  "showHardwareCursor": true,
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-lens\",\"scope\":\"user\"}": "4.4.8"
+  }
 }

@@ -8,15 +8,6 @@ return {
       servers = {
         astro = {},
         tsc = {
-          ---@type lspconfig.settings.tsc
-          settings = {
-            ["js/ts"] = {
-              preferences = {
-                useAliasesForRenames = false,
-                preferTypeOnlyAutoImports = true,
-              },
-            },
-          },
           keys = {
             { "<leader>cu", LazyVim.lsp.action["source.removeUnused.ts"], desc = "Remove unused imports" },
           },

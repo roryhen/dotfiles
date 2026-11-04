@@ -248,12 +248,12 @@ Send only actionable changes to a worker's current assignment: corrections,
 verified blockers, concrete integration requirements, or approved scope changes.
 Batch guidance. Keep speculative plans and progress chatter to yourself.
 
-| Need | Command |
-| --- | --- |
-| Answer now, and wait for the reply | `tuios ask-agent -s "$TUIOS_SESSION" -w auth-module 'Is the retry safe?'` |
+| Need                                         | Command                                                                                        |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Answer now, and wait for the reply           | `tuios ask-agent -s "$TUIOS_SESSION" -w auth-module 'Is the retry safe?'`                      |
 | A note, or the worker is busy or not running | `tuios send-agent-message -s "$TUIOS_SESSION" -w auth-module 'Rebased on main, please retest'` |
-| Next task for a busy worker | `tuios queue -s "$TUIOS_SESSION" -w auth-module 'Then update the docs'` |
-| Several workers at once | `tuios ask-agent --select 'group:fan/add-retry' --yes 'Summarise your change in one line'` |
+| Next task for a busy worker                  | `tuios queue -s "$TUIOS_SESSION" -w auth-module 'Then update the docs'`                        |
+| Several workers at once                      | `tuios ask-agent --select 'group:fan/add-retry' --yes 'Summarise your change in one line'`     |
 
 `ask-agent` refuses a worker on `needs_input`. `send-agent-message` and `queue`
 do not type at once. Never use `send-text` to talk to an agent. It types into
