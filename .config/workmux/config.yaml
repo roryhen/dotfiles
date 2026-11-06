@@ -10,3 +10,8 @@ status_icons:
 sidebar:
   sort: window
   width: 10%
+sandbox:
+  container:
+    runtime: apple-container
+    memory: 8G
+    host_commands: ["pnpm", "node", "bun"]

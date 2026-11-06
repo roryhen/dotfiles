@@ -41,6 +41,12 @@
       "command": "npx",
       "args": ["-y", "@playwright/mcp@latest"]
     },
+    "slack": {
+      "url": "https://mcp.slack.com/mcp",
+      "oauth": {
+        "clientName": "Claude Code"
+      }
+    },
     "vercel": {
       "url": "https://mcp.vercel.com/",
       "oauth": {

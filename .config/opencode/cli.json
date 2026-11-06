@@ -10,7 +10,7 @@
     "mode": "off"
   },
   "session": {
-    "sidebar": "auto",
+    "sidebar": "hide",
     "scrollbar": false,
     "thinking": "hide"
   },
