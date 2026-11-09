@@ -20,6 +20,6 @@
   "outputPad": 1,
   "showHardwareCursor": true,
   "extensionChangelogVersions": {
-    "{\"source\":\"npm:pi-lens\",\"scope\":\"user\"}": "4.4.8"
+    "{\"source\":\"npm:pi-lens\",\"scope\":\"user\"}": "4.4.11"
   }
 }
