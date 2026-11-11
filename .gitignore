@@ -19,8 +19,9 @@
 !.config/opencode/
 !.config/opencode/AGENTS.md
 !.config/opencode/cli.json
+!.config/opencode/cli.jsonc
 !.config/opencode/opencode.json
-!.config/opencode/plugins/
+!.config/opencode/opencode.jsonc
 !.pi/
 !.pi/agent/
 !.pi/agent/AGENTS.md

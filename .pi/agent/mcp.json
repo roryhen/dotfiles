@@ -44,7 +44,8 @@
     "slack": {
       "url": "https://mcp.slack.com/mcp",
       "oauth": {
-        "clientName": "Claude Code"
+        "clientId": "1601185624273.8899143856786",
+        "callbackUrl": "http://localhost:3118/callback"
       }
     },
     "vercel": {

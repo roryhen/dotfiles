@@ -1,9 +1,7 @@
 ## Attribution
 
-When you write on my behalf in an external system (Jira, GitHub, Slack, Confluence,
-email, etc.), end with this signature on its own line, using your own harness and exact
-model id:
+When you post on my behalf to GitHub, Jira, or Slack, end the message with this line on its own:
 
-    *via <agent> (<model>)
+    _*generated with <model>_
 
-Never add it to chat replies, commit messages, code, or local files.
+Use your exact model id for `<model>`. Never add it to chat replies, commit messages, code, or local files.

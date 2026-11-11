@@ -5,60 +5,65 @@
     "servers": {
       "atlassian": {
         "type": "remote",
-        "url": "https://mcp.atlassian.com/v2/mcp"
+        "url": "https://mcp.atlassian.com/v2/mcp",
       },
       "builder-cms-forbes": {
         "type": "remote",
-        "url": "https://mcp.builder.io/mcp/publish"
+        "url": "https://mcp.builder.io/mcp/publish",
       },
       "builder-cms-microsites": {
         "type": "remote",
-        "url": "https://mcp.builder.io/mcp/publish"
+        "url": "https://mcp.builder.io/mcp/publish",
       },
       "builder-cms-mnet": {
         "type": "remote",
-        "url": "https://mcp.builder.io/mcp/publish"
+        "url": "https://mcp.builder.io/mcp/publish",
       },
       "chrome-devtools": {
         "type": "local",
-        "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
+        "command": ["npx", "-y", "chrome-devtools-mcp@latest"],
       },
       "github": {
         "type": "remote",
         "url": "https://api.githubcopilot.com/mcp/",
         "oauth": false,
         "headers": {
-          "Authorization": "Bearer {env:GITHUB_PERSONAL_ACCESS_TOKEN}"
-        }
+          "Authorization": "Bearer {env:GITHUB_PERSONAL_ACCESS_TOKEN}",
+        },
       },
       "figma": {
         "type": "remote",
-        "url": "https://mcp.figma.com/mcp"
+        "url": "https://mcp.figma.com/mcp",
       },
       "miro-mcp": {
         "type": "remote",
-        "url": "https://mcp.miro.com/"
+        "url": "https://mcp.miro.com/",
       },
       "newrelic": {
         "type": "remote",
         "url": "https://ai-gateway.engforbestech.com/newrelic/mcp",
         "oauth": false,
         "headers": {
-          "x-litellm-api-key": "Bearer {env:AI_GATEWAY_TOKEN}"
-        }
+          "x-litellm-api-key": "Bearer {env:AI_GATEWAY_TOKEN}",
+        },
       },
       "playwright": {
         "type": "local",
-        "command": ["npx", "-y", "@playwright/mcp@latest"]
+        "command": ["npx", "-y", "@playwright/mcp@latest"],
       },
       "slack": {
         "type": "remote",
-        "url": "https://mcp.slack.com/mcp"
+        "url": "https://mcp.slack.com/mcp",
+        "oauth": {
+          "client_id": "1601185624273.8899143856786",
+          "redirect_uri": "http://localhost:3118/callback",
+        },
       },
       "vercel": {
         "type": "remote",
-        "url": "https://mcp.vercel.com/"
-      }
-    }
-  }
+        "url": "https://mcp.vercel.com/",
+      },
+    },
+  },
+  "plugins": ["@slkiser/opencode-quota"],
 }

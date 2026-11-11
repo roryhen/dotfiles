@@ -10,9 +10,9 @@
     "mode": "off"
   },
   "session": {
-    "sidebar": "hide",
     "scrollbar": false,
-    "thinking": "hide"
+    "thinking": "hide",
+    "sidebar": "hide"
   },
   "animations": true,
   "attention": {
