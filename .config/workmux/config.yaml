@@ -14,4 +14,10 @@ sandbox:
   container:
     runtime: apple-container
     memory: 8G
-    host_commands: ["pnpm", "node", "bun"]
+  host_commands: ["pnpm", "node", "bun"]
+  # The container uses HOME=/tmp and bind-mounts opencode's data dir under
+  # /tmp/.local, which makes /tmp/.local root-owned. Point state/cache at
+  # writable paths so opencode can mkdir them.
+  env:
+    XDG_STATE_HOME: /tmp/.state
+    XDG_CACHE_HOME: /tmp/.cache

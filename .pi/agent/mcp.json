@@ -3,13 +3,28 @@
     "atlassian": {
       "url": "https://mcp.atlassian.com/v2/mcp"
     },
-    "builder-cms-forbes": {
+    "builder-cms-forbes-dev": {
       "url": "https://mcp.builder.io/mcp/publish"
     },
-    "builder-cms-microsites": {
+    "builder-cms-forbes-staging": {
       "url": "https://mcp.builder.io/mcp/publish"
     },
-    "builder-cms-mnet": {
+    "builder-cms-microsites-dev": {
+      "url": "https://mcp.builder.io/mcp/publish"
+    },
+    "builder-cms-microsites-staging": {
+      "url": "https://mcp.builder.io/mcp/publish"
+    },
+    "builder-cms-mnet-dev": {
+      "url": "https://mcp.builder.io/mcp/publish"
+    },
+    "builder-cms-mnet-staging": {
+      "url": "https://mcp.builder.io/mcp/publish"
+    },
+    "builder-cms-expertise-dev": {
+      "url": "https://mcp.builder.io/mcp/publish"
+    },
+    "builder-cms-expertise-staging": {
       "url": "https://mcp.builder.io/mcp/publish"
     },
     "chrome-devtools": {
